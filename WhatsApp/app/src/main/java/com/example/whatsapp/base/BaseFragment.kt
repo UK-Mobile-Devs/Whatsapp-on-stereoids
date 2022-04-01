@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.disposables.Disposable
 
 abstract class BaseFragment<Binding : ViewBinding> : Fragment() {
 
@@ -41,6 +42,10 @@ abstract class BaseFragment<Binding : ViewBinding> : Fragment() {
     override fun onResume() {
         super.onResume()
         observeViewModel()
+    }
+
+    fun Disposable.autoDispose() {
+        compositeDisposable.add(this)
     }
 
     abstract fun inflateBinding(layoutInflater: LayoutInflater): Binding

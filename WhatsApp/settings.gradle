@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "WhatsApp"
 include ':app'
+include ':firestorerepository'

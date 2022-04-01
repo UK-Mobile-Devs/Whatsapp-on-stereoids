@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.disposables.Disposable
 
 abstract class BaseActivity<Binding : ViewBinding> : AppCompatActivity() {
 
@@ -37,8 +38,11 @@ abstract class BaseActivity<Binding : ViewBinding> : AppCompatActivity() {
         observeViewModel()
     }
 
-    abstract fun inflateBinding(layoutInflater: LayoutInflater): Binding
+    fun Disposable.autoDispose() {
+        compositeDisposable.add(this)
+    }
 
+    abstract fun inflateBinding(layoutInflater: LayoutInflater): Binding
 
     abstract fun observeViewModel()
 
