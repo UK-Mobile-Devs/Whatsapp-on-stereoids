@@ -39,9 +39,11 @@ abstract class BaseActivity<Binding : ViewBinding> : AppCompatActivity() {
 
     abstract fun inflateBinding(layoutInflater: LayoutInflater): Binding
 
+
     abstract fun observeViewModel()
 
     open fun intentExtras(args: Bundle) {}
 
     open fun initViews() { }
+
 }
