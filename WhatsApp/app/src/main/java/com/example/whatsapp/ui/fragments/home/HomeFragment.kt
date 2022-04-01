@@ -9,7 +9,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
-    private val viewModel : HomeFragmentVM by viewModels()
+    private val viewModel by viewModels<HomeFragmentVM>()
 
     override fun inflateBinding(layoutInflater: LayoutInflater): FragmentHomeBinding {
        return FragmentHomeBinding.inflate(layoutInflater)

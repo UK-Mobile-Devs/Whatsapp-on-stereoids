@@ -5,10 +5,10 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.example.whatsapp.R
 import com.example.whatsapp.ui.fragments.home.HomeFragmentVM
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
-    val viewModel : HomeFragmentVM by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
