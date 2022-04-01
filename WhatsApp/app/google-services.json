@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "176249693038",
+    "project_id": "whatsapp-on-steroids-2329b",
+    "storage_bucket": "whatsapp-on-steroids-2329b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176249693038:android:506f7583f877d699a4177f",
+        "android_client_info": {
+          "package_name": "com.example.whatsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "176249693038-bnpha7ed31sujknuannadvsncd5sduj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeb9EUJG29lN43pv-hKjlFxVjgRsXdrHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "176249693038-bnpha7ed31sujknuannadvsncd5sduj7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
