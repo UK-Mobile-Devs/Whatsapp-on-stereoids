@@ -35,10 +35,8 @@ class UserRepositoryImpl @Inject constructor(): IUserRepository {
 
 @Module
 @InstallIn(ViewModelComponent::class)
-interface UserModules {
-
+abstract class UserModules {
     @Provides
-    @Binds
-    fun getUserRepositoryImpl(repository: UserRepositoryImpl): IUserRepository
+    abstract fun getUserRepositoryImpl(repository: UserRepositoryImpl): IUserRepository
 
 }
