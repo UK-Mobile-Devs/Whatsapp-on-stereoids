@@ -23,7 +23,7 @@ class UserRepositoryImpl @Inject constructor(): IUserRepository {
 
     }
 
-    //region UserRepository
+    //region IUserRepository
 
     override fun getUser(): Observable<User> {
         return Observable.just(User(UUID.randomUUID().toString()))
