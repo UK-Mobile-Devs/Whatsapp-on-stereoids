@@ -9,33 +9,19 @@ import io.reactivex.rxjava3.core.Observable
 import java.util.*
 import javax.inject.Inject
 
-interface Inputs {
-
-}
-
-interface Outputs {
-    fun getUser() : Observable<User>
-}
 
 @HiltViewModel
-class HomeFragmentVM @Inject constructor(private val userRepo : UserRepositoryImpl): BaseViewModel(), Inputs, Outputs {
+class HomeFragmentVM @Inject constructor(private val userRepo : UserRepositoryImpl): BaseViewModel() {
 
-    val inputs : Inputs = this
-    val outputs : Outputs = this
 
     init {
 
     }
 
-    //region Inputs
-
-    //endregion
-
-    //region Outputs
     //Todo: Remove this, it's just dummy data for now
-    override fun getUser(): Observable<User> {
+    fun getUser(): Observable<User> {
         return userRepo.getUser()
     }
-    //endregion
+
 
 }
