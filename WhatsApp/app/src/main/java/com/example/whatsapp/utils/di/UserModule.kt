@@ -13,8 +13,7 @@ import dagger.hilt.android.components.ViewModelComponent
 @InstallIn(ViewModelComponent::class)
 interface UserModule {
 
-    @Provides
     @Binds
-    fun getUserRepositoryImpl(repository: UserRepositoryImpl): UserRepositoryImpl = repository
+    fun getUserRepositoryImpl(repository: UserRepositoryImpl): IUserRepository
 
 }
