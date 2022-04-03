@@ -31,12 +31,3 @@ class UserRepositoryImpl @Inject constructor(): IUserRepository {
 
     //endregion
 }
-
-
-@Module
-@InstallIn(ViewModelComponent::class)
-abstract class UserModules {
-    @Provides
-    abstract fun getUserRepositoryImpl(repository: UserRepositoryImpl): IUserRepository
-
-}
