@@ -2,9 +2,78 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/main_page_toolbar"
+                layout="@layout/app_bar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/tealgreen"
+                app:menu="@menu/topnavigation"
+                app:tabIconTint="@color/white"
+                app:tabSelectedTextColor="@color/white"
+                app:tabTextColor="@color/white"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_camera"
+                    android:icon="@drawable/ic_camera"
+                    app:tabGravity="start"
+                    style="@style/toolbarText"/>
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/chats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CHATS"
+                    app:tabGravity="start"
+                    style="@style/toolbarText"/>
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="STATUS"
+                    style="@style/toolbarText"/>
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/calls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CALLS"
+                    style="@style/toolbarText"/>
+            </com.google.android.material.tabs.TabLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/main_tab_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/appbarLayout">
+
+        </androidx.viewpager.widget.ViewPager>
+
 
         <TextView
             android:id="@+id/tvBody"
@@ -15,6 +84,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingactionbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end|bottom"
+            android:backgroundTint="@color/whatsappgreen"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/ic_messenger_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

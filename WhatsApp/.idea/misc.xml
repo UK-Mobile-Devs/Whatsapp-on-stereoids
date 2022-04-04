@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ugur6/Documents/Whatsapp-on-stereoids/WhatsApp/app/src/main/res/drawable/ic_messenger_icon.xml" value="0.1605" />
+        <entry key="..\:/Users/ugur6/Documents/Whatsapp-on-stereoids/WhatsApp/app/src/main/res/drawable/message_design.xml" value="0.1105" />
+        <entry key="..\:/Users/ugur6/Documents/Whatsapp-on-stereoids/WhatsApp/app/src/main/res/drawable/messages_design.xml" value="0.2435" />
+        <entry key="..\:/Users/ugur6/Documents/Whatsapp-on-stereoids/WhatsApp/app/src/main/res/drawable/messenger_background.xml" value="0.2435" />
+        <entry key="..\:/Users/ugur6/Documents/Whatsapp-on-stereoids/WhatsApp/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ugur6/Documents/Whatsapp-on-stereoids/WhatsApp/app/src/main/res/layout/app_bar_layout.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ugur6/Documents/Whatsapp-on-stereoids/WhatsApp/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/ugur6/Documents/Whatsapp-on-stereoids/WhatsApp/app/src/main/res/menu/navigation.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ugur6/Documents/Whatsapp-on-stereoids/WhatsApp/app/src/main/res/menu/topnavigation.xml" value="0.36666666666666664" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
       </map>
