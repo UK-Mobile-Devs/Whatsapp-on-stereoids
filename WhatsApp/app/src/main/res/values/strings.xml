@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">WhatsApp</string>
+
+    <!-- Tab Layout -->
+    <string name="chats">Chats</string>
+    <string name="status">Status</string>
+    <string name="calls">Calls</string>
+
+
 </resources>
