@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
-import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment

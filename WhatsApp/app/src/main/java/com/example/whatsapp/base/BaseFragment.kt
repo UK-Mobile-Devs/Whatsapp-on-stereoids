@@ -23,7 +23,11 @@ abstract class BaseFragment<Binding : ViewBinding> : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = inflateBinding(inflater)
         initViews()
         return binding.root

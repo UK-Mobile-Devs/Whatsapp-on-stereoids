@@ -1,10 +1,8 @@
 package com.example.whatsapp.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.example.whatsapp.R
-import com.example.whatsapp.ui.fragments.home.HomeFragmentVM
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

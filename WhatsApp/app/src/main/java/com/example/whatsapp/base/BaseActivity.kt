@@ -48,6 +48,6 @@ abstract class BaseActivity<Binding : ViewBinding> : AppCompatActivity() {
 
     open fun intentExtras(args: Bundle) {}
 
-    open fun initViews() { }
+    open fun initViews() {}
 
 }
