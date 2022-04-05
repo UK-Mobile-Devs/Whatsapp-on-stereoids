@@ -32,12 +32,12 @@
                 app:tabSelectedTextColor="@color/white"
                 app:tabTextColor="@color/white"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
                 <com.google.android.material.tabs.TabItem
                     android:id="@+id/camera"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:icon="@drawable/ic_camera"
-                    app:tabGravity="start"
                     style="@style/toolbarText"/>
                 <com.google.android.material.tabs.TabItem
                     android:id="@+id/chats"

@@ -6,5 +6,9 @@
     <string name="status">Status</string>
     <string name="calls">Calls</string>
 
+    <!-- Search Menu Layout -->
+    <string name="search">Search</string>
+
+
 
 </resources>

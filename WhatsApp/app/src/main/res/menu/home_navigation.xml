@@ -1,18 +1,10 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<?xml version="1.0" encoding="utf-8"?>
 
-    <item
-        android:id="@+id/newGroup"
-        android:orderInCategory="1"
-        android:title="CHATS" />
-
-    <item
-        android:id="@+id/newBroadcast"
-        android:orderInCategory="2"
-        android:title="STATUS" />
-
-    <item
-        android:id="@+id/link"
-        android:orderInCategory="3"
-        android:title="CALLS" />
-
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/search"
+        android:title="@string/search"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="collapseActionView|ifRoom"
+        app:actionViewClass="android.widget.SearchView" />
 </menu>
