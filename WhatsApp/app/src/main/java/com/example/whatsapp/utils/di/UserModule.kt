@@ -1,10 +1,10 @@
 package com.example.whatsapp.utils.di
 
-import com.example.firestorerepository.repositories.IUserRepository
+
+import com.example.firestorerepository.repositories.UserRepository
 import com.example.firestorerepository.repositories.UserRepositoryImpl
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 
@@ -14,6 +14,6 @@ import dagger.hilt.android.components.ViewModelComponent
 interface UserModule {
 
     @Binds
-    fun getUserRepositoryImpl(repository: UserRepositoryImpl): IUserRepository
+    fun getUserRepositoryImpl(repository: UserRepositoryImpl): UserRepository
 
 }
