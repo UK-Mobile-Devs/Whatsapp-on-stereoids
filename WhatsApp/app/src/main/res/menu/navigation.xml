@@ -10,24 +10,28 @@
         app:actionViewClass="android.widget.SearchView" />
 
     <item
-        android:id="@+id/messagebtn"
-        android:title="@string/search"
-        android:icon="@drawable/ic_messenger_icon"
-        app:showAsAction="collapseActionView|ifRoom"
-        app:actionViewClass="android.widget.SearchView" />
-    <item
-        android:id="@+id/newGroup"
+        android:id="@+id/itemNewGroup"
         android:orderInCategory="1"
-        android:title="New group" />
+        android:title="@string/new_group" />
 
     <item
-        android:id="@+id/newBroadcast"
+        android:id="@+id/itemNewBroadcast"
         android:orderInCategory="2"
-        android:title="New broadcast" />
+        android:title="@string/new_broadcast" />
 
     <item
-        android:id="@+id/link"
+        android:id="@+id/itemLinkedDevices"
         android:orderInCategory="3"
-        android:title="Linked devices" />
+        android:title="@string/linked_devices" />
+
+    <item
+        android:id="@+id/itemStarredMessages"
+        android:orderInCategory="4"
+        android:title="@string/starred_messages" />
+
+    <item
+        android:id="@+id/itemSettings"
+        android:orderInCategory="5"
+        android:title="@string/settings" />
 
 </menu>
