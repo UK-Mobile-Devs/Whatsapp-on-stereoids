@@ -20,7 +20,7 @@
             android:maxLines="1"
             app:layout_constraintEnd_toStartOf="@+id/tvTime"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toTopOf="@+id/sivIcon"
+            app:layout_constraintTop_toTopOf="@+id/ivIcon"
             tools:text="Bill Gates" />
 
         <TextView
@@ -41,14 +41,14 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/chat_preview_body"
             android:gravity="center"
-            android:drawableEnd="@drawable/ic_notification_mute"
             android:ellipsize="end"
             android:maxLines="1"
             app:drawableStartCompat="@drawable/ic_check"
             app:layout_constraintEnd_toEndOf="@+id/tvTime"
             app:layout_constraintStart_toStartOf="@+id/tvTitle"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+            app:drawableEndCompat="@drawable/ic_notification_mute" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline8"
@@ -58,7 +58,7 @@
             app:layout_constraintGuide_percent="0.2" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/sivIcon"
+            android:id="@+id/ivIcon"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginStart="12dp"

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.firestorerepository.datatypes.Conversation
 import com.example.whatsapp.databinding.ItemChatBinding
 
-class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(DiffCallback()){
+class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(DiffCallback()) {
 
     //region ListAdapter Overrides
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatsViewHolder {
@@ -22,12 +22,22 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
     //endregion
 
     //region ChatsViewHolder
-    class ChatsViewHolder(binding : ItemChatBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ChatsViewHolder(binding: ItemChatBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data : Conversation) {
+        //region Variables
+        private val tvTitle = binding.tvTitle
+        private val tvBody = binding.tvBody
+        private val tvTime = binding.tvTime
+        private val ivIcon = binding.ivIcon
+        //endregion
 
+        fun bind(conversation: Conversation) {
+            // Todo: Add actual data here from the conversation, but the database structure is currently TBT
+            conversation.uid
+            tvTitle.text = "Bill Gates"
+            tvBody.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+            tvTime.text = "08/04/2022"
         }
-
     }
     //endregion
 
