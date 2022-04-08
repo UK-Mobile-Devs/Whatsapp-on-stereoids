@@ -12,7 +12,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.whatsapp.R
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_main.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -30,8 +29,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.homeFragment
             )
         )
-
-
         setupActionBarWithNavController(navController)
         navView.setupWithNavController(navController)
 
