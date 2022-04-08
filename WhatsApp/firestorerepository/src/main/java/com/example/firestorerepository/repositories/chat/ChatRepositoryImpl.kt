@@ -7,7 +7,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class ChatRepositoryImpl @Inject constructor() : IChatRepository {
+class ChatRepositoryImpl @Inject constructor() : ChatRepository {
 
     //region IChatRepository
     override fun getConversationList(): Observable<List<Conversation>> {
