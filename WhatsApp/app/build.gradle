@@ -6,6 +6,7 @@ plugins {
     id 'com.google.gms.google-services'
     id 'dagger.hilt.android.plugin'
 }
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdk 32
@@ -55,6 +56,7 @@ dependencies {
     implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
     // Dependency Injection - Hilt
     implementation("com.google.dagger:hilt-android:2.38.1")
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt("com.google.dagger:hilt-android-compiler:2.38.1")
 
 
