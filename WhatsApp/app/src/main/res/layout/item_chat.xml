@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:foreground="?android:attr/selectableItemBackground">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -11,12 +12,16 @@
             android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:textStyle="bold"
+            android:textSize="@dimen/chat_preview_title"
+            android:textColor="@color/black"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
             android:maxLines="1"
             app:layout_constraintEnd_toStartOf="@+id/tvTime"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Joshua Owen" />
+            app:layout_constraintTop_toTopOf="@+id/sivIcon"
+            tools:text="Bill Gates" />
 
         <TextView
             android:id="@+id/tvTime"
@@ -24,30 +29,42 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
             android:maxLines="1"
+            android:textSize="@dimen/chat_preview_date"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvTitle"
             tools:text="08/04/2022" />
 
         <TextView
             android:id="@+id/tvBody"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/chat_preview_body"
+            android:gravity="center"
+            android:drawableEnd="@drawable/ic_notification_mute"
+            android:ellipsize="end"
+            android:maxLines="1"
+            app:drawableStartCompat="@drawable/ic_check"
             app:layout_constraintEnd_toEndOf="@+id/tvTime"
             app:layout_constraintStart_toStartOf="@+id/tvTitle"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-            tools:text="Body Body Body Body" />
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.25" />
+            app:layout_constraintGuide_percent="0.2" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="10dp"
+            android:id="@+id/sivIcon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline8"
             app:layout_constraintStart_toStartOf="parent"
