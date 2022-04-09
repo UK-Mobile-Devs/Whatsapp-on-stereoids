@@ -9,7 +9,8 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.whatsapp.ui.fragments.home.HomeFragment"
-        android:label="WhatsApp" >
+        android:label="homeFragment"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_contactsFragment"
             app:destination="@id/contactsFragment" />

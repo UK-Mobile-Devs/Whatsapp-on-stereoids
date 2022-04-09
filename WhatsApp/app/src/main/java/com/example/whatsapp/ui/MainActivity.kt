@@ -1,17 +1,9 @@
 package com.example.whatsapp.ui
 
-import android.content.Context
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.*
-import com.example.whatsapp.R
+import androidx.navigation.ui.AppBarConfiguration
 import com.example.whatsapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,16 +18,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val navHostFragment = supportFragmentManager.findFragmentById(binding.navHostFragment.id) as NavHostFragment
-        val navController = navHostFragment.navController
+        //val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        //navController = navHostFragment.navController
+        setSupportActionBar(binding.toolbar)
     }
 
-
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val navigated = NavigationUI.onNavDestinationSelected(item, navController)
-        return navigated || super.onOptionsItemSelected(item)
-    }
 
 }
