@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentHomeBinding
@@ -18,20 +19,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private val viewModel by viewModels<HomeFragmentVM>()
 
     override fun inflateBinding(layoutInflater: LayoutInflater): FragmentHomeBinding {
-       return FragmentHomeBinding.inflate(layoutInflater)
-    }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        setHasOptionsMenu(true)
-        super.onCreate(savedInstanceState)
-
-    }
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.navigation, menu)
-        super.onCreateOptionsMenu(menu, inflater)
+        return FragmentHomeBinding.inflate(layoutInflater)
     }
 
     override fun initViews() {
         super.initViews()
+        binding.fabNewConversation.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_contactsFragment)
+        }
     }
 
     override fun observeViewModel() {
@@ -42,4 +37,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 binding.tvBody.text = it.uid
             }.autoDispose()
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        setHasOptionsMenu(true)
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.navigation, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
 }
