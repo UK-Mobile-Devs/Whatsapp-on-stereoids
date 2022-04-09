@@ -19,6 +19,7 @@
 
 
             <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tlNavigation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/teal_green"
@@ -56,7 +57,7 @@
             </com.google.android.material.tabs.TabLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.viewpager.widget.ViewPager
+        <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vpHomeScreen"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -65,18 +66,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/appbarLayout">
 
-        </androidx.viewpager.widget.ViewPager>
+        </androidx.viewpager2.widget.ViewPager2>
 
 
-        <TextView
-            android:id="@+id/tvBody"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Body"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

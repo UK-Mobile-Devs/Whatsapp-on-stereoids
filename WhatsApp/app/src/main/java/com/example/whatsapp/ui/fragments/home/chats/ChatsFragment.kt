@@ -55,4 +55,12 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>() {
     }
     //endregion
 
+    //region Companion Object
+    companion object {
+        fun newInstance() : ChatsFragment {
+            return ChatsFragment()
+        }
+    }
+    //endregion
+
 }

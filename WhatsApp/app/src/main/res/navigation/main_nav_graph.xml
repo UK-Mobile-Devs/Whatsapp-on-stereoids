@@ -14,11 +14,23 @@
         <action
             android:id="@+id/action_homeFragment_to_contactsFragment"
             app:destination="@id/contactsFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_chatsFragment"
+            app:destination="@id/chatsFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/contactsFragment"
         android:name="com.example.whatsapp.ui.fragments.contacts.ContactsFragment"
         android:label="Contacts"
         tools:layout="@layout/fragment_contacts" />
+
+    <fragment
+        android:id="@+id/chatsFragment"
+        android:name="com.example.whatsapp.ui.fragments.home.chats.ChatsFragment"
+        android:label="@string/chats"
+        tools:layout="@layout/fragment_chats"/>
+
 
 </navigation>
