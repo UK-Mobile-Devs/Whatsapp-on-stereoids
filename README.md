@@ -6,4 +6,5 @@ Collaboration project on cloning and improving the worldwide messaging app - Wha
 + Kotlin
 + XML -> Planning to convert into jetpack compose in future 
 + DI - Dagger Hilt
-+ 
++ Firebase / Firestore
++ Unit / UI Testing
