@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="chat_preview_date">10sp</dimen>
+    <dimen name="chat_preview_title">14sp</dimen>
+    <dimen name="chat_preview_body">12sp</dimen>
+</resources>
