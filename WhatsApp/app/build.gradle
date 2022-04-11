@@ -69,7 +69,7 @@ dependencies {
 
     // Core Android
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation 'androidx.recyclerview:recyclerview-selection:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview-selection:1.2.0-alpha01'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
     implementation 'androidx.core:core-ktx:1.7.0'

@@ -2,6 +2,10 @@ package com.example.whatsapp.ui.fragments.home.chats
 
 import android.view.LayoutInflater
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.selection.SelectionPredicates
+import androidx.recyclerview.selection.SelectionTracker
+import androidx.recyclerview.selection.StableIdKeyProvider
+import androidx.recyclerview.selection.StorageStrategy
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentChatsBinding
@@ -15,9 +19,9 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>() {
     //region Variables
     private val viewModel: ChatsFragmentVM by viewModels()
 
-    private val chatsAdapter: ChatsAdapter by lazy {
-        ChatsAdapter()
-    }
+    private val chatsAdapter: ChatsAdapter = ChatsAdapter()
+
+    private var tracker: SelectionTracker<Long>? = null
 
     //endregion
 
@@ -29,11 +33,25 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>() {
     override fun initViews() {
         super.initViews()
 
+        //region List Of Conversations RecyclerView Initialisation
         binding.rvChats.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = chatsAdapter
         }
 
+        tracker = SelectionTracker.Builder(
+            CHAT_SELECTION_KEY,
+            binding.rvChats,
+            StableIdKeyProvider(binding.rvChats),
+            MyItemDetailsLookup(binding.rvChats),
+            StorageStrategy.createLongStorage()
+        ).withSelectionPredicate(
+            SelectionPredicates.createSelectAnything()
+        ).build()
+
+        chatsAdapter.tracker = tracker
+
+        //endregion
     }
 
     override fun observeViewModel() {
@@ -57,6 +75,8 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>() {
 
     //region Companion Object
     companion object {
+        const val CHAT_SELECTION_KEY = "CHAT_SELECTION_KEY"
+
         fun newInstance() : ChatsFragment {
             return ChatsFragment()
         }
