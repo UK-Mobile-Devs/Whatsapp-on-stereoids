@@ -9,9 +9,11 @@ import androidx.navigation.fragment.findNavController
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentHomeBinding
+import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.android.synthetic.main.fragment_home.*
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
@@ -28,6 +30,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.fabNewConversation.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_contactsFragment)
         }
+
+        binding.tabParent.addOnTabSelectedListener(object:TabLayout.OnTabSelectedListener{
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                navigateToTab(tab)
+            }
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                //no-op
+            }
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                //no-op
+            }
+        })
     }
 
     override fun observeViewModel() {
@@ -47,6 +61,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.navigation, menu)
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    private fun navigateToTab(tab: TabLayout.Tab){
+        when(tab){
+            tabCamera -> ""
+            tabCalls -> ""
+            tabChats -> ""
+            tabStatus -> ""
+        }
     }
 
 }
