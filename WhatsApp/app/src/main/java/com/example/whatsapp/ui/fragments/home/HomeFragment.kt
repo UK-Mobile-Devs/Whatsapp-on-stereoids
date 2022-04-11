@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.View
+import android.widget.LinearLayout
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.whatsapp.R
@@ -44,6 +46,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         })
     }
 
+
     override fun observeViewModel() {
         viewModel.getUser()
             .subscribeOn(Schedulers.io())
@@ -58,6 +61,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         super.onCreate(savedInstanceState)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setTabWidthAsWrapContent(0)
+    }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.navigation, menu)
         super.onCreateOptionsMenu(menu, inflater)
@@ -70,6 +78,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             tabChats -> ""
             tabStatus -> ""
         }
+    }
+
+    private fun setTabWidthAsWrapContent(tabPosition: Int) {
+        val layout = (binding.tabParent.getChildAt(0) as LinearLayout).getChildAt(tabPosition) as LinearLayout
+        val layoutParams = layout.layoutParams as LinearLayout.LayoutParams
+        layoutParams.weight = 0f
+        layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
+        layout.layoutParams = layoutParams
     }
 
 }
