@@ -79,7 +79,7 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
         //endregion
 
         fun bind(conversation: Conversation, isSelected : Boolean) {
-
+            conversation.uid
             cbIsSelected.visibility = if(isSelected) View.VISIBLE else View.GONE
 
             // Todo: Add actual data here from the conversation, but the database structure is currently TBT
