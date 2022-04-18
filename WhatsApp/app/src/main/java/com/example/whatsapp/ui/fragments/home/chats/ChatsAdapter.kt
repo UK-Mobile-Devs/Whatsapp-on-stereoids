@@ -27,7 +27,7 @@ class MyItemKeyProvider(private val recyclerView: RecyclerView) :
     }
 }
 
-class MyItemDetailsLookup(private val recyclerView: RecyclerView) :
+class ItemDetailsLookup(private val recyclerView: RecyclerView) :
     ItemDetailsLookup<Long>() {
     override fun getItemDetails(event: MotionEvent): ItemDetails<Long>? {
         val view = recyclerView.findChildViewUnder(event.x, event.y)
@@ -88,8 +88,8 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
             tvTime.text = "08/04/2022"
         }
 
-        fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> =
-            object : ItemDetailsLookup.ItemDetails<Long>() {
+        fun getItemDetails(): ItemDetailsLookup.ItemDetails.ItemDetails<Long> =
+            object : ItemDetailsLookup.ItemDetails.ItemDetails<Long>() {
                 override fun getPosition(): Int = absoluteAdapterPosition
                 override fun getSelectionKey(): Long = itemId
             }

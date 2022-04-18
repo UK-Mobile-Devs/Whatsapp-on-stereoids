@@ -73,7 +73,7 @@
             app:srcCompat="@mipmap/ic_launcher" />
 
         <CheckBox
-            android:id="@+id/cbIsSelected"
+            android:id="@+id/cbSelection"
             android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

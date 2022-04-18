@@ -43,7 +43,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>() {
             CHAT_SELECTION_KEY,
             binding.rvChats,
             StableIdKeyProvider(binding.rvChats),
-            MyItemDetailsLookup(binding.rvChats),
+            ItemDetailsLookup(binding.rvChats),
             StorageStrategy.createLongStorage()
         ).withSelectionPredicate(
             SelectionPredicates.createSelectAnything()
