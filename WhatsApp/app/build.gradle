@@ -7,6 +7,7 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdk 32
@@ -36,6 +37,7 @@ android {
     }
     buildFeatures {
         dataBinding = true
+        viewBinding = true
     }
     packagingOptions {
         exclude 'META-INF/*'
@@ -57,6 +59,8 @@ dependencies {
     // Dependency Injection - Hilt
     implementation("com.google.dagger:hilt-android:2.38.1")
     kapt("com.google.dagger:hilt-android-compiler:2.38.1")
+    // Wrap-Content-Tabs
+    implementation 'com.github.Josh-Owen:Wrap-Content-TabLayout:0.5.0'
 
 
     // Firebase
@@ -69,7 +73,7 @@ dependencies {
 
     // Core Android
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation 'androidx.recyclerview:recyclerview-selection:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview-selection:1.2.0-alpha01'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
     implementation 'androidx.core:core-ktx:1.7.0'
