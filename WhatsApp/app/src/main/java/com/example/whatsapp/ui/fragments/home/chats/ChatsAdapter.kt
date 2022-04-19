@@ -75,7 +75,7 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
         private val tvBody = binding.tvBody
         private val tvTime = binding.tvTime
         private val ivIcon = binding.ivIcon
-        private val cbIsSelected = binding.cbIsSelected
+        private val cbIsSelected = binding.cbSelection
         //endregion
 
         fun bind(conversation: Conversation, isSelected : Boolean) {
@@ -88,13 +88,11 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
             tvTime.text = "08/04/2022"
         }
 
-        fun getItemDetails(): ItemDetailsLookup.ItemDetails.ItemDetails<Long> =
-            object : ItemDetailsLookup.ItemDetails.ItemDetails<Long>() {
+        fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> =
+            object : ItemDetailsLookup.ItemDetails<Long>() {
                 override fun getPosition(): Int = absoluteAdapterPosition
                 override fun getSelectionKey(): Long = itemId
             }
-
-
     }
     //endregion
 

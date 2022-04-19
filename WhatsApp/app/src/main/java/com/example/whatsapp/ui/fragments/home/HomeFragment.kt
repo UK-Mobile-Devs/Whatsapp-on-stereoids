@@ -18,7 +18,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_home.*
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
@@ -37,7 +36,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun initViews() {
         super.initViews()
-        setTabWidthAsWrapContent(0)
         //region Tabs Initialisation
         homeStatePagerAdapter = HomeStatePagerAdapter(requireActivity(), listOf(ChatsFragment.newInstance()))
         binding.vpHomeScreen.adapter = homeStatePagerAdapter
@@ -70,12 +68,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
     //endregion
 
-    private fun setTabWidthAsWrapContent(tabPosition: Int) {
-        val layout = (binding.tabParent.getChildAt(0) as LinearLayout).getChildAt(tabPosition) as LinearLayout
-        val layoutParams = layout.layoutParams as LinearLayout.LayoutParams
-        layoutParams.weight = 0f
-        layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
-        layout.layoutParams = layoutParams
-    }
 
 }
