@@ -1,10 +1,7 @@
 package com.example.whatsapp.ui.fragments.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.View
+import android.view.*
 import android.widget.LinearLayout
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -45,10 +42,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         //endregion
 
         binding.fabNewConversation.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_contactsFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
         }
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.itemSettings -> findNavController()!!.navigate(R.id.action_homeFragment_to_settingsFragment)
+
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     override fun observeViewModel() {
 

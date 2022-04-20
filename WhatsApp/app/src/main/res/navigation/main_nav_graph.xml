@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_homeFragment_to_chatsFragment"
             app:destination="@id/chatsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment2" />
 
     </fragment>
     <fragment
@@ -31,6 +34,10 @@
         android:name="com.example.whatsapp.ui.fragments.home.chats.ChatsFragment"
         android:label="@string/chats"
         tools:layout="@layout/fragment_chats"/>
+    <fragment
+        android:id="@+id/settingsFragment2"
+        android:name="com.example.whatsapp.ui.fragments.settings.SettingsFragment"
+        android:label="SettingsFragment" />
 
 
 </navigation>
