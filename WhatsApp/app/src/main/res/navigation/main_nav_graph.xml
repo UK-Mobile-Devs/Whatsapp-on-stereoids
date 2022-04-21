@@ -30,7 +30,15 @@
         android:id="@+id/chatsFragment"
         android:name="com.example.whatsapp.ui.fragments.home.chats.ChatsFragment"
         android:label="@string/chats"
-        tools:layout="@layout/fragment_chats"/>
+        tools:layout="@layout/fragment_chats">
+        <action
+            android:id="@+id/action_chatsFragment_to_messengerFragment"
+            app:destination="@id/messengerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messengerFragment"
+        android:name="com.example.whatsapp.ui.fragments.messenger.MessengerFragment"
+         />
 
 
 </navigation>
