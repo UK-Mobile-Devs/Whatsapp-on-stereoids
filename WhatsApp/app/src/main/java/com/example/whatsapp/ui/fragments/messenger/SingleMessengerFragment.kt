@@ -1,24 +1,17 @@
 package com.example.whatsapp.ui.fragments.messenger
 
 import android.view.LayoutInflater
-import com.example.whatsapp.base.BaseFragment
-import com.example.whatsapp.databinding.FragmentHomeBinding
 import com.example.whatsapp.databinding.FragmentMessengerBinding
 
-class MessengerFragment : BaseFragment<FragmentMessengerBinding>() {
+class SingleMessengerFragment : BaseMessengerFragment<FragmentMessengerBinding>() {
 
-    //region Variables
-
-
-
-    //endregion
 
     override fun inflateBinding(layoutInflater: LayoutInflater): FragmentMessengerBinding {
-        return FragmentMessengerBinding.inflate(layoutInflater)
+        TODO("Not yet implemented")
     }
 
     override fun observeViewModel() {
-
+        TODO("Not yet implemented")
     }
 
 
