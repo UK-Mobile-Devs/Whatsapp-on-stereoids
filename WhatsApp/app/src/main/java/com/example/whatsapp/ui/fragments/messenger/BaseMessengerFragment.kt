@@ -2,17 +2,16 @@ package com.example.whatsapp.ui.fragments.messenger
 
 import android.view.LayoutInflater
 import androidx.fragment.app.viewModels
-import androidx.viewbinding.ViewBinding
 import com.example.whatsapp.base.BaseFragment
-import com.example.whatsapp.databinding.FragmentHomeBinding
 import com.example.whatsapp.databinding.FragmentMessengerBinding
-import com.example.whatsapp.ui.fragments.home.HomeFragmentVM
 
-abstract class BaseMessengerFragment<Binding : ViewBinding> : BaseFragment<Binding>() {
+abstract class BaseMessengerFragment : BaseFragment<FragmentMessengerBinding>() {
 
-    private val viewModel by viewModels<MessengerFragmentVM>()
+    val viewModel by viewModels<MessengerFragmentVM>()
 
-
+    override fun inflateBinding(layoutInflater: LayoutInflater): FragmentMessengerBinding {
+        return FragmentMessengerBinding.inflate(layoutInflater)
+    }
 
 
 }

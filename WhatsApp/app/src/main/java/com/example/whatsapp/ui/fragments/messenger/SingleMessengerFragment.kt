@@ -1,17 +1,18 @@
 package com.example.whatsapp.ui.fragments.messenger
 
-import android.view.LayoutInflater
-import com.example.whatsapp.databinding.FragmentMessengerBinding
-
-class SingleMessengerFragment : BaseMessengerFragment<FragmentMessengerBinding>() {
+import android.os.Bundle
 
 
-    override fun inflateBinding(layoutInflater: LayoutInflater): FragmentMessengerBinding {
-        TODO("Not yet implemented")
+class SingleMessengerFragment : BaseMessengerFragment() {
+
+    private lateinit var userId: String
+
+    override fun initArgs(arguments: Bundle) {
+        userId = arguments.getString("userId") ?: throw IllegalArgumentException("Missing user id")
     }
 
     override fun observeViewModel() {
-        TODO("Not yet implemented")
+        viewModel
     }
 
 

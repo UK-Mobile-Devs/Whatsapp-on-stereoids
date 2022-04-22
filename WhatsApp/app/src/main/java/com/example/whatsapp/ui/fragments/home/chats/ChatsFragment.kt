@@ -41,7 +41,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>() {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = chatsAdapter
         }
-        findNavController().navigate(R.id.messengerFragment)
+
         this.findNavController()
 
         tracker = SelectionTracker.Builder(
