@@ -2,8 +2,9 @@ package com.example.whatsapp.ui.fragments.messenger.single
 
 import android.os.Bundle
 import com.example.whatsapp.ui.fragments.messenger.BaseMessengerFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class SingleMessengerFragment : BaseMessengerFragment() {
 
     private lateinit var contactId: String

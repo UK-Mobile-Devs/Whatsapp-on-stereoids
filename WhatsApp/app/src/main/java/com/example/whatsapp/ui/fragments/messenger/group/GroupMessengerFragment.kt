@@ -2,7 +2,9 @@ package com.example.whatsapp.ui.fragments.messenger.group
 
 import android.os.Bundle
 import com.example.whatsapp.ui.fragments.messenger.BaseMessengerFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GroupMessengerFragment : BaseMessengerFragment() {
 
     private lateinit var groupId: String
