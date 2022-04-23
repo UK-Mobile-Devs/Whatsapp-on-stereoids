@@ -9,6 +9,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentHomeBinding
+import com.example.whatsapp.ui.fragments.home.calls.CallsFragment
+import com.example.whatsapp.ui.fragments.home.camera.CameraFragment
 import com.example.whatsapp.ui.fragments.home.chats.ChatsFragment
 import com.example.whatsapp.ui.fragments.home.status.StatusFragment
 import com.google.android.material.tabs.TabLayoutMediator
@@ -34,7 +36,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         //region Tabs Initialisation
         homeStatePagerAdapter = HomeStatePagerAdapter(
             requireActivity(),
-            listOf(ChatsFragment.newInstance(), StatusFragment.newInstance())
+            listOf(ChatsFragment.newInstance(), StatusFragment.newInstance(), CallsFragment.newInstance())
         )
         binding.vpHomeScreen.adapter = homeStatePagerAdapter
         TabLayoutMediator(binding.tlNavigation, binding.vpHomeScreen) { _, _ ->
