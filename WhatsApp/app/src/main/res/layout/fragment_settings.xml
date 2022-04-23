@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,6 +20,8 @@
         android:elevation="12dp"
         android:innerRadius="0dp"
         android:shape="ring"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="15dp"
         android:thicknessRatio="1.9"
         app:cardCornerRadius="40dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +33,207 @@
             android:layout_height="80dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/common_full_open_on_phone"></ImageView>
+            android:src="@drawable/common_full_open_on_phone">
+
+        </ImageView>
     </androidx.cardview.widget.CardView>
 
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Example of user name"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/userStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example of status"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="@+id/userName"
+        app:layout_constraintTop_toBottomOf="@+id/userName" />
+
+    <ImageView
+        android:id="@+id/qrCode"
+        android:layout_width="42dp"
+        android:layout_height="33dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_qrcode"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.508" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="16dp"
+        android:background="@color/grey"
+        app:layout_constraintTop_toBottomOf="@+id/userStatus" />
+
+
+    <ImageView
+        android:id="@+id/accountBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_account"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/accountName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="15dp"
+        android:text="Account"
+        app:layout_constraintBottom_toBottomOf="@+id/accountBtn"
+        app:layout_constraintStart_toEndOf="@+id/accountBtn" />
+
+    <TextView
+        android:id="@+id/accountDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="Privacy, security, change number"
+        app:layout_constraintBottom_toBottomOf="@+id/accountBtn"
+        app:layout_constraintStart_toEndOf="@+id/accountBtn"
+        app:layout_constraintTop_toBottomOf="@+id/accountName" />
+
+    <ImageView
+        android:id="@+id/ChatsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_comment"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accountBtn" />
+
+    <TextView
+        android:id="@+id/ChatsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chats"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintStart_toEndOf="@+id/ChatsBtn"
+        app:layout_constraintTop_toTopOf="@+id/ChatsBtn" />
+
+    <TextView
+        android:id="@+id/chatSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="Theme, wallpapers, chat history"
+        app:layout_constraintStart_toEndOf="@+id/ChatsBtn"
+        app:layout_constraintTop_toBottomOf="@+id/ChatsTitle" />
+
+    <ImageView
+        android:id="@+id/notificationBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_notifications"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ChatsBtn" />
+
+    <TextView
+        android:id="@+id/notificationTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notifications"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintStart_toEndOf="@+id/notificationBtn"
+        app:layout_constraintTop_toTopOf="@+id/notificationBtn" />
+
+    <TextView
+        android:id="@+id/notificationSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="Message,group &amp; call tones"
+        app:layout_constraintStart_toEndOf="@+id/notificationBtn"
+        app:layout_constraintTop_toBottomOf="@+id/notificationTitle" />
+
+
+    <ImageView
+        android:id="@+id/storageBtn"
+        android:layout_width="60dp"
+        android:layout_height="61dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/ic_cloud_circle"
+        app:layout_constraintEnd_toEndOf="@+id/notificationBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notificationBtn" />
+
+    <TextView
+        android:id="@+id/storageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Storage and Data"
+        app:layout_constraintStart_toEndOf="@+id/storageBtn"
+        app:layout_constraintTop_toTopOf="@+id/storageBtn" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Network usage, auto-download"
+        app:layout_constraintStart_toEndOf="@+id/storageBtn"
+        app:layout_constraintTop_toBottomOf="@+id/storageTitle" />
+
+    <ImageView
+        android:id="@+id/helpBtn"
+        android:layout_width="52dp"
+        android:layout_height="58dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/ic_help"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/storageBtn" />
+
+    <TextView
+        android:id="@+id/helpTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Help"
+        app:layout_constraintStart_toEndOf="@+id/helpBtn"
+        app:layout_constraintTop_toTopOf="@+id/helpBtn" />
+
+    <TextView
+        android:id="@+id/helpSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Help centre, contact us, privacy policy"
+        app:layout_constraintStart_toEndOf="@+id/helpBtn"
+        app:layout_constraintTop_toBottomOf="@+id/helpTitle" />
+
+    <ImageView
+        android:id="@+id/referralBtn"
+        android:layout_width="57dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/ic_contact"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpBtn" />
+
+    <TextView
+        android:id="@+id/referralTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Invite a friend"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toEndOf="@+id/referralBtn"
+        app:layout_constraintTop_toTopOf="@+id/referralBtn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
