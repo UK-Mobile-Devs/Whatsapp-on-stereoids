@@ -2,13 +2,15 @@
 
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<LinearLayout
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -42,31 +44,23 @@
         android:id="@+id/userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="100dp"
         android:text="Example of user name"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView"
-        app:layout_constraintStart_toEndOf="@+id/cardView"
-        app:layout_constraintTop_toTopOf="parent" />
+ />
 
     <TextView
         android:id="@+id/userStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Example of status"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView"
-        app:layout_constraintStart_toStartOf="@+id/userName"
-        app:layout_constraintTop_toBottomOf="@+id/userName" />
+/>
 
     <ImageView
         android:id="@+id/qrCode"
         android:layout_width="42dp"
         android:layout_height="33dp"
         android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_qrcode"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508" />
+        android:src="@drawable/ic_qrcode" />
 
     <View
         android:id="@+id/view"
@@ -235,5 +229,5 @@
         app:layout_constraintStart_toEndOf="@+id/referralBtn"
         app:layout_constraintTop_toTopOf="@+id/referralBtn" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
 </ScrollView>
