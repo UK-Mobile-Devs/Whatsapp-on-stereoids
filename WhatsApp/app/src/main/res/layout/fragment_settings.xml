@@ -13,12 +13,17 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp">
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:elevation="12dp"
         android:innerRadius="0dp"
         android:shape="ring"
@@ -30,9 +35,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/displayPhoto"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:src="@drawable/common_full_open_on_phone">
@@ -40,27 +45,33 @@
         </ImageView>
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/userName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:text="Example of user name"
- />
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/cardView"
+            android:text="Example of user name" />
 
-    <TextView
-        android:id="@+id/userStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Example of status"
-/>
+        <TextView
+            android:id="@+id/userStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="50dp"
+            android:layout_toEndOf="@+id/cardView"
+            android:text="Example of status" />
 
-    <ImageView
-        android:id="@+id/qrCode"
-        android:layout_width="42dp"
-        android:layout_height="33dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_qrcode" />
+        <ImageView
+            android:id="@+id/qrCode"
+            android:layout_width="42dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="16dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_qrcode" />
+    </RelativeLayout>
 
     <View
         android:id="@+id/view"
@@ -70,164 +81,220 @@
         android:background="@color/grey"
         app:layout_constraintTop_toBottomOf="@+id/userStatus" />
 
+    <RelativeLayout
+        android:id="@+id/accountTransfer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/ivAccountIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:src="@drawable/ic_account" />
+
+        <TextView
+            android:id="@+id/tvAccountName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_toEndOf="@+id/ivAccountIcon"
+            android:layout_alignParentEnd="true"
+            android:text="Account" />
+
+        <TextView
+            android:id="@+id/accountDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvAccountName"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:layout_toEndOf="@+id/ivAccountIcon"
+            android:text="Privacy, security, change number" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:background="?attr/selectableItemBackground">
 
     <ImageView
-        android:id="@+id/accountBtn"
+        android:id="@+id/ivChatsIcon"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_account"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        android:src="@drawable/ic_comment" />
+
+        <TextView
+            android:id="@+id/tvchatsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/ivChatsIcon"
+            android:text="Chats" />
 
     <TextView
-        android:id="@+id/accountName"
+        android:id="@+id/chatsDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="15dp"
-        android:text="Account"
-        app:layout_constraintBottom_toBottomOf="@+id/accountBtn"
-        app:layout_constraintStart_toEndOf="@+id/accountBtn" />
+        android:layout_below="@+id/tvchatsName"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_toEndOf="@+id/ivChatsIcon"
+        android:text="Privacy, security, change number" />
 
-    <TextView
-        android:id="@+id/accountDetails"
-        android:layout_width="wrap_content"
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:text="Privacy, security, change number"
-        app:layout_constraintBottom_toBottomOf="@+id/accountBtn"
-        app:layout_constraintStart_toEndOf="@+id/accountBtn"
-        app:layout_constraintTop_toBottomOf="@+id/accountName" />
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:background="?attr/selectableItemBackground">
 
     <ImageView
-        android:id="@+id/ChatsBtn"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:id="@+id/ivNotificationIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_comment"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/accountBtn" />
+        android:src="@drawable/ic_notifications" />
 
     <TextView
-        android:id="@+id/ChatsTitle"
+        android:id="@+id/tvNotificationName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chats"
-        android:layout_marginLeft="15dp"
-        app:layout_constraintStart_toEndOf="@+id/ChatsBtn"
-        app:layout_constraintTop_toTopOf="@+id/ChatsBtn" />
+        android:layout_marginBottom="4dp"
+        android:layout_toEndOf="@+id/ivNotificationIcon"
+        android:layout_alignParentEnd="true"
+        android:text="Notifications" />
 
     <TextView
-        android:id="@+id/chatSubTitle"
+        android:id="@+id/notificationDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:text="Theme, wallpapers, chat history"
-        app:layout_constraintStart_toEndOf="@+id/ChatsBtn"
-        app:layout_constraintTop_toBottomOf="@+id/ChatsTitle" />
+        android:layout_below="@+id/tvNotificationName"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_toEndOf="@+id/ivNotificationIcon"
+        android:text="Message,group &amp; call tones" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/ivStorageIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:src="@drawable/ic_cloud_circle" />
+
+    <TextView
+        android:id="@+id/tvStorageName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_toEndOf="@+id/ivStorageIcon"
+        android:layout_alignParentEnd="true"
+        android:text="Storage and Data" />
+
+        <TextView
+            android:id="@+id/storageDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvStorageName"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:layout_toEndOf="@+id/ivStorageIcon"
+            android:text="Network usage, auto-download" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:background="?attr/selectableItemBackground">
 
     <ImageView
-        android:id="@+id/notificationBtn"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:id="@+id/ivHelpIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_notifications"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChatsBtn" />
+        android:src="@drawable/ic_help" />
 
     <TextView
-        android:id="@+id/notificationTitle"
+        android:id="@+id/tvHelpName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Notifications"
-        android:layout_marginLeft="15dp"
-        app:layout_constraintStart_toEndOf="@+id/notificationBtn"
-        app:layout_constraintTop_toTopOf="@+id/notificationBtn" />
+        android:layout_marginBottom="4dp"
+        android:layout_toEndOf="@+id/ivHelpIcon"
+        android:layout_alignParentEnd="true"
+        android:text="Help" />
 
     <TextView
-        android:id="@+id/notificationSubTitle"
+        android:id="@+id/HelpDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:text="Message,group &amp; call tones"
-        app:layout_constraintStart_toEndOf="@+id/notificationBtn"
-        app:layout_constraintTop_toBottomOf="@+id/notificationTitle" />
+        android:layout_below="@+id/tvHelpName"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_toEndOf="@+id/ivHelpIcon"
+        android:text="Help centre, contact us, privacy policy" />
+    </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:background="?attr/selectableItemBackground">
 
     <ImageView
-        android:id="@+id/storageBtn"
-        android:layout_width="60dp"
-        android:layout_height="61dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="35dp"
-        android:src="@drawable/ic_cloud_circle"
-        app:layout_constraintEnd_toEndOf="@+id/notificationBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notificationBtn" />
-
-    <TextView
-        android:id="@+id/storageTitle"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:id="@+id/ivReferralIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Storage and Data"
-        app:layout_constraintStart_toEndOf="@+id/storageBtn"
-        app:layout_constraintTop_toTopOf="@+id/storageBtn" />
+        android:src="@drawable/ic_contact" />
 
     <TextView
+        android:id="@+id/tvReferralName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Network usage, auto-download"
-        app:layout_constraintStart_toEndOf="@+id/storageBtn"
-        app:layout_constraintTop_toBottomOf="@+id/storageTitle" />
-
-    <ImageView
-        android:id="@+id/helpBtn"
-        android:layout_width="52dp"
-        android:layout_height="58dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="35dp"
-        android:src="@drawable/ic_help"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/storageBtn" />
-
-    <TextView
-        android:id="@+id/helpTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Help"
-        app:layout_constraintStart_toEndOf="@+id/helpBtn"
-        app:layout_constraintTop_toTopOf="@+id/helpBtn" />
-
-    <TextView
-        android:id="@+id/helpSubTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Help centre, contact us, privacy policy"
-        app:layout_constraintStart_toEndOf="@+id/helpBtn"
-        app:layout_constraintTop_toBottomOf="@+id/helpTitle" />
-
-    <ImageView
-        android:id="@+id/referralBtn"
-        android:layout_width="57dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="35dp"
-        android:src="@drawable/ic_contact"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/helpBtn" />
-
-    <TextView
-        android:id="@+id/referralTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Invite a friend"
-        android:layout_marginTop="15dp"
-        app:layout_constraintStart_toEndOf="@+id/referralBtn"
-        app:layout_constraintTop_toTopOf="@+id/referralBtn" />
+        android:layout_marginBottom="4dp"
+        android:layout_toEndOf="@+id/ivReferralIcon"
+        android:layout_alignParentEnd="true"
+        android:text="Invite a friend" />
+    </RelativeLayout>
 
 </LinearLayout>
 </ScrollView>

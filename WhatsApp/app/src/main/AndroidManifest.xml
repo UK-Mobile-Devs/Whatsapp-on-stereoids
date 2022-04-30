@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.whatsapp">
+    package="com.example.whatsapp" >
 
     <application
+        android:name=".base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".base.BaseApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.WhatsApp">
+        android:theme="@style/Theme.WhatsApp" >
+        <activity
+            android:name=".ui.fragments.account.AccountsFragment"
+            android:exported="false"
+            android:label="@string/title_activity_accounts_fragment"
+            android:theme="@style/Theme.WhatsApp.NoActionBar" />
         <activity
             android:name=".ui.MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

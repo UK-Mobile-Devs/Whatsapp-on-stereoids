@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
 import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
+import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentSettingsBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,13 +25,17 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
 
     override fun initViews() {
         super.initViews()
-        binding.imageView.setOnClickListener{
+        binding.displayPhoto.setOnClickListener {
             val i = Intent(
                 Intent.ACTION_PICK,
                 MediaStore.Images.Media.INTERNAL_CONTENT_URI
             )
             val ACTIVITY_SELECT_IMAGE = 1234
             startActivityForResult(i, ACTIVITY_SELECT_IMAGE)
+        }
+
+        binding.accountTransfer.setOnClickListener {
+            findNavController()!!.navigate(R.id.action_settingsFragment_to_accountsFragment)
         }
     }
 

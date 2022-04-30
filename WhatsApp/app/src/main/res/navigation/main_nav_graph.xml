@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.whatsapp.ui.fragments.home.HomeFragment"
-        android:label="homeFragment"
+        android:label="WhatsApp"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_contactsFragment"
@@ -37,7 +37,15 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.whatsapp.ui.fragments.settings.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="Settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_accountsFragment"
+            app:destination="@id/accountsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountsFragment"
+        android:name="com.example.whatsapp.ui.fragments.account.AccountsFragment"
+        android:label="Account" />
 
 
 </navigation>
