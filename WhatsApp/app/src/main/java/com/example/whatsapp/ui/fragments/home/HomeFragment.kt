@@ -42,13 +42,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         //endregion
 
         binding.fabNewConversation.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_chatsFragment)
         }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.itemSettings -> findNavController()!!.navigate(R.id.action_homeFragment_to_chatsFragment)
+            R.id.itemSettings -> findNavController()!!.navigate(R.id.action_homeFragment_to_settingsFragment)
 
         }
         return super.onOptionsItemSelected(item)
