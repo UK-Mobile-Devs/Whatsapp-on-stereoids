@@ -13,6 +13,7 @@
             android:layout_height="wrap_content"
             android:background="?colorPrimary"
             android:theme="@style/ToolbarTheme"
+            app:popupTheme="@style/MenuTheme"
             app:menu="@menu/home_navigation" />
 
         <fragment
