@@ -121,6 +121,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/chatsTransfer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -158,6 +159,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/notificationTransfer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -196,6 +198,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/storageTransfer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -233,6 +236,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/helpTransfer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -270,6 +274,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/referralTransfer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"

@@ -1,4 +1,4 @@
-package com.example.whatsapp.ui.fragments.account
+package com.example.whatsapp.ui.fragments.settings.storage
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import com.example.whatsapp.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AccountsFragment : Fragment(R.layout.fragment_accounts) {
+class StorageFragment : Fragment(R.layout.fragment_storage) {
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
