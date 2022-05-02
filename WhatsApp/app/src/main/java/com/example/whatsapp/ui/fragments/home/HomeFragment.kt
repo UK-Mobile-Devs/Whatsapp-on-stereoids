@@ -48,7 +48,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.itemSettings -> findNavController()!!.navigate(R.id.action_homeFragment_to_settingsFragment)
+            R.id.itemSettings -> findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
 
         }
         return super.onOptionsItemSelected(item)

@@ -34,6 +34,13 @@
         android:name="com.example.whatsapp.ui.fragments.home.chats.ChatsFragment"
         android:label="@string/chats"
         tools:layout="@layout/fragment_chats"/>
+
+
+    <fragment
+        android:id="@+id/settingsChat"
+        android:name="com.example.whatsapp.ui.fragments.settings.chats.ChatsFragment"
+        android:label="Chats" />
+
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.whatsapp.ui.fragments.settings.SettingsFragment"
@@ -62,14 +69,13 @@
         android:name="com.example.whatsapp.ui.fragments.settings.account.AccountsFragment"
         android:label="Account" />
 
-    <fragment
-        android:id="@+id/settingsChat"
-        android:name="com.example.whatsapp.ui.fragments.settings.chats.ChatsFragment"
-        android:label="Chats" />
+
+
     <fragment
         android:id="@+id/helpFragment"
         android:name="com.example.whatsapp.ui.fragments.settings.help.HelpFragment"
         android:label="Help" />
+
     <fragment
         android:id="@+id/notificationsFragment"
         android:name="com.example.whatsapp.ui.fragments.settings.notifications.NotificationsFragment"

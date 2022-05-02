@@ -16,8 +16,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
 
 
-    private lateinit var navController: NavController
-
     override fun onCreate(savedInstanceState: Bundle?) {
         setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
@@ -35,22 +33,22 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
         }
 
         binding.accountTransfer.setOnClickListener {
-            findNavController()!!.navigate(R.id.action_settingsFragment_to_accountsFragment)
+            findNavController().navigate(R.id.action_settingsFragment_to_accountsFragment)
         }
         binding.chatsTransfer.setOnClickListener {
-            findNavController()!!.navigate(R.id.action_homeFragment_to_chatsFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_chatsFragment)
         }
         binding.notificationTransfer.setOnClickListener {
-            findNavController()!!.navigate(R.id.action_settingsFragment_to_notificationsFragment)
+            findNavController().navigate(R.id.action_settingsFragment_to_notificationsFragment)
         }
         binding.storageTransfer.setOnClickListener {
-            findNavController()!!.navigate(R.id.action_settingsFragment_to_storageFragment)
+            findNavController().navigate(R.id.action_settingsFragment_to_storageFragment)
         }
         binding.helpTransfer.setOnClickListener {
-            findNavController()!!.navigate(R.id.action_settingsFragment_to_helpFragment)
+            findNavController().navigate(R.id.action_settingsFragment_to_helpFragment)
         }
         binding.referralTransfer.setOnClickListener {
-            findNavController()!!.navigate(R.id.action_settingsFragment_to_referralFragment)
+            findNavController().navigate(R.id.action_settingsFragment_to_referralFragment)
         }
     }
 
