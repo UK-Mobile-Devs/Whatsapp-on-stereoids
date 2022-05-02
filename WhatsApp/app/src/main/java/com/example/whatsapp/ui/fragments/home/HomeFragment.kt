@@ -3,18 +3,20 @@ package com.example.whatsapp.ui.fragments.home
 import android.os.Bundle
 import android.view.*
 import android.widget.LinearLayout
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentHomeBinding
-import com.google.android.material.tabs.TabLayout
+import com.example.whatsapp.ui.fragments.home.calls.CallsFragment
+import com.example.whatsapp.ui.fragments.home.camera.CameraFragment
 import com.example.whatsapp.ui.fragments.home.chats.ChatsFragment
+import com.example.whatsapp.ui.fragments.home.status.StatusFragment
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
@@ -22,7 +24,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     //region Variables
     private val viewModel by viewModels<HomeFragmentVM>()
 
-    private lateinit var homeStatePagerAdapter : HomeStatePagerAdapter
+    private lateinit var homeStatePagerAdapter: HomeStatePagerAdapter
 
     //endregion
 
@@ -34,9 +36,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun initViews() {
         super.initViews()
         //region Tabs Initialisation
-        homeStatePagerAdapter = HomeStatePagerAdapter(requireActivity(), listOf(ChatsFragment.newInstance()))
+        homeStatePagerAdapter = HomeStatePagerAdapter(
+            requireActivity(),
+            listOf(ChatsFragment.newInstance(), StatusFragment.newInstance(), CallsFragment.newInstance())
+        )
         binding.vpHomeScreen.adapter = homeStatePagerAdapter
-        TabLayoutMediator(binding.tlNavigation, binding.vpHomeScreen) {_, _  ->
+        TabLayoutMediator(binding.tlNavigation, binding.vpHomeScreen) { _, _ ->
 
         }
         //endregion

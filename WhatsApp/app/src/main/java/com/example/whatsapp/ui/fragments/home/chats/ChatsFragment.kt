@@ -2,11 +2,14 @@ package com.example.whatsapp.ui.fragments.home.chats
 
 import android.view.LayoutInflater
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.selection.SelectionPredicates
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.selection.StableIdKeyProvider
 import androidx.recyclerview.selection.StorageStrategy
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentChatsBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,6 +41,8 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>() {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = chatsAdapter
         }
+
+        this.findNavController()
 
         tracker = SelectionTracker.Builder(
             CHAT_SELECTION_KEY,
