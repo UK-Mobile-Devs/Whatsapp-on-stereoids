@@ -67,9 +67,9 @@
             android:id="@+id/qrCode"
             android:layout_width="42dp"
             android:layout_height="33dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="16dp"
             android:layout_alignParentRight="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="12dp"
             android:src="@drawable/ic_qrcode" />
     </RelativeLayout>
 
