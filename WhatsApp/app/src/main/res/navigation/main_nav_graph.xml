@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.whatsapp.ui.fragments.home.HomeFragment"
-        android:label="homeFragment"
+        android:label="WhatsApp"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_contactsFragment"
@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_homeFragment_to_chatsFragment"
             app:destination="@id/chatsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
 
     </fragment>
     <fragment
@@ -39,6 +42,61 @@
         android:id="@+id/messengerFragment"
         android:name="com.example.whatsapp.ui.fragments.messenger.BaseMessengerFragment"
          />
+
+
+    <fragment
+        android:id="@+id/settingsChat"
+        android:name="com.example.whatsapp.ui.fragments.settings.chats.ChatsFragment"
+        android:label="Chats" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.whatsapp.ui.fragments.settings.SettingsFragment"
+        android:label="Settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_accountsFragment"
+            app:destination="@id/accountsFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_settingsChat"
+            app:destination="@id/settingsChat" />
+        <action
+            android:id="@+id/action_settingsFragment_to_helpFragment"
+            app:destination="@id/helpFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_referralFragment"
+            app:destination="@id/referralFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_storageFragment"
+            app:destination="@id/storageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountsFragment"
+        android:name="com.example.whatsapp.ui.fragments.settings.account.AccountsFragment"
+        android:label="Account" />
+
+
+
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.example.whatsapp.ui.fragments.settings.help.HelpFragment"
+        android:label="Help" />
+
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.example.whatsapp.ui.fragments.settings.notifications.NotificationsFragment"
+        android:label="Notifications" />
+    <fragment
+        android:id="@+id/referralFragment"
+        android:name="com.example.whatsapp.ui.fragments.settings.referral.ReferralFragment"
+        android:label="Invite a friend" />
+
+    <fragment
+        android:id="@+id/storageFragment"
+        android:name="com.example.whatsapp.ui.fragments.settings.storage.StorageFragment"
+        android:label="Storage and data" />
 
 
 </navigation>
