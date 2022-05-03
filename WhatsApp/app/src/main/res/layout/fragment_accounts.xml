@@ -29,11 +29,13 @@
 
         <TextView
             android:id="@+id/tvPrivacy"
+            style="@style/SettingsText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="24dp"
             android:layout_marginBottom="4dp"
             android:layout_toEndOf="@+id/ivPrivacyIcon"
-            android:layout_alignParentEnd="true"
             android:text="@string/privacy" />
     </RelativeLayout>
 
@@ -59,9 +61,11 @@
             android:id="@+id/tvSecurityText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
             android:layout_marginBottom="4dp"
             android:layout_toEndOf="@+id/tvSecurity"
             android:layout_alignParentEnd="true"
+            style="@style/SettingsText"
             android:text="@string/security" />
     </RelativeLayout>
 
@@ -87,9 +91,11 @@
                 android:id="@+id/tvAuthenticationText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
                 android:layout_marginBottom="4dp"
                 android:layout_toEndOf="@+id/tvAuthentication"
                 android:layout_alignParentEnd="true"
+                style="@style/SettingsText"
                 android:text="@string/twofactorauth" />
         </RelativeLayout>
 
@@ -115,9 +121,11 @@
                 android:id="@+id/tvchangeNumberText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
                 android:layout_marginBottom="4dp"
                 android:layout_toEndOf="@+id/tvchangeNumber"
                 android:layout_alignParentEnd="true"
+                style="@style/SettingsText"
                 android:text="@string/changenumber" />
         </RelativeLayout>
 
@@ -144,9 +152,11 @@
                 android:id="@+id/tvrequestChangeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
                 android:layout_marginBottom="4dp"
                 android:layout_toEndOf="@+id/tvrequest"
                 android:layout_alignParentEnd="true"
+                style="@style/SettingsText"
                 android:text="@string/requestaccountinfo" />
         </RelativeLayout>
         <RelativeLayout
@@ -171,9 +181,11 @@
                 android:id="@+id/tvdeleteAccountText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="24dp"
                 android:layout_marginBottom="4dp"
                 android:layout_toEndOf="@+id/tvdeleteAccount"
-                android:layout_alignParentEnd="true"
+                style="@style/SettingsText"
                 android:text="@string/deletemyaccount" />
         </RelativeLayout>
 
