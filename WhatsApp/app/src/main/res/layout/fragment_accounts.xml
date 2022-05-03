@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:src="@drawable/ic_account" />
+            android:src="@drawable/ic_lock" />
 
         <TextView
             android:id="@+id/tvPrivacy"
@@ -46,13 +46,14 @@
             android:paddingTop="12dp"
             android:paddingBottom="12dp"
             android:background="?attr/selectableItemBackground">
-        <ImageView
-            android:id="@+id/tvSecurity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:src="@drawable/ic_account" />
+
+            <ImageView
+                android:id="@+id/tvSecurity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:src="@drawable/ic_security" />
 
         <TextView
             android:id="@+id/tvSecurityText"
@@ -73,13 +74,14 @@
             android:paddingTop="12dp"
             android:paddingBottom="12dp"
             android:background="?attr/selectableItemBackground">
+
             <ImageView
                 android:id="@+id/tvAuthentication"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                android:src="@drawable/ic_account" />
+                android:src="@drawable/ic_lock_verification" />
 
             <TextView
                 android:id="@+id/tvAuthenticationText"
@@ -100,13 +102,14 @@
             android:paddingTop="12dp"
             android:paddingBottom="12dp"
             android:background="?attr/selectableItemBackground">
+
             <ImageView
                 android:id="@+id/tvchangeNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                android:src="@drawable/ic_account" />
+                android:src="@drawable/ic_contact_phone" />
 
             <TextView
                 android:id="@+id/tvchangeNumberText"
@@ -128,13 +131,14 @@
             android:paddingTop="12dp"
             android:paddingBottom="12dp"
             android:background="?attr/selectableItemBackground">
+
             <ImageView
                 android:id="@+id/tvrequest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                android:src="@drawable/ic_account" />
+                android:src="@drawable/ic_request_phone" />
 
             <TextView
                 android:id="@+id/tvrequestChangeText"
@@ -154,13 +158,14 @@
             android:paddingTop="12dp"
             android:paddingBottom="12dp"
             android:background="?attr/selectableItemBackground">
+
             <ImageView
                 android:id="@+id/tvdeleteAccount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                android:src="@drawable/ic_account" />
+                android:src="@drawable/ic_delete" />
 
             <TextView
                 android:id="@+id/tvdeleteAccountText"
