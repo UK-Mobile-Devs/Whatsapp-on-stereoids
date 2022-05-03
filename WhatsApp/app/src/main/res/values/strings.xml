@@ -25,5 +25,11 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
-
+    <!-- Strings used for account page in settings area -->
+    <string name="privacy">Privacy</string>
+    <string name="security">Security</string>
+    <string name="twofactorauth">Two-step verification</string>
+    <string name="changenumber">Change number</string>
+    <string name="requestaccountinfo">Request account info</string>
+    <string name="deletemyaccount">Delete my account</string>
 </resources>
