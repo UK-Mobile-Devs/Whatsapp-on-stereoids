@@ -119,27 +119,27 @@
     <fragment
         android:id="@+id/accountInformationFragment"
         android:name="com.example.whatsapp.ui.fragments.settings.account.accountinfo.accountInformationFragment"
-        android:label="Request account info" />
+        android:label="@string/requestaccountinfo" />
     <fragment
         android:id="@+id/changeNumberFragment"
         android:name="com.example.whatsapp.ui.fragments.settings.account.changenumber.changeNumberFragment"
-        android:label="Change Number" />
+        android:label="@string/changenumber" />
     <fragment
         android:id="@+id/deleteAccountFragment"
         android:name="com.example.whatsapp.ui.fragments.settings.account.deleteaccount.deleteAccountFragment"
-        android:label="Delete my account" />
+        android:label="@string/deletemyaccount" />
     <fragment
         android:id="@+id/privacyFragment"
         android:name="com.example.whatsapp.ui.fragments.settings.account.privacy.privacyFragment"
-        android:label="Privacy" />
+        android:label="@string/privacy" />
     <fragment
         android:id="@+id/securityFragment"
         android:name="com.example.whatsapp.ui.fragments.settings.account.security.securityFragment"
-        android:label="Security" />
+        android:label="@string/security" />
     <fragment
         android:id="@+id/verificationFragment"
         android:name="com.example.whatsapp.ui.fragments.settings.account.verification.verificationFragment"
-        android:label="Two-step verification" />
+        android:label="@string/twofactorauth" />
 
 
 </navigation>

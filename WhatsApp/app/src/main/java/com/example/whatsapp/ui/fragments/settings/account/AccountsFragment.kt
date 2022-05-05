@@ -28,7 +28,7 @@ class AccountsFragment  : BaseFragment<FragmentAccountsBinding>() {
         binding.privacyTransfer.setOnClickListener {
             findNavController().navigate(R.id.action_accountsFragment_to_privacyFragment)
         }
-        binding.securitytransfer.setOnClickListener {
+        binding.securityTransferLayout.setOnClickListener {
             findNavController().navigate(R.id.action_accountsFragment_to_securityFragment)
         }
         binding.twofaLayout.setOnClickListener {
