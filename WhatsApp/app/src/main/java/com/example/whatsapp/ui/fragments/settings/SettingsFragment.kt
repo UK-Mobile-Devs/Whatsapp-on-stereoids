@@ -23,7 +23,7 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
 
     override fun initViews() {
         super.initViews()
-        binding.displayPhoto.setOnClickListener {
+        binding.ivProfilePicture.setOnClickListener {
             val i = Intent(
                 Intent.ACTION_PICK,
                 MediaStore.Images.Media.INTERNAL_CONTENT_URI
@@ -32,22 +32,22 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
             startActivityForResult(i, ACTIVITY_SELECT_IMAGE)
         }
 
-        binding.accountTransfer.setOnClickListener {
+        binding.layoutAccountRow.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_accountsFragment)
         }
-        binding.chatsTransfer.setOnClickListener {
+        binding.layoutChatsRow.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_chatsFragment)
         }
-        binding.notificationTransfer.setOnClickListener {
+        binding.layoutNotificationsRow.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_notificationsFragment)
         }
-        binding.storageTransfer.setOnClickListener {
+        binding.layoutStorageRow.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_storageFragment)
         }
-        binding.helpTransfer.setOnClickListener {
+        binding.layoutHelpRow.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_helpFragment)
         }
-        binding.referralTransfer.setOnClickListener {
+        binding.layoutReferralRow.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_referralFragment)
         }
     }
