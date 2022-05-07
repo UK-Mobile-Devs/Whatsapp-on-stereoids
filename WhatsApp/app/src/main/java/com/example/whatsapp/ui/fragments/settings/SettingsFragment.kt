@@ -1,14 +1,18 @@
 package com.example.whatsapp.ui.fragments.settings
 
-import android.content.Intent
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.LayoutInflater
-import androidx.navigation.NavController
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.ActivityResultRegistry
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentSettingsBinding
+import com.example.whatsapp.utils.Constants.SELECT_PROFILE_IMAGE_KEY
+import com.example.whatsapp.utils.Constants.SETTINGS_FRAGMENT_KEY
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -18,18 +22,14 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setHasOptionsMenu(true)
+        initializeLifecycleObserver(SETTINGS_FRAGMENT_KEY)
         super.onCreate(savedInstanceState)
     }
 
     override fun initViews() {
         super.initViews()
         binding.ivProfilePicture.setOnClickListener {
-            val i = Intent(
-                Intent.ACTION_PICK,
-                MediaStore.Images.Media.INTERNAL_CONTENT_URI
-            )
-            val ACTIVITY_SELECT_IMAGE = 1234
-            startActivityForResult(i, ACTIVITY_SELECT_IMAGE)
+            observer.selectImage()
         }
 
         binding.layoutAccountRow.setOnClickListener {
@@ -56,7 +56,9 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
     override fun inflateBinding(layoutInflater: LayoutInflater): FragmentSettingsBinding {
         return FragmentSettingsBinding.inflate(layoutInflater)
     }
+
     override fun observeViewModel() {
 
     }
+
 }
