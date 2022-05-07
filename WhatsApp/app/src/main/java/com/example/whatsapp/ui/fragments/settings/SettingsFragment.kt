@@ -2,16 +2,10 @@ package com.example.whatsapp.ui.fragments.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.ActivityResultRegistry
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentSettingsBinding
-import com.example.whatsapp.utils.Constants.SELECT_PROFILE_IMAGE_KEY
 import com.example.whatsapp.utils.Constants.SETTINGS_FRAGMENT_KEY
 import dagger.hilt.android.AndroidEntryPoint
 

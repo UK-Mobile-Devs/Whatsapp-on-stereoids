@@ -67,20 +67,27 @@ abstract class BaseFragment<Binding : ViewBinding> : Fragment() {
 
     open fun initViews() {}
 
-    fun initializeLifecycleObserver(fragmentKey: String){
+    fun initializeLifecycleObserver(fragmentKey: String) {
         observer = MyLifecycleObserver(requireActivity().activityResultRegistry, fragmentKey)
         lifecycle.addObserver(observer)
     }
 
-    class MyLifecycleObserver(private val registry: ActivityResultRegistry, private val fragmentKey : String) :
+    class MyLifecycleObserver(
+        private val registry: ActivityResultRegistry,
+        private val fragmentKey: String
+    ) :
         DefaultLifecycleObserver {
         lateinit var getContent: ActivityResultLauncher<String>
 
         override fun onCreate(owner: LifecycleOwner) {
-            when(fragmentKey){
+            when (fragmentKey) {
                 SETTINGS_FRAGMENT_KEY -> {
                     getContent =
-                        registry.register(Constants.SELECT_PROFILE_IMAGE_KEY, owner, ActivityResultContracts.GetContent()) { uri ->
+                        registry.register(
+                            Constants.SELECT_PROFILE_IMAGE_KEY,
+                            owner,
+                            ActivityResultContracts.GetContent()
+                        ) { uri ->
                             // Handle the returned Uri
                         }
                 }
