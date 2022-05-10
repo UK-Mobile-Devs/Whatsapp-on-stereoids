@@ -44,10 +44,6 @@
          />
 
 
-    <fragment
-        android:id="@+id/settingsChat"
-        android:name="com.example.whatsapp.ui.fragments.settings.chats.ChatsFragment"
-        android:label="Chats" />
 
     <fragment
         android:id="@+id/settingsFragment"
@@ -56,9 +52,7 @@
         <action
             android:id="@+id/action_settingsFragment_to_accountsFragment"
             app:destination="@id/accountsFragment" />
-        <action
-            android:id="@+id/action_settingsFragment_to_settingsChat"
-            app:destination="@id/settingsChat" />
+
         <action
             android:id="@+id/action_settingsFragment_to_helpFragment"
             app:destination="@id/helpFragment" />
@@ -71,6 +65,9 @@
         <action
             android:id="@+id/action_settingsFragment_to_storageFragment"
             app:destination="@id/storageFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_settingsChatsFragment"
+            app:destination="@id/settingsChatsFragment" />
     </fragment>
     <fragment
         android:id="@+id/accountsFragment"
@@ -140,6 +137,10 @@
         android:id="@+id/verificationFragment"
         android:name="com.example.whatsapp.ui.fragments.settings.account.verification.verificationFragment"
         android:label="@string/twofactorauth" />
+    <fragment
+        android:id="@+id/settingsChatsFragment"
+        android:name="com.example.whatsapp.ui.fragments.settings.chats.settingsChatsFragment"
+        android:label="Chats" />
 
 
 </navigation>

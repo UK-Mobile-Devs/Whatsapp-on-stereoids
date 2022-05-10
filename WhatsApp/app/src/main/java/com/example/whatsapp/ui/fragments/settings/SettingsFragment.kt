@@ -36,7 +36,7 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
             findNavController().navigate(R.id.action_settingsFragment_to_accountsFragment)
         }
         binding.chatsTransfer.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_chatsFragment)
+            findNavController().navigate(R.id.action_settingsFragment_to_settingsChatsFragment)
         }
         binding.notificationTransfer.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_notificationsFragment)

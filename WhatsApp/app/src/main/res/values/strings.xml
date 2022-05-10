@@ -32,4 +32,21 @@
     <string name="changenumber">Change number</string>
     <string name="requestaccountinfo">Request account info</string>
     <string name="deletemyaccount">Delete my account</string>
+
+
+    <!-- Strings used for account page in chat settings area -->
+    <string name="display">Display</string>
+    <string name="theme">Theme</string>
+    <string name="light">Light</string>
+    <string name="wallpaper">Wallpaper</string>
+    <string name="enterIsSend">Enter is send</string>
+    <string name="enterIsSendDesc">Enter Key will send your message</string>
+    <string name="mediaVisibility">Media visibility</string>
+    <string name="mediaVisibilityDesc">Show newly downloaded media\nin your phone\'s gallery</string>
+    <string name="fontSize">Font Size</string>
+    <string name="archivedChats">Archived chats</string>
+    <string name="archivedChatsTitle">Keep chats archived</string>
+    <string name="archivedChatsDesc">Archived chats will remain\narchived when you receive a\nnew message</string>
+
+
 </resources>

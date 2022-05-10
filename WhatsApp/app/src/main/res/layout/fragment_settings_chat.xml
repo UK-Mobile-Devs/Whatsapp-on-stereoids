@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/display" />
+
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/themeTransfer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/ivThemeIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:src="@drawable/ic_light_mode" />
+
+            <TextView
+                android:id="@+id/tvThemeName"
+                style="@style/chatSettingsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="4dp"
+                android:layout_toEndOf="@+id/ivThemeIcon"
+                android:text="@string/theme" />
+
+            <TextView
+                android:id="@+id/tvThemecolour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvThemeName"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="0dp"
+                android:layout_toEndOf="@+id/ivThemeIcon"
+                android:text="@string/light" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/wallpaperTransfer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/ivWallpaperIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:src="@drawable/ic_wallpaper" />
+
+            <TextView
+                android:id="@+id/tvWallpaperName"
+                style="@style/chatSettingsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="2dp"
+                android:layout_toEndOf="@+id/ivWallpaperIcon"
+                android:text="@string/wallpaper" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="16dp"
+            android:background="@color/grey"
+            app:layout_constraintTop_toBottomOf="@+id/wallpaperTransfer" />
+
+        <RelativeLayout
+            android:id="@+id/enterIsSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:background="?attr/selectableItemBackground">
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/enterSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false" />
+            <ImageView
+                android:id="@+id/ivemptyIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:src="@drawable/ic_empty" />
+
+            <TextView
+                android:id="@+id/tvEnterissend"
+                style="@style/chatSettingsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="4dp"
+                android:layout_toEndOf="@+id/ivemptyIcon"
+                android:text="@string/enterIsSend" />
+
+            <TextView
+                android:id="@+id/tvEnterDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvEnterissend"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="0dp"
+                android:layout_toEndOf="@+id/ivemptyIcon"
+                android:text="@string/enterIsSendDesc" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/mediaVisibility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:background="?attr/selectableItemBackground">
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/mediaSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false" />
+
+            <ImageView
+                android:id="@+id/ivemptyIcon2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:src="@drawable/ic_empty" />
+
+            <TextView
+                android:id="@+id/tvMediaVisibility"
+                style="@style/chatSettingsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="4dp"
+                android:layout_toEndOf="@+id/ivemptyIcon2"
+                android:text="@string/mediaVisibility" />
+
+            <TextView
+                android:id="@+id/tvMediaVisibilityDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvMediaVisibility"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="0dp"
+                android:layout_toEndOf="@+id/ivemptyIcon2"
+                android:text="@string/mediaVisibilityDesc" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/fontSizeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/ivemptyIcon3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:src="@drawable/ic_empty" />
+
+            <TextView
+                android:id="@+id/tvFontSize"
+                style="@style/chatSettingsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="4dp"
+                android:layout_toEndOf="@+id/ivemptyIcon3"
+                android:text="@string/fontSize" />
+
+            <TextView
+                android:id="@+id/tvFontSizeDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvFontSize"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="0dp"
+                android:layout_toEndOf="@+id/ivemptyIcon3"
+                android:text="Medium" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="16dp"
+            android:background="@color/grey"
+            app:layout_constraintTop_toBottomOf="@+id/tvFontSizeDesc" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="@string/archivedChats" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/archivedChatsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:background="?attr/selectableItemBackground">
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/sw_custom_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false" />
+            <ImageView
+                android:id="@+id/ivemptyIcon4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:src="@drawable/ic_empty" />
+
+            <TextView
+                android:id="@+id/tvArchivedChats"
+                style="@style/chatSettingsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="4dp"
+                android:layout_toEndOf="@+id/ivemptyIcon4"
+                android:text="@string/archivedChatsTitle" />
+
+            <TextView
+                android:id="@+id/tvArchivedChatsDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvArchivedChats"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="0dp"
+                android:layout_toEndOf="@+id/ivemptyIcon4"
+                android:text="@string/archivedChatsDesc" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="16dp"
+            android:background="@color/grey"
+            app:layout_constraintTop_toBottomOf="@+id/tvArchivedChatsDesc" />
+
+
+        <RelativeLayout
+            android:id="@+id/languageLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/ivLanguageIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:src="@drawable/ic_language" />
+
+            <TextView
+                android:id="@+id/tvLanguage"
+                style="@style/chatSettingsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="4dp"
+                android:layout_toEndOf="@+id/ivLanguageIcon"
+                android:text="App Language" />
+
+            <TextView
+                android:id="@+id/tvLanguageDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvLanguage"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="0dp"
+                android:layout_toEndOf="@+id/ivLanguageIcon"
+                android:text="Phone's language" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/backupLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/ivBackupIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:src="@drawable/ic_backup" />
+
+            <TextView
+                android:id="@+id/tvBackup"
+                style="@style/chatSettingsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="4dp"
+                android:layout_toEndOf="@+id/ivBackupIcon"
+                android:text="Chat Backup" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/chatHistoryLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/ivchatHistoryIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:src="@drawable/ic_history" />
+
+            <TextView
+                android:id="@+id/tvChatHistory"
+                style="@style/chatSettingsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="4dp"
+                android:layout_toEndOf="@+id/ivchatHistoryIcon"
+                android:text="Chat History" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>

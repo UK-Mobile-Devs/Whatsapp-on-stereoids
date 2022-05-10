@@ -7,7 +7,7 @@ import com.example.whatsapp.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ChatsFragment : Fragment(R.layout.fragment_chats) {
+class settingsChatsFragment : Fragment(R.layout.fragment_settings_chat) {
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
