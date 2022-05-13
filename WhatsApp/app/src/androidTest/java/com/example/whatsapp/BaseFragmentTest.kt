@@ -11,7 +11,7 @@ import org.junit.runner.RunWith
 open class BaseFragmentTest {
 
     @Before
-    open fun setup(){
+    open fun setup() {
         //setup activity
         ActivityScenario.launch(MainActivity::class.java)
     }
