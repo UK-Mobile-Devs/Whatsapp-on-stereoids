@@ -53,7 +53,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         //endregion
 
         binding.fabNewConversation.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_chatsFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_chatsFragment) //todo update this navigation to contacts fragment
         }
     }
 
