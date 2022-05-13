@@ -24,7 +24,7 @@ class HomeFragmentIdlingResource(private val activity: Activity) : IdlingResourc
             resourceCallBack.onTransitionToIdle()
             return true
         }
-        val appBarLayout = activity.findViewById<AppBarLayout>(R.id.tabCalls)
+        val appBarLayout = activity.findViewById<AppBarLayout>(R.id.appbarLayout)
 
         if (appBarLayout.isVisible) resourceCallBack.onTransitionToIdle()
 
