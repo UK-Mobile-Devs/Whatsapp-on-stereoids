@@ -156,16 +156,19 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
             }
             R.id.deleteChats -> {
                 Toast.makeText(requireContext(), "Delete Clicked", Toast.LENGTH_SHORT).show()
+                tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.muteNotifications -> {
                 Toast.makeText(requireContext(), "Mute Clicked", Toast.LENGTH_SHORT).show()
+                tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.archiveMessages -> {
                 Toast.makeText(requireContext(), "Archived Clicked", Toast.LENGTH_SHORT ).show()
+                tracker?.clearSelection()
                 mode.finish()
                 true
             }
@@ -181,6 +184,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
         actionMode = null
     }
     //endregion
+
 
     //region Fragment Life-Cycle
     override fun onSaveInstanceState(outState: Bundle) {

@@ -18,7 +18,7 @@
     <item
         android:id="@+id/muteNotifications"
         android:title="@string/chats_mute_title"
-        android:icon="@drawable/ic_notification_mute"
+        android:icon="@drawable/ic_menu_mute"
         app:showAsAction="ifRoom" />
 
     <item

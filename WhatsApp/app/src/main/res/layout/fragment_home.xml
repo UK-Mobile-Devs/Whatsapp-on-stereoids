@@ -70,13 +70,14 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabNewConversation"
+            android:contentDescription="@string/start_conversation_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/light_green"
-            android:gravity="end|bottom"
-            android:src="@drawable/ic_messenger_icon"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:backgroundTint="@color/teal_green"
+            app:tint="@color/white"
+            app:srcCompat="@drawable/ic_messenger_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

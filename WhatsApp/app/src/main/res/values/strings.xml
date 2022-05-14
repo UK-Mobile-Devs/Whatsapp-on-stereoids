@@ -43,4 +43,5 @@
     <string name="chats_mark_unread_title">Mark as unread</string>
     <string name="chats_select_all_title">Select all</string>
     <string name="chats_add_to_contacts_title">Add to contacts</string>
+    <string name="start_conversation_description">Start new chat</string>
 </resources>

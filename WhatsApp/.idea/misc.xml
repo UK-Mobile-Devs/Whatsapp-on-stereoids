@@ -19,6 +19,8 @@
         <entry key="app/src/main/res/drawable/ic_check.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.1855" />
         <entry key="app/src/main/res/drawable/ic_help.xml" value="0.1305" />
+        <entry key="app/src/main/res/drawable/ic_menu_mute.xml" value="0.1515" />
+        <entry key="app/src/main/res/drawable/ic_messenger_icon.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_notification_mute.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_notifications.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
@@ -27,6 +29,7 @@
         <entry key="app/src/main/res/layout/item_chat.xml" value="0.1" />
         <entry key="app/src/main/res/menu/home_chats_context_menu.xml" value="0.1" />
         <entry key="app/src/main/res/menu/home_delete_chats_actionbar.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/home_navigation.xml" value="0.1" />
       </map>
     </option>
   </component>
