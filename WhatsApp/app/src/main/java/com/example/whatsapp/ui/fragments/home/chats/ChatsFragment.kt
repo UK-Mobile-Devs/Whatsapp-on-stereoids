@@ -64,21 +64,18 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
 
         tracker?.addObserver(object : SelectionTracker.SelectionObserver<Long>() {
             override fun onSelectionChanged() {
-                if (tracker?.hasSelection() == true) {
-                    actionMode?.title = String.format("%d", tracker?.selection?.size())
-                } else {
-                    actionMode?.title ="0"
-                }
-
+                actionMode?.title = if (tracker?.hasSelection() == true) String.format(
+                    "%d", tracker?.selection?.size()
+                ) else "0"
             }
 
             override fun onSelectionRestored() {
-                Log.e("Selected: ", "Restored")
+                Log.e("Selection: ", "Restored")
             }
 
             override fun onItemStateChanged(key: Long, selected: Boolean) {
                 super.onItemStateChanged(key, selected)
-                Log.e("Selected: ", "New Selection $key")
+                Log.e("Selection: ", "Selection Made $key")
 
 
                 val size = tracker?.selection?.size()
@@ -97,7 +94,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
 
             override fun onSelectionRefresh() {
                 super.onSelectionRefresh()
-                Log.e("Selected: ", "Refresh")
+                Log.e("Selection: ", "Refresh")
             }
         })
 
