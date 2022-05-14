@@ -32,4 +32,15 @@
     <string name="changenumber">Change number</string>
     <string name="requestaccountinfo">Request account info</string>
     <string name="deletemyaccount">Delete my account</string>
+    <string name="chats_pin_title">Pin</string>
+    <string name="chats_delete_title">Delete</string>
+    <string name="chats_mute_title">Mute</string>
+    <string name="chats_archive_title">Archive</string>
+    <string name="chats_options_title">Options</string>
+    <string name="chats_exit_group_title">Exit Group</string>
+    <string name="chats_add_chat_shortcut_title">Add chat shortcut</string>
+    <string name="chats_group_info_title">Group Info</string>
+    <string name="chats_mark_unread_title">Mark as unread</string>
+    <string name="chats_select_all_title">Select all</string>
+    <string name="chats_add_to_contacts_title">Add to contacts</string>
 </resources>

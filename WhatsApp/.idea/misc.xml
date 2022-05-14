@@ -15,11 +15,17 @@
         <entry key="..\:/Users/ugur6/Documents/Whatsapp-on-stereoids/WhatsApp/app/src/main/res/menu/home_navigation.xml" value="0.34564102564102567" />
         <entry key="..\:/Users/ugur6/Documents/Whatsapp-on-stereoids/WhatsApp/app/src/main/res/menu/navigation.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ugur6/Documents/Whatsapp-on-stereoids/WhatsApp/app/src/main/res/menu/topnavigation.xml" value="0.36666666666666664" />
+        <entry key="app/src/main/res/drawable/ic_baseline_volume_off_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_check.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.1855" />
+        <entry key="app/src/main/res/drawable/ic_help.xml" value="0.1305" />
+        <entry key="app/src/main/res/drawable/ic_notification_mute.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_notifications.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_chats.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_chat.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/home_chats_context_menu.xml" value="0.1" />
         <entry key="app/src/main/res/menu/home_delete_chats_actionbar.xml" value="0.1" />
       </map>
     </option>

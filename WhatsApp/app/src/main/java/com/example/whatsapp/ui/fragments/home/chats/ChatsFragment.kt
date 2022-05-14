@@ -1,5 +1,6 @@
 package com.example.whatsapp.ui.fragments.home.chats
 
+import android.os.Bundle
 import android.util.Log
 import android.view.ActionMode
 import android.view.LayoutInflater
@@ -9,7 +10,6 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.selection.SelectionPredicates
 import androidx.recyclerview.selection.SelectionTracker
-import androidx.recyclerview.selection.StableIdKeyProvider
 import androidx.recyclerview.selection.StorageStrategy
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.whatsapp.R
@@ -18,6 +18,7 @@ import com.example.whatsapp.databinding.FragmentChatsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
+
 
 @AndroidEntryPoint
 class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback {
@@ -50,7 +51,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
         tracker = SelectionTracker.Builder(
             CHAT_SELECTION_KEY,
             binding.rvChats,
-            StableIdKeyProvider(binding.rvChats),
+            ChatsKeyProvider(binding.rvChats),
             ItemDetailsLookup(binding.rvChats),
             StorageStrategy.createLongStorage()
         ).withSelectionPredicate(
@@ -63,7 +64,11 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
 
         tracker?.addObserver(object : SelectionTracker.SelectionObserver<Long>() {
             override fun onSelectionChanged() {
-                Log.e("Selected: ", "New Selection")
+                if (tracker?.hasSelection() == true) {
+                    actionMode?.title = String.format("%d", tracker?.selection?.size())
+                } else {
+                    actionMode?.title ="0"
+                }
 
             }
 
@@ -101,6 +106,11 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
         //endregion
     }
 
+    override fun initArgs(arguments: Bundle) {
+        super.initArgs(arguments)
+        tracker?.onRestoreInstanceState(arguments)
+    }
+
     override fun observeViewModel() {
 
         //region Inputs
@@ -120,31 +130,30 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
     }
     //endregion
 
-    //region Companion Object
-    companion object {
-        const val CHAT_SELECTION_KEY = "CHAT_SELECTION_KEY"
-
-        fun newInstance() : ChatsFragment {
-            return ChatsFragment()
-        }
-    }
-    //endregion
-
     //region ActionMode.Callback
     override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
         mode.menuInflater.inflate(R.menu.home_chats_context_menu, menu)
-        mode.title = tracker?.selection?.size().toString()
         return true
     }
 
     override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
-        return false
+        menu.findItem(R.id.pinChats).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
+        menu.findItem(R.id.deleteChats).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
+        menu.findItem(R.id.archiveMessages).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
+        menu.findItem(R.id.muteNotifications).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
+        return true
     }
 
     override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
         return when (item.itemId) {
+            android.R.id.home -> {
+                tracker?.clearSelection()
+                mode.finish()
+                true
+            }
             R.id.pinChats -> {
                 Toast.makeText(requireContext(), "Pinned Clicked", Toast.LENGTH_SHORT).show()
+                tracker?.clearSelection()
                 mode.finish()
                 true
             }
@@ -163,12 +172,8 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
                 mode.finish()
                 true
             }
-            R.id.chatOptions -> {
-                Toast.makeText(requireContext(), "Chat Clicked", Toast.LENGTH_SHORT).show()
-                mode.finish()
-                true
-            }
             else -> {
+                tracker?.clearSelection()
                 mode.finish()
                 false
             }
@@ -177,6 +182,23 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
 
     override fun onDestroyActionMode(p0: ActionMode?) {
         actionMode = null
+    }
+    //endregion
+
+    //region Fragment Life-Cycle
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        tracker?.onSaveInstanceState(outState)
+    }
+    //endregion
+
+    //region Companion Object
+    companion object {
+        const val CHAT_SELECTION_KEY = "CHAT_SELECTION_KEY"
+
+        fun newInstance() : ChatsFragment {
+            return ChatsFragment()
+        }
     }
     //endregion
 }

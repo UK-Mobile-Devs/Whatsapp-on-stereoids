@@ -14,8 +14,8 @@ import com.example.firestorerepository.datatypes.Conversation
 import com.example.whatsapp.databinding.ItemChatBinding
 
 
-class MyItemKeyProvider(private val recyclerView: RecyclerView) :
-    ItemKeyProvider<Long>(ItemKeyProvider.SCOPE_MAPPED) {
+class ChatsKeyProvider(private val recyclerView: RecyclerView) :
+    ItemKeyProvider<Long>(SCOPE_MAPPED) {
 
     override fun getKey(position: Int): Long? {
         return recyclerView.adapter?.getItemId(position)
@@ -42,13 +42,11 @@ class ItemDetailsLookup(private val recyclerView: RecyclerView) :
 
 class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(DiffCallback()) {
 
-     var tracker: SelectionTracker<Long>? = null
+    var tracker: SelectionTracker<Long>? = null
 
     init {
         setHasStableIds(true)
     }
-
-
 
     //region ListAdapter Overrides
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatsViewHolder {
