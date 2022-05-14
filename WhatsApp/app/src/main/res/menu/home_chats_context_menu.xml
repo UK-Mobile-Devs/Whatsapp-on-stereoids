@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/pinChats"
+        android:title="Pin"
+        android:icon="@drawable/ic_pin"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/deleteChats"
+        android:title="Delete"
+        android:icon="@drawable/ic_delete"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/muteNotifications"
+        android:title="Mute"
+        android:icon="@drawable/ic_notifications"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/archiveMessages"
+        android:title="Archive"
+        android:icon="@drawable/ic_archive"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/chatOptions"
+        android:title="Options"
+        android:icon="@drawable/ic_more"/>
+
+</menu>
