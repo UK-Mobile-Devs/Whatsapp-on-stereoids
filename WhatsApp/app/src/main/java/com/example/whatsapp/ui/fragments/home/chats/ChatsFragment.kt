@@ -143,11 +143,6 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
 
     override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
         return when (item.itemId) {
-            android.R.id.home -> {
-                tracker?.clearSelection()
-                mode.finish()
-                true
-            }
             R.id.pinChats -> {
                 Toast.makeText(requireContext(), "Pinned Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
@@ -172,6 +167,42 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
                 mode.finish()
                 true
             }
+            R.id.exitGroup -> {
+                Toast.makeText(requireContext(), "Exit Group Clicked", Toast.LENGTH_SHORT ).show()
+                tracker?.clearSelection()
+                mode.finish()
+                true
+            }
+            R.id.addChatShortcut -> {
+                Toast.makeText(requireContext(), "Add Chat Clicked", Toast.LENGTH_SHORT ).show()
+                tracker?.clearSelection()
+                mode.finish()
+                true
+            }
+            R.id.addToContact -> {
+                Toast.makeText(requireContext(), "Add To Contact Clicked", Toast.LENGTH_SHORT ).show()
+                tracker?.clearSelection()
+                mode.finish()
+                true
+            }
+            R.id.groupInfo -> {
+                Toast.makeText(requireContext(), "Group Info Clicked", Toast.LENGTH_SHORT ).show()
+                tracker?.clearSelection()
+                mode.finish()
+                true
+            }
+            R.id.markUnread -> {
+                Toast.makeText(requireContext(), "Mark Unread Clicked", Toast.LENGTH_SHORT ).show()
+                tracker?.clearSelection()
+                mode.finish()
+                true
+            }
+            R.id.selectAll -> {
+                Toast.makeText(requireContext(), "Select All Clicked", Toast.LENGTH_SHORT ).show()
+                tracker?.clearSelection()
+                mode.finish()
+                true
+            }
             else -> {
                 tracker?.clearSelection()
                 mode.finish()
@@ -182,6 +213,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
 
     override fun onDestroyActionMode(p0: ActionMode?) {
         actionMode = null
+        tracker?.clearSelection()
     }
     //endregion
 
