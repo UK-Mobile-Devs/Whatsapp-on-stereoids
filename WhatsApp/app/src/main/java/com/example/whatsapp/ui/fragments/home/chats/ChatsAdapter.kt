@@ -15,26 +15,35 @@ import com.example.firestorerepository.datatypes.Conversation
 import com.example.whatsapp.databinding.ItemChatBinding
 
 
-class ChatsKeyProvider(private val recyclerView: RecyclerView) :
-    ItemKeyProvider<Long>(SCOPE_MAPPED) {
+class ChatsKeyProvider(private val chatsAdapter: ChatsAdapter) :
+    ItemKeyProvider<Conversation>(SCOPE_CACHED) {
 
-    override fun getKey(position: Int): Long? {
-        return recyclerView.adapter?.getItemId(position)
+    override fun getKey(position: Int): Conversation {
+        return chatsAdapter.getItem(position)
     }
 
-    override fun getPosition(key: Long): Int {
-        val viewHolder = recyclerView.findViewHolderForItemId(key)
-        return viewHolder?.layoutPosition ?: RecyclerView.NO_POSITION
+    override fun getPosition(conversation: Conversation): Int {
+        return chatsAdapter.getItemPosition(conversation)
     }
 }
 
+
+data class ConversationDetails(
+    private val position: Int = 0,
+    private val conversation: Conversation?
+) : ItemDetailsLookup.ItemDetails<Conversation>() {
+
+    override fun getPosition(): Int = position
+
+    override fun getSelectionKey(): Conversation? = conversation
+}
+
 class ItemDetailsLookup(private val recyclerView: RecyclerView) :
-    ItemDetailsLookup<Long>() {
-    override fun getItemDetails(event: MotionEvent): ItemDetails<Long>? {
+    ItemDetailsLookup<Conversation>() {
+    override fun getItemDetails(event: MotionEvent): ItemDetails<Conversation>? {
         val view = recyclerView.findChildViewUnder(event.x, event.y)
         if (view != null) {
-            return (recyclerView.getChildViewHolder(view) as ChatsAdapter.ChatsViewHolder)
-                .getItemDetails()
+            return (recyclerView.getChildViewHolder(view) as ChatsAdapter.ChatsViewHolder).getItemDetails()
         }
         return null
     }
@@ -43,7 +52,7 @@ class ItemDetailsLookup(private val recyclerView: RecyclerView) :
 
 class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(DiffCallback()) {
 
-    var tracker: SelectionTracker<Long>? = null
+    var tracker: SelectionTracker<Conversation>? = null
 
     init {
         setHasStableIds(true)
@@ -57,10 +66,17 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
 
     override fun onBindViewHolder(holder: ChatsViewHolder, position: Int) {
         tracker?.let {
-            holder.bind(getItem(position), it.isSelected(position.toLong()))
+            holder.bind(getItem(position), it.isSelected(getItem(position)))
         }
     }
 
+    override fun getItemCount(): Int = currentList.size
+
+
+    public override fun getItem(position: Int): Conversation = currentList[position]
+    fun getItemPosition(conversation : Conversation): Int = currentList.indexOf(conversation)
+
+    override fun getItemViewType(position: Int) = position
 
     override fun getItemId(position: Int): Long = position.toLong()
 
@@ -76,13 +92,14 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
         private val ivIcon = binding.ivIcon
         private val lavSelected = binding.lavSelected
         //endregion
+        private var conversation : Conversation?= null
 
         fun bind(conversation: Conversation, isSelected : Boolean) {
 
+            this.conversation = conversation
             lavSelected.visibility = if(isSelected) View.VISIBLE else View.GONE
 
-
-            if(conversation.isGroup) {
+            if(!conversation.isGroup) {
                 // Todo: Add actual data here from the conversation, but the database structure is currently TBT
                 tvTitle.text = "Bill Gates"
                 tvBody.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
@@ -95,11 +112,11 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
             }
         }
 
-        fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> =
-            object : ItemDetailsLookup.ItemDetails<Long>() {
-                override fun getPosition(): Int = absoluteAdapterPosition
-                override fun getSelectionKey(): Long = itemId
-            }
+
+        fun getItemDetails(): ConversationDetails = ConversationDetails(
+            position = bindingAdapterPosition,
+            conversation = conversation
+        )
     }
     //endregion
 

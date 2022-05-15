@@ -9,9 +9,12 @@ import androidx.recyclerview.selection.SelectionPredicates
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.selection.StorageStrategy
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.firestorerepository.datatypes.Conversation
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentChatsBinding
+import com.example.whatsapp.utils.conversationSelectionType
+import com.example.whatsapp.utils.getSelectionFromTracker
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -25,7 +28,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
 
     private val chatsAdapter: ChatsAdapter = ChatsAdapter()
 
-    private var tracker: SelectionTracker<Long>? = null
+    private var tracker: SelectionTracker<Conversation>? = null
 
     var actionMode : ActionMode?= null
 
@@ -39,6 +42,14 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
     override fun initViews() {
         super.initViews()
 
+
+        //endregion
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onViewCreated(view, savedInstanceState)
+
         //region List Of Conversations RecyclerView Initialisation
         binding.rvChats.apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -48,18 +59,14 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
         tracker = SelectionTracker.Builder(
             CHAT_SELECTION_KEY,
             binding.rvChats,
-            ChatsKeyProvider(binding.rvChats),
+            ChatsKeyProvider(chatsAdapter),
             ItemDetailsLookup(binding.rvChats),
-            StorageStrategy.createLongStorage()
+            StorageStrategy.createParcelableStorage(Conversation::class.java)
         ).withSelectionPredicate(
             SelectionPredicates.createSelectAnything()
         ).build()
 
-
-
-
-
-        tracker?.addObserver(object : SelectionTracker.SelectionObserver<Long>() {
+        tracker?.addObserver(object : SelectionTracker.SelectionObserver<Conversation>() {
             override fun onSelectionChanged() {
 
                 if (actionMode == null) {
@@ -67,6 +74,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
                 }
 
                 val selectionSize = tracker?.selection?.size() ?: 0
+                val selectionType = tracker?.getSelectionFromTracker()?.conversationSelectionType()
                 if (selectionSize == 0) {
                     actionMode?.finish()
                     tracker?.clearSelection()
@@ -74,35 +82,13 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
                 actionMode?.title =
                     if (selectionSize > 0) String.format("%d", selectionSize) else "0"
 
-                //Todo: This is placeholder until I check the recycler view contents
-                if (selectionSize == 1) {
-                    updateActionBarState(ConversationSelectionType.INDIVIDUAL)
-                } else if (selectionSize == 2) {
-                    updateActionBarState(ConversationSelectionType.GROUP)
-                } else {
-                    updateActionBarState(ConversationSelectionType.MIXTURE)
-                }
-            }
-
-            override fun onSelectionRestored() {
-                Log.e("Selection: ", "Restored")
-            }
-
-            override fun onItemStateChanged(key: Long, selected: Boolean) {
-                super.onItemStateChanged(key, selected)
-                Log.e("Selection: ", "Selection Made $key")
-
-            }
-
-            override fun onSelectionRefresh() {
-                super.onSelectionRefresh()
-                Log.e("Selection: ", "Refresh")
+                updateActionBarState(selectionType)
             }
         })
-
+        if (savedInstanceState != null) {
+            tracker?.onRestoreInstanceState(savedInstanceState)
+        }
         chatsAdapter.tracker = tracker
-
-        //endregion
     }
 
     override fun initArgs(arguments: Bundle) {
@@ -129,20 +115,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
     }
     //endregion
 
-    //region ActionMode.Callback
-    override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-        mode.menuInflater.inflate(R.menu.home_chats_context_menu, menu)
-        return true
-    }
-
-    override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
-        menu.findItem(R.id.pinChats).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
-        menu.findItem(R.id.deleteChats).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
-        menu.findItem(R.id.archiveMessages).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
-        menu.findItem(R.id.muteNotifications).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
-        return true
-    }
-
+    //region Action Bar
     private fun disableAllActionBarItems() {
         actionMode?.menu?.findItem(R.id.pinChats)?.isVisible = false
         actionMode?.menu?.findItem(R.id.deleteChats)?.isVisible = false
@@ -160,7 +133,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
 
     }
 
-    fun updateActionBarState(selectionType : ConversationSelectionType) {
+    fun updateActionBarState(selectionType : ConversationSelectionType?) {
         when(selectionType) {
             ConversationSelectionType.GROUP -> {
                 disableAllActionBarItems()
@@ -193,6 +166,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
                 actionMode?.menu?.findItem(R.id.markUnread)?.isVisible = true
                 actionMode?.menu?.findItem(R.id.selectAll)?.isVisible = true
             }
+            else -> { }
         }
     }
 
@@ -266,12 +240,28 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
         }
     }
 
-    override fun onDestroyActionMode(p0: ActionMode?) {
-        actionMode = null
+    override fun onDestroyActionMode(actionMode: ActionMode) {
+        actionMode.finish()
+        this.actionMode = null
         tracker?.clearSelection()
     }
     //endregion
 
+    //region ActionMode.Callback
+    override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+        mode.menuInflater.inflate(R.menu.home_chats_context_menu, menu)
+        return true
+    }
+
+    override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
+        menu.findItem(R.id.pinChats).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
+        menu.findItem(R.id.deleteChats).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
+        menu.findItem(R.id.archiveMessages).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
+        menu.findItem(R.id.muteNotifications).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
+        return true
+    }
+
+    //endregion
 
     //region Fragment Life-Cycle
     override fun onSaveInstanceState(outState: Bundle) {
