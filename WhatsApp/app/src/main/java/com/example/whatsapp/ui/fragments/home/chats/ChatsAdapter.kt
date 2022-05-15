@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.selection.ItemDetailsLookup
 import androidx.recyclerview.selection.ItemKeyProvider
 import androidx.recyclerview.selection.SelectionTracker
@@ -73,17 +74,25 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
         private val tvBody = binding.tvBody
         private val tvTime = binding.tvTime
         private val ivIcon = binding.ivIcon
-        private val cbIsSelected = binding.cbSelection
+        private val lavSelected = binding.lavSelected
         //endregion
 
         fun bind(conversation: Conversation, isSelected : Boolean) {
-            conversation.uid
-            cbIsSelected.visibility = if(isSelected) View.VISIBLE else View.GONE
 
-            // Todo: Add actual data here from the conversation, but the database structure is currently TBT
-            tvTitle.text = "Bill Gates"
-            tvBody.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-            tvTime.text = "08/04/2022"
+            lavSelected.visibility = if(isSelected) View.VISIBLE else View.GONE
+
+
+            if(conversation.isGroup) {
+                // Todo: Add actual data here from the conversation, but the database structure is currently TBT
+                tvTitle.text = "Bill Gates"
+                tvBody.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+                tvTime.text = "08/04/2022"
+            }
+            else {
+                tvTitle.text = "The boys"
+                tvBody.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+                tvTime.text = "15/05/2022"
+            }
         }
 
         fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> =
@@ -104,9 +113,6 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
         override fun areContentsTheSame(oldItem: Conversation, newItem: Conversation): Boolean {
             return oldItem.uid == newItem.uid
         }
-
-
     }
     //endregion
-
 }
