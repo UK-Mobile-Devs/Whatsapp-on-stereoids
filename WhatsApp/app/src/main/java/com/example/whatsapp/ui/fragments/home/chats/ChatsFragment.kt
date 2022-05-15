@@ -85,6 +85,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
                     }
                     size == 0 -> {
                         actionMode?.finish()
+                        tracker?.clearSelection()
                     }
                     else -> {
                         actionMode?.title = tracker?.selection?.size().toString()
