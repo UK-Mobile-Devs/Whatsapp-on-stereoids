@@ -1,6 +1,8 @@
 package com.example.whatsapp.ui.fragments.home.chats
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -55,8 +57,12 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>() {
         ).build()
 
         chatsAdapter.tracker = tracker
-
         //endregion
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        findNavController().navigate(R.id.action_homeFragment_to_singleMessengerFragment)
     }
 
     override fun observeViewModel() {

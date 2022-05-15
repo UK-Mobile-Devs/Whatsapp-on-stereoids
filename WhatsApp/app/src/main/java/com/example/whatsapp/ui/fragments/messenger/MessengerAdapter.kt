@@ -24,10 +24,11 @@ class MessengerAdapter :
     //endregion
 
     //region ViewHolder
-    class MessengerViewHolder(binding: ItemMessageBinding) : RecyclerView.ViewHolder(binding.root) {
+    class MessengerViewHolder(val binding: ItemMessageBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(conversation: Conversation) {
-
+            binding.tvMessage.text = "test message :) "
+            binding.tvTimeReceived.text = "15:30"
         }
 
     }
