@@ -21,6 +21,12 @@
         <action
             android:id="@+id/action_homeFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_singleMessengerFragment"
+            app:destination="@id/singleMessengerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_groupMessengerFragment2"
+            app:destination="@id/groupMessengerFragment2" />
 
     </fragment>
     <fragment
@@ -34,15 +40,11 @@
         android:name="com.example.whatsapp.ui.fragments.home.chats.ChatsFragment"
         android:label="@string/chats"
         tools:layout="@layout/fragment_chats">
-        <action
-            android:id="@+id/action_chatsFragment_to_messengerFragment"
-            app:destination="@id/messengerFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/messengerFragment"
-        android:name="com.example.whatsapp.ui.fragments.messenger.BaseMessengerFragment"
-         />
 
+    <fragment
+        android:id="@+id/singleMessengerFragment"
+        android:name="com.example.whatsapp.ui.fragments.messenger.single.SingleMessengerFragment" />
 
     <fragment
         android:id="@+id/settingsChat"
@@ -140,6 +142,10 @@
         android:id="@+id/verificationFragment"
         android:name="com.example.whatsapp.ui.fragments.settings.account.verification.verificationFragment"
         android:label="@string/twofactorauth" />
+    <fragment
+        android:id="@+id/groupMessengerFragment2"
+        android:name="com.example.whatsapp.ui.fragments.messenger.group.GroupMessengerFragment"
+        android:label="GroupMessengerFragment" />
 
 
 </navigation>
