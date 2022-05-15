@@ -2,10 +2,7 @@ package com.example.whatsapp.ui.fragments.home.chats
 
 import android.os.Bundle
 import android.util.Log
-import android.view.ActionMode
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuItem
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.selection.SelectionPredicates
@@ -64,9 +61,27 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
 
         tracker?.addObserver(object : SelectionTracker.SelectionObserver<Long>() {
             override fun onSelectionChanged() {
-                actionMode?.title = if (tracker?.hasSelection() == true) String.format(
-                    "%d", tracker?.selection?.size()
-                ) else "0"
+
+                if (actionMode == null) {
+                    actionMode = activity?.startActionMode(this@ChatsFragment)
+                }
+
+                val selectionSize = tracker?.selection?.size() ?: 0
+                if (selectionSize == 0) {
+                    actionMode?.finish()
+                    tracker?.clearSelection()
+                }
+                actionMode?.title =
+                    if (selectionSize > 0) String.format("%d", selectionSize) else "0"
+
+                //Todo: This is placeholder until I check the recycler view contents
+                if (selectionSize == 1) {
+                    updateActionBarState(ConversationSelectionType.INDIVIDUAL)
+                } else if (selectionSize == 2) {
+                    updateActionBarState(ConversationSelectionType.GROUP)
+                } else {
+                    updateActionBarState(ConversationSelectionType.MIXTURE)
+                }
             }
 
             override fun onSelectionRestored() {
@@ -77,20 +92,6 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
                 super.onItemStateChanged(key, selected)
                 Log.e("Selection: ", "Selection Made $key")
 
-
-                val size = tracker?.selection?.size()
-                when {
-                    actionMode == null -> {
-                        actionMode = activity?.startActionMode(this@ChatsFragment)
-                    }
-                    size == 0 -> {
-                        actionMode?.finish()
-                        tracker?.clearSelection()
-                    }
-                    else -> {
-                        actionMode?.title = tracker?.selection?.size().toString()
-                    }
-                }
             }
 
             override fun onSelectionRefresh() {
@@ -140,6 +141,59 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
         menu.findItem(R.id.archiveMessages).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
         menu.findItem(R.id.muteNotifications).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
         return true
+    }
+
+    private fun disableAllActionBarItems() {
+        actionMode?.menu?.findItem(R.id.pinChats)?.isVisible = false
+        actionMode?.menu?.findItem(R.id.deleteChats)?.isVisible = false
+        actionMode?.menu?.findItem(R.id.muteNotifications)?.isVisible = false
+        actionMode?.menu?.findItem(R.id.archiveMessages)?.isVisible = false
+        actionMode?.menu?.findItem(R.id.exitGroup)?.isVisible = false
+        actionMode?.menu?.findItem(R.id.addChatShortcut)?.isVisible = false
+        actionMode?.menu?.findItem(R.id.viewContact)?.isVisible = false
+        actionMode?.menu?.findItem(R.id.addToContact)?.isVisible = false
+        actionMode?.menu?.findItem(R.id.viewContact)?.isVisible = false
+        actionMode?.menu?.findItem(R.id.addToContact)?.isVisible = false
+        actionMode?.menu?.findItem(R.id.groupInfo)?.isVisible = false
+        actionMode?.menu?.findItem(R.id.markUnread)?.isVisible = false
+        actionMode?.menu?.findItem(R.id.selectAll)?.isVisible = false
+
+    }
+
+    fun updateActionBarState(selectionType : ConversationSelectionType) {
+        when(selectionType) {
+            ConversationSelectionType.GROUP -> {
+                disableAllActionBarItems()
+                actionMode?.menu?.findItem(R.id.pinChats)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.muteNotifications)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.archiveMessages)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.deleteChats)?.isVisible = false
+                actionMode?.menu?.findItem(R.id.exitGroup)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.addChatShortcut)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.groupInfo)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.markUnread)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.selectAll)?.isVisible = true
+            }
+            ConversationSelectionType.INDIVIDUAL -> {
+                disableAllActionBarItems()
+                actionMode?.menu?.findItem(R.id.deleteChats)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.pinChats)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.muteNotifications)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.archiveMessages)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.addChatShortcut)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.viewContact)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.markUnread)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.selectAll)?.isVisible = true
+            }
+            ConversationSelectionType.MIXTURE -> {
+                disableAllActionBarItems()
+                actionMode?.menu?.findItem(R.id.pinChats)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.muteNotifications)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.archiveMessages)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.markUnread)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.selectAll)?.isVisible = true
+            }
+        }
     }
 
     override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {

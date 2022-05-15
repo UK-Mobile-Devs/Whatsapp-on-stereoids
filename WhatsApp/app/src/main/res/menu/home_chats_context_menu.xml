@@ -38,6 +38,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/viewContact"
+        android:title="@string/chats_view_contact_title"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/addToContact"
         android:title="@string/chats_add_to_contacts_title"
         app:showAsAction="never" />
