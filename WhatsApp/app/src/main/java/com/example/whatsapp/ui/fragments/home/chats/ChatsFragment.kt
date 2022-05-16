@@ -1,6 +1,8 @@
 package com.example.whatsapp.ui.fragments.home.chats
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -55,7 +57,6 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>() {
         ).build()
 
         chatsAdapter.tracker = tracker
-
         //endregion
     }
 
