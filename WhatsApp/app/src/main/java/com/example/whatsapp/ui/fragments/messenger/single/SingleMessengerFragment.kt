@@ -24,7 +24,7 @@ class SingleMessengerFragment : BaseMessengerFragment() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
-                messageAdapter.submitList(it)
+                messageAdapter.submitList(it.messages)
             }
     }
 

@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firestorerepository.datatypes.Conversation
+import com.example.firestorerepository.datatypes.Message
 import com.example.whatsapp.databinding.ItemMessageBinding
 
 class MessengerAdapter :
-    ListAdapter<Conversation, MessengerAdapter.MessengerViewHolder>(DiffCallback()) {
+    ListAdapter<Message, MessengerAdapter.MessengerViewHolder>(DiffCallback()) {
 
     //region ListAdapter Overrides
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessengerViewHolder {
@@ -24,9 +25,10 @@ class MessengerAdapter :
     //endregion
 
     //region ViewHolder
-    class MessengerViewHolder(val binding: ItemMessageBinding) : RecyclerView.ViewHolder(binding.root) {
+    class MessengerViewHolder(val binding: ItemMessageBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(conversation: Conversation) {
+        fun bind(message: Message) {
             binding.tvMessage.text = "test message :) "
             binding.tvTimeReceived.text = "15:30"
         }
@@ -35,14 +37,14 @@ class MessengerAdapter :
     //endregion
 
     //region ItemCallback
-    class DiffCallback : DiffUtil.ItemCallback<Conversation>() {
+    class DiffCallback : DiffUtil.ItemCallback<Message>() {
 
-        override fun areItemsTheSame(oldItem: Conversation, newItem: Conversation): Boolean {
+        override fun areItemsTheSame(oldItem: Message, newItem: Message): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: Conversation, newItem: Conversation): Boolean {
-            return oldItem.uid == newItem.uid
+        override fun areContentsTheSame(oldItem: Message, newItem: Message): Boolean {
+            return oldItem.id == newItem.id
         }
 
 
