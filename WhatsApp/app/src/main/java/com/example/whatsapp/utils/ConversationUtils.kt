@@ -24,9 +24,9 @@ fun List<Long>.conversationSelectionType(conversations : List<Conversation>) : C
     else if (selectedGroupChat.isNotEmpty() && selectedDirectMessage.isNotEmpty()) {
         ConversationSelectionType.MIXTURE
     } else if (selectedGroupChat.size == 1) {
-        ConversationSelectionType.GROUP
+        ConversationSelectionType.SINGLE_GROUP
     } else {
-        ConversationSelectionType.DIRECT
+        ConversationSelectionType.SINGLE_DIRECT_MESSAGE
     }
 }
 

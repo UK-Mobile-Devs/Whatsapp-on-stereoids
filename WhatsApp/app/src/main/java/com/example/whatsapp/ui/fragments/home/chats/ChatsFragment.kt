@@ -149,7 +149,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
 
     private fun updateActionBarState(selectionType: ConversationSelectionType) {
         when (selectionType) {
-            ConversationSelectionType.GROUP -> {
+            ConversationSelectionType.SINGLE_GROUP -> {
                 disableAllActionBarItems()
                 actionMode?.menu?.findItem(R.id.pinChats)?.isVisible = true
                 actionMode?.menu?.findItem(R.id.muteNotifications)?.isVisible = true
@@ -161,7 +161,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
                 actionMode?.menu?.findItem(R.id.markUnread)?.isVisible = true
                 actionMode?.menu?.findItem(R.id.selectAll)?.isVisible = true
             }
-            ConversationSelectionType.DIRECT -> {
+            ConversationSelectionType.SINGLE_DIRECT_MESSAGE -> {
                 disableAllActionBarItems()
                 actionMode?.menu?.findItem(R.id.deleteChats)?.isVisible = true
                 actionMode?.menu?.findItem(R.id.pinChats)?.isVisible = true
