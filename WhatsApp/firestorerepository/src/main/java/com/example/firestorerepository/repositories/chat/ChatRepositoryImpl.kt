@@ -13,11 +13,10 @@ class ChatRepositoryImpl @Inject constructor() : ChatRepository {
     //region IChatRepository
     override fun getConversationList(): Observable<List<Conversation>> {
         return Observable.create { emitter ->
-            val data = listOf(
-                Conversation(UUID.randomUUID().toString(), listOf(Message("", ""))),
-                Conversation(UUID.randomUUID().toString(),listOf(Message("", ""))),
-                Conversation(UUID.randomUUID().toString(), listOf(Message("", "")))
-            )
+            val data = mutableListOf(Conversation(UUID.randomUUID().toString(), listOf(Message("", "")), false),
+            Conversation(UUID.randomUUID().toString(), listOf(Message("", "")), false),
+            Conversation(UUID.randomUUID().toString(), listOf(Message("", "")), true),
+            Conversation(UUID.randomUUID().toString(), listOf(Message("", "")), true))
             emitter.onNext(data)
         }
     }

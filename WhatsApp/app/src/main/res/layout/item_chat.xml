@@ -72,15 +72,17 @@
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
             app:srcCompat="@mipmap/ic_launcher" />
 
-        <CheckBox
-            android:id="@+id/cbSelection"
-            android:visibility="gone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lavSelected"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivIcon"
+            app:layout_constraintEnd_toEndOf="@+id/ivIcon"
+            app:lottie_rawRes="@raw/selected"
+            app:lottie_progress="100"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="false" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
