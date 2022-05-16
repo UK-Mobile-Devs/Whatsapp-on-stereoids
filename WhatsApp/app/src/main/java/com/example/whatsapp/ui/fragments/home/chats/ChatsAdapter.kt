@@ -61,7 +61,6 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
         }
     }
 
-
     override fun getItemId(position: Int): Long = position.toLong()
 
     //endregion
@@ -80,7 +79,6 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
         fun bind(conversation: Conversation, isSelected : Boolean) {
 
             lavSelected.visibility = if(isSelected) View.VISIBLE else View.GONE
-
 
             if(!conversation.isGroup) {
                 // Todo: Add actual data here from the conversation, but the database structure is currently TBT

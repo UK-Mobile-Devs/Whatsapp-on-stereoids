@@ -33,6 +33,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/exitGroups"
+        android:title="@string/chats_exit_groups_title"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/addChatShortcut"
         android:title="@string/chats_add_chat_shortcut_title"
         app:showAsAction="never" />

@@ -1,7 +1,6 @@
 package com.example.whatsapp.ui.fragments.home.chats
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.viewModels
@@ -12,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentChatsBinding
-import com.example.whatsapp.utils.conversationSelectionType
 import com.example.whatsapp.utils.getSelectionFromTracker
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -23,13 +21,14 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback {
 
     //region Variables
+
     private val viewModel: ChatsFragmentVM by viewModels()
 
     private val chatsAdapter: ChatsAdapter = ChatsAdapter()
 
     private var tracker: SelectionTracker<Long>? = null
 
-    var actionMode : ActionMode?= null
+    private var actionMode: ActionMode? = null
 
     //endregion
 
@@ -64,18 +63,20 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
                     actionMode = activity?.startActionMode(this@ChatsFragment)
                 }
 
-                val selectionSize = tracker?.selection?.size() ?: 0
-                val selectionType = tracker?.getSelectionFromTracker()!!
-                    .conversationSelectionType(chatsAdapter.currentList)
-                if (selectionSize == 0) {
-                    actionMode?.finish()
-                    tracker?.clearSelection()
+                tracker?.let { tracker ->
+
+                    val selectionSize = tracker.selection.size()
+
+                    viewModel.updateSelectedItems(tracker.getSelectionFromTracker())
+
+                    if (selectionSize == 0) {
+                        actionMode?.finish()
+                        tracker.clearSelection()
+                        return
+                    }
+
+                    actionMode?.title = String.format("%d", selectionSize)
                 }
-                actionMode?.title =
-                    if (selectionSize > 0) String.format("%d", selectionSize) else "0"
-
-                updateActionBarState(selectionType)
-
             }
         })
 
@@ -103,6 +104,13 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
             .subscribe {
                 chatsAdapter.submitList(it)
             }.autoDispose()
+
+        viewModel.getSelectionType()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                updateActionBarState(it)
+            }
 
         //endregion
     }
@@ -132,15 +140,15 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
         actionMode?.menu?.findItem(R.id.viewContact)?.isVisible = false
         actionMode?.menu?.findItem(R.id.addToContact)?.isVisible = false
         actionMode?.menu?.findItem(R.id.viewContact)?.isVisible = false
+        actionMode?.menu?.findItem(R.id.exitGroups)?.isVisible = false
         actionMode?.menu?.findItem(R.id.addToContact)?.isVisible = false
         actionMode?.menu?.findItem(R.id.groupInfo)?.isVisible = false
         actionMode?.menu?.findItem(R.id.markUnread)?.isVisible = false
         actionMode?.menu?.findItem(R.id.selectAll)?.isVisible = false
-
     }
 
-    fun updateActionBarState(selectionType : ConversationSelectionType) {
-        when(selectionType) {
+    private fun updateActionBarState(selectionType: ConversationSelectionType) {
+        when (selectionType) {
             ConversationSelectionType.GROUP -> {
                 disableAllActionBarItems()
                 actionMode?.menu?.findItem(R.id.pinChats)?.isVisible = true
@@ -153,7 +161,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
                 actionMode?.menu?.findItem(R.id.markUnread)?.isVisible = true
                 actionMode?.menu?.findItem(R.id.selectAll)?.isVisible = true
             }
-            ConversationSelectionType.INDIVIDUAL -> {
+            ConversationSelectionType.DIRECT -> {
                 disableAllActionBarItems()
                 actionMode?.menu?.findItem(R.id.deleteChats)?.isVisible = true
                 actionMode?.menu?.findItem(R.id.pinChats)?.isVisible = true
@@ -172,68 +180,94 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
                 actionMode?.menu?.findItem(R.id.markUnread)?.isVisible = true
                 actionMode?.menu?.findItem(R.id.selectAll)?.isVisible = true
             }
+            ConversationSelectionType.MULTIPLE_GROUPS -> {
+                disableAllActionBarItems()
+                actionMode?.menu?.findItem(R.id.pinChats)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.muteNotifications)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.archiveMessages)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.deleteChats)?.isVisible = false
+                actionMode?.menu?.findItem(R.id.exitGroups)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.markUnread)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.selectAll)?.isVisible = true
+            }
         }
     }
 
     override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.pinChats -> {
+                viewModel.selectPinChats()
                 Toast.makeText(requireContext(), "Pinned Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.deleteChats -> {
+                viewModel.selectDeleteChats()
                 Toast.makeText(requireContext(), "Delete Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.muteNotifications -> {
+                viewModel.selectMuteNotifications()
                 Toast.makeText(requireContext(), "Mute Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.archiveMessages -> {
-                Toast.makeText(requireContext(), "Archived Clicked", Toast.LENGTH_SHORT ).show()
+                viewModel.selectArchiveMessages()
+                Toast.makeText(requireContext(), "Archived Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.exitGroup -> {
-                Toast.makeText(requireContext(), "Exit Group Clicked", Toast.LENGTH_SHORT ).show()
+                viewModel.selectExitGroup()
+                Toast.makeText(requireContext(), "Exit Group Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
+            R.id.exitGroups -> {
+                viewModel.selectExitGroups()
+                Toast.makeText(requireContext(), "Exit Groups Clicked", Toast.LENGTH_SHORT).show()
+                mode.finish()
+                true
+            }
             R.id.addChatShortcut -> {
-                Toast.makeText(requireContext(), "Add Chat Clicked", Toast.LENGTH_SHORT ).show()
+                viewModel.selectAddShortcut()
+                Toast.makeText(requireContext(), "Add Chat Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.addToContact -> {
-                Toast.makeText(requireContext(), "Add To Contact Clicked", Toast.LENGTH_SHORT ).show()
+                viewModel.selectAddToContact()
+                Toast.makeText(requireContext(), "Add To Contact Clicked", Toast.LENGTH_SHORT)
+                    .show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.groupInfo -> {
-                Toast.makeText(requireContext(), "Group Info Clicked", Toast.LENGTH_SHORT ).show()
+                viewModel.selectGroupInfo()
+                Toast.makeText(requireContext(), "Group Info Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.markUnread -> {
-                Toast.makeText(requireContext(), "Mark Unread Clicked", Toast.LENGTH_SHORT ).show()
+                viewModel.selectMarkUnread()
+                Toast.makeText(requireContext(), "Mark Unread Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.selectAll -> {
-                Toast.makeText(requireContext(), "Select All Clicked", Toast.LENGTH_SHORT ).show()
-                tracker?.clearSelection()
+                viewModel.selectAll()
+                Toast.makeText(requireContext(), "Select All Clicked", Toast.LENGTH_SHORT).show()
                 mode.finish()
                 true
             }
@@ -251,7 +285,6 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
     }
     //endregion
 
-
     //region Fragment Life-Cycle
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -263,7 +296,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
     companion object {
         const val CHAT_SELECTION_KEY = "CHAT_SELECTION_KEY"
 
-        fun newInstance() : ChatsFragment {
+        fun newInstance(): ChatsFragment {
             return ChatsFragment()
         }
     }

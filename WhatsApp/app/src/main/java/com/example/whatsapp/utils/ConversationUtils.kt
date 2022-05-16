@@ -3,20 +3,32 @@ package com.example.whatsapp.utils
 import com.example.firestorerepository.datatypes.Conversation
 import com.example.whatsapp.ui.fragments.home.chats.ConversationSelectionType
 
-fun List<Long>.conversationSelectionType(items : List<Conversation>) : ConversationSelectionType {
+fun List<Long>.conversationSelectionType(conversations : List<Conversation>) : ConversationSelectionType {
 
-    val newList = this.map {
-        items[it.toInt()]
+    val selectedItems = this.map {
+        conversations[it.toInt()]
     }
 
-    val group = newList.firstOrNull { it.isGroup } != null
-    val individual = newList.firstOrNull { !it.isGroup } != null
+    val selectedGroupChat = selectedItems
+        .filter { it.isGroup }
 
-    return if (group && individual) {
+    val selectedDirectMessage = selectedItems
+        .filter { !it.isGroup }
+
+    return if(selectedGroupChat.size > 1) {
+        ConversationSelectionType.MULTIPLE_GROUPS
+    }
+    else if (selectedGroupChat.isNotEmpty() && selectedDirectMessage.isNotEmpty()) {
         ConversationSelectionType.MIXTURE
-    } else if (group) {
+    } else if (selectedGroupChat.size == 1) {
         ConversationSelectionType.GROUP
     } else {
-        ConversationSelectionType.INDIVIDUAL
+        ConversationSelectionType.DIRECT
+    }
+}
+
+fun <T> List<T>.getSelectedItems(selectedIndexes : List<Long>) : List<T> {
+    return selectedIndexes.map {
+        this[it.toInt()]
     }
 }
