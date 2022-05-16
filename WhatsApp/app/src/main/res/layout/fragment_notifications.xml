@@ -23,14 +23,14 @@
             android:background="?attr/selectableItemBackground">
 
 
-
             <TextView
                 android:id="@+id/tvconversationTones"
+                style="@style/NotificationsTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="Conversation Tones"
-                android:layout_marginStart="16dp"/>
+                android:text="@string/conversationtones" />
 
             <TextView
                 android:id="@+id/conversationToneDesc"
@@ -38,14 +38,15 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvconversationTones"
                 android:layout_marginStart="16dp"
-                android:text="Play sounds for incoming and outgoing messages" />
+                android:text="@string/playsounds" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/conversationSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/conversationToneDesc"
+                android:layout_alignParentEnd="true"
                 android:layout_marginEnd="16dp"
-                android:layout_alignParentEnd="true"/>
+                android:layout_toEndOf="@+id/conversationToneDesc" />
 
         </RelativeLayout>
 
@@ -62,7 +63,7 @@
             android:id="@+id/tvnotificationMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Messages"
+            android:text="@string/messages"
             android:layout_marginStart="16dp" />
 
 
@@ -77,14 +78,14 @@
             android:background="?attr/selectableItemBackground">
 
 
-
             <TextView
                 android:id="@+id/tvnotificationTones"
+                style="@style/NotificationsTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="Notification Tone"
-                android:layout_marginStart="16dp"/>
+                android:text="@string/notificationtone" />
 
             <TextView
                 android:id="@+id/notificationToneDesc"
@@ -109,14 +110,15 @@
             android:background="?attr/selectableItemBackground">
 
 
-
             <TextView
                 android:id="@+id/vibrateTones"
+                style="@style/NotificationsTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="Vibrate"
-                android:layout_marginStart="16dp"/>
+
+                android:text="@string/vibrate" />
 
             <TextView
                 android:id="@+id/vibrateDesc"
@@ -143,11 +145,12 @@
 
             <TextView
                 android:id="@+id/tvPopUpTones"
+                style="@style/NotificationsTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="Pop-up Notification" />
+                android:text="@string/popupnotification" />
 
             <TextView
                 android:id="@+id/tvPopUpTonesDesc"
@@ -155,7 +158,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvPopUpTones"
                 android:layout_marginStart="16dp"
-                android:text="No Popup" />
+                android:text="@string/nopopup" />
 
         </RelativeLayout>
 
@@ -170,14 +173,14 @@
             android:background="?attr/selectableItemBackground">
 
 
-
             <TextView
                 android:id="@+id/tvlightColour"
+                style="@style/NotificationsTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="Light"
-                android:layout_marginStart="16dp"/>
+                android:text="@string/light" />
 
             <TextView
                 android:id="@+id/tvLightDesc"
@@ -200,14 +203,14 @@
             android:background="?attr/selectableItemBackground">
 
 
-
             <TextView
                 android:id="@+id/tvHighPriority"
+                style="@style/NotificationsTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="Use high priority notification"
-                android:layout_marginStart="16dp"/>
+                android:text="@string/highpriority" />
 
             <TextView
                 android:id="@+id/tvHighPriorityDesc"
@@ -215,7 +218,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvHighPriority"
                 android:layout_marginStart="16dp"
-                android:text="Show previews of notification at the top of the screen" />
+                android:text="@string/previewnotification" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:layout_width="wrap_content"
@@ -239,11 +242,12 @@
 
             <TextView
                 android:id="@+id/tvReactionNotification"
+                style="@style/NotificationsTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="Reaction Notification" />
+                android:text="@string/reactionnotification" />
 
             <TextView
                 android:id="@+id/tvReactionNotificationDesc"
@@ -251,7 +255,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvReactionNotification"
                 android:layout_marginStart="16dp"
-                android:text="Show notifications for reactions to messages you send" />
+                android:text="@string/shownotification" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:layout_width="wrap_content"
@@ -274,7 +278,7 @@
             android:id="@+id/tvnotificationGroups"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Groups"
+            android:text="@string/groups"
             android:layout_marginStart="16dp" />
 
         <RelativeLayout
@@ -288,14 +292,14 @@
             android:background="?attr/selectableItemBackground">
 
 
-
             <TextView
                 android:id="@+id/tvnotificationGroupsTones"
+                style="@style/NotificationsTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="Notification Tone"
-                android:layout_marginStart="16dp"/>
+                android:text="@string/notificationtone" />
 
             <TextView
                 android:id="@+id/notificationGroupsToneDesc"
@@ -323,11 +327,12 @@
 
             <TextView
                 android:id="@+id/tvGroupVibrate"
+                style="@style/NotificationsTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="Vibrate" />
+                android:text="@string/vibrate" />
 
             <TextView
                 android:id="@+id/tvGroupVibrateDesc"
@@ -351,11 +356,12 @@
 
             <TextView
                 android:id="@+id/tvPopUpGroupTones"
+                style="@style/NotificationsTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="Pop-up Notification" />
+                android:text="@string/popupnotification" />
 
             <TextView
                 android:id="@+id/tvPopUpGroupTonesDesc"
@@ -363,7 +369,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvPopUpGroupTones"
                 android:layout_marginStart="16dp"
-                android:text="No Popup" />
+                android:text="@string/nopopup" />
 
 
         </RelativeLayout>
@@ -379,14 +385,14 @@
             android:background="?attr/selectableItemBackground">
 
 
-
             <TextView
                 android:id="@+id/tvlightGroupColour"
+                style="@style/NotificationsTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="Light"
-                android:layout_marginStart="16dp"/>
+                android:text="@string/light" />
 
             <TextView
                 android:id="@+id/tvLightGroupDesc"
@@ -409,14 +415,14 @@
             android:background="?attr/selectableItemBackground">
 
 
-
             <TextView
                 android:id="@+id/tvHighPriorityGroup"
+                style="@style/NotificationsTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="Use high priority notification"
-                android:layout_marginStart="16dp"/>
+                android:text="@string/highpriority" />
 
             <TextView
                 android:id="@+id/tvHighPriorityGroupDesc"
@@ -424,7 +430,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvHighPriorityGroup"
                 android:layout_marginStart="16dp"
-                android:text="Show previews of notification at the top of the screen" />
+                android:text="@string/previewnotification" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:layout_width="wrap_content"
@@ -448,11 +454,12 @@
 
             <TextView
                 android:id="@+id/tvReactionNotificationGroup"
+                style="@style/NotificationsTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="Reaction Notification" />
+                android:text="@string/reactionnotification" />
 
             <TextView
                 android:id="@+id/tvReactionNotificationGroupDesc"
@@ -460,7 +467,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvReactionNotificationGroup"
                 android:layout_marginStart="16dp"
-                android:text="Show notifications for reactions to messages you send" />
+                android:text="@string/shownotification" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:layout_width="wrap_content"
@@ -484,10 +491,67 @@
             android:id="@+id/tvnotificationCalls"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Calls"
+            android:text="@string/calls"
             android:layout_marginStart="16dp" />
 
-        
+
+        <RelativeLayout
+            android:id="@+id/ringtoneLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:background="?attr/selectableItemBackground">
+
+
+            <TextView
+                android:id="@+id/tvRingtone"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/ringtone" />
+
+            <TextView
+                android:id="@+id/tvRingtoneDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvRingtone"
+                android:layout_marginStart="16dp"
+                android:text="Default ringtone (Bongo)" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/callsVibrateLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:background="?attr/selectableItemBackground">
+
+
+            <TextView
+                android:id="@+id/tvCallsVibrate"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/vibrate" />
+
+            <TextView
+                android:id="@+id/tvCallsVibrateDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvCallsVibrate"
+                android:layout_marginStart="16dp"
+                android:text="Default" />
+        </RelativeLayout>
 
 
 
