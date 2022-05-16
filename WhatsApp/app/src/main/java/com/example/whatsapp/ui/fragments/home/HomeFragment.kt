@@ -1,16 +1,16 @@
 package com.example.whatsapp.ui.fragments.home
 
 import android.os.Bundle
-import android.view.*
-import android.widget.LinearLayout
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentHomeBinding
+import com.example.whatsapp.ui.fragments.home.HomeStatePagerAdapter.Companion.CHATS_FRAGMENT_INDEX
 import com.example.whatsapp.ui.fragments.home.calls.CallsFragment
 import com.example.whatsapp.ui.fragments.home.camera.CameraFragment
 import com.example.whatsapp.ui.fragments.home.chats.ChatsFragment
@@ -38,16 +38,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         //region Tabs Initialisation
         homeStatePagerAdapter = HomeStatePagerAdapter(
             requireActivity(),
-            listOf(ChatsFragment.newInstance(), StatusFragment.newInstance(), CallsFragment.newInstance())
+            listOf(
+                CameraFragment.newInstance(),
+                ChatsFragment.newInstance(),
+                StatusFragment.newInstance(),
+                CallsFragment.newInstance()
+            )
         )
         binding.vpHomeScreen.adapter = homeStatePagerAdapter
+        binding.vpHomeScreen.currentItem = CHATS_FRAGMENT_INDEX
         TabLayoutMediator(binding.tlNavigation, binding.vpHomeScreen) { _, _ ->
 
         }
         //endregion
 
         binding.fabNewConversation.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_chatsFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_chatsFragment) //todo update this navigation to contacts fragment
         }
     }
 

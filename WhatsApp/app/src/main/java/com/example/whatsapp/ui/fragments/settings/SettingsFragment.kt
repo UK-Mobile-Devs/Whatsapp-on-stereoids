@@ -1,14 +1,12 @@
 package com.example.whatsapp.ui.fragments.settings
 
-import android.content.Intent
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.LayoutInflater
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentSettingsBinding
+import com.example.whatsapp.utils.Constants.SETTINGS_FRAGMENT_KEY
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -18,36 +16,32 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setHasOptionsMenu(true)
+        initializeLifecycleObserver(SETTINGS_FRAGMENT_KEY)
         super.onCreate(savedInstanceState)
     }
 
     override fun initViews() {
         super.initViews()
-        binding.displayPhoto.setOnClickListener {
-            val i = Intent(
-                Intent.ACTION_PICK,
-                MediaStore.Images.Media.INTERNAL_CONTENT_URI
-            )
-            val ACTIVITY_SELECT_IMAGE = 1234
-            startActivityForResult(i, ACTIVITY_SELECT_IMAGE)
+        binding.ivProfilePicture.setOnClickListener {
+            observer.selectImage()
         }
 
-        binding.accountTransfer.setOnClickListener {
+        binding.layoutAccountRow.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_accountsFragment)
         }
-        binding.chatsTransfer.setOnClickListener {
+        binding.layoutChatsRow.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_chatsFragment)
         }
-        binding.notificationTransfer.setOnClickListener {
+        binding.layoutNotificationsRow.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_notificationsFragment)
         }
-        binding.storageTransfer.setOnClickListener {
+        binding.layoutStorageRow.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_storageFragment)
         }
-        binding.helpTransfer.setOnClickListener {
+        binding.layoutHelpRow.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_helpFragment)
         }
-        binding.referralTransfer.setOnClickListener {
+        binding.layoutReferralRow.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_referralFragment)
         }
     }
@@ -56,7 +50,9 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
     override fun inflateBinding(layoutInflater: LayoutInflater): FragmentSettingsBinding {
         return FragmentSettingsBinding.inflate(layoutInflater)
     }
+
     override fun observeViewModel() {
 
     }
+
 }
