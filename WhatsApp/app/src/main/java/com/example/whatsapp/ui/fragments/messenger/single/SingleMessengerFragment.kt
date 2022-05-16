@@ -16,7 +16,8 @@ class SingleMessengerFragment : BaseMessengerFragment() {
     private val messageAdapter = MessengerAdapter()
 
     override fun initArgs(arguments: Bundle) {
-        contactId = arguments.getString(CONTACT_ID) ?: throw IllegalArgumentException("Missing contact user id")
+        contactId = arguments.getString(CONTACT_ID)
+            ?: throw IllegalArgumentException("Missing contact user id")
     }
 
     override fun observeViewModel() {

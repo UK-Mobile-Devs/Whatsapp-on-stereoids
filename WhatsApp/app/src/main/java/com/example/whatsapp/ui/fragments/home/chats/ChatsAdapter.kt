@@ -42,12 +42,11 @@ class ItemDetailsLookup(private val recyclerView: RecyclerView) :
 
 class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(DiffCallback()) {
 
-     var tracker: SelectionTracker<Long>? = null
+    var tracker: SelectionTracker<Long>? = null
 
     init {
         setHasStableIds(true)
     }
-
 
 
     //region ListAdapter Overrides
@@ -78,9 +77,9 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
         private val cbIsSelected = binding.cbSelection
         //endregion
 
-        fun bind(conversation: Conversation, isSelected : Boolean) {
+        fun bind(conversation: Conversation, isSelected: Boolean) {
             conversation.uid
-            cbIsSelected.visibility = if(isSelected) View.VISIBLE else View.GONE
+            cbIsSelected.visibility = if (isSelected) View.VISIBLE else View.GONE
 
             // Todo: Add actual data here from the conversation, but the database structure is currently TBT
             tvTitle.text = "Bill Gates"

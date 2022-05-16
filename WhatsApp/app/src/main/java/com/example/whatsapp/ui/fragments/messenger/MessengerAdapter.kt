@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.firestorerepository.datatypes.Conversation
 import com.example.firestorerepository.datatypes.Message
 import com.example.whatsapp.databinding.ItemMessageBinding
 
