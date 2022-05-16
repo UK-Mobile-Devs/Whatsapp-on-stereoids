@@ -1,7 +1,10 @@
 package com.example.whatsapp.ui.fragments.home.chats
 
 import android.os.Bundle
-import android.view.*
+import android.view.ActionMode
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.selection.SelectionPredicates
@@ -65,23 +68,19 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
 
                 tracker?.let { tracker ->
 
-                    val selectionSize = tracker.selection.size()
-
                     viewModel.updateSelectedItems(tracker.getSelectionFromTracker())
 
+                    val selectionSize = tracker.selection.size()
                     if (selectionSize == 0) {
                         actionMode?.finish()
                         tracker.clearSelection()
                         return
                     }
-
-                    actionMode?.title = String.format("%d", selectionSize)
+                    actionMode?.title = "$selectionSize"
                 }
             }
         })
-
         chatsAdapter.tracker = tracker
-
         //endregion
     }
 
@@ -206,77 +205,65 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
         return when (item.itemId) {
             R.id.pinChats -> {
                 viewModel.selectPinChats()
-                Toast.makeText(requireContext(), "Pinned Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.deleteChats -> {
                 viewModel.selectDeleteChats()
-                Toast.makeText(requireContext(), "Delete Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.muteNotifications -> {
                 viewModel.selectMuteNotifications()
-                Toast.makeText(requireContext(), "Mute Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.archiveMessages -> {
                 viewModel.selectArchiveMessages()
-                Toast.makeText(requireContext(), "Archived Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.exitGroup -> {
                 viewModel.selectExitGroup()
-                Toast.makeText(requireContext(), "Exit Group Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.exitGroups -> {
                 viewModel.selectExitGroups()
-                Toast.makeText(requireContext(), "Exit Groups Clicked", Toast.LENGTH_SHORT).show()
                 mode.finish()
                 true
             }
             R.id.addChatShortcut -> {
                 viewModel.selectAddShortcut()
-                Toast.makeText(requireContext(), "Add Chat Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.addToContact -> {
                 viewModel.selectAddToContact()
-                Toast.makeText(requireContext(), "Add To Contact Clicked", Toast.LENGTH_SHORT)
-                    .show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.groupInfo -> {
                 viewModel.selectGroupInfo()
-                Toast.makeText(requireContext(), "Group Info Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.markUnread -> {
                 viewModel.selectMarkUnread()
-                Toast.makeText(requireContext(), "Mark Unread Clicked", Toast.LENGTH_SHORT).show()
                 tracker?.clearSelection()
                 mode.finish()
                 true
             }
             R.id.selectAll -> {
                 viewModel.selectAll()
-                Toast.makeText(requireContext(), "Select All Clicked", Toast.LENGTH_SHORT).show()
                 mode.finish()
                 true
             }
@@ -288,8 +275,9 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
         }
     }
 
-    override fun onDestroyActionMode(p0: ActionMode?) {
-        actionMode = null
+    override fun onDestroyActionMode(actionMode: ActionMode) {
+        this.actionMode = null
+        actionMode.finish()
         tracker?.clearSelection()
     }
     //endregion
