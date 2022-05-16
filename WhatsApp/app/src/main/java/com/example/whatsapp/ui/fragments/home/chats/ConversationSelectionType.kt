@@ -5,5 +5,5 @@ enum class ConversationSelectionType {
     SINGLE_DIRECT_MESSAGE,
     MIXTURE,
     MULTIPLE_GROUPS,
-    MULTIPLE_CHATS
+    MULTIPLE_DIRECT_MESSAGE
 }

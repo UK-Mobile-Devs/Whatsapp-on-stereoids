@@ -190,7 +190,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
                 actionMode?.menu?.findItem(R.id.markUnread)?.isVisible = true
                 actionMode?.menu?.findItem(R.id.selectAll)?.isVisible = true
             }
-            ConversationSelectionType.MULTIPLE_CHATS -> {
+            ConversationSelectionType.MULTIPLE_DIRECT_MESSAGE -> {
                 disableAllActionBarItems()
                 actionMode?.menu?.findItem(R.id.deleteChats)?.isVisible = true
                 actionMode?.menu?.findItem(R.id.pinChats)?.isVisible = true

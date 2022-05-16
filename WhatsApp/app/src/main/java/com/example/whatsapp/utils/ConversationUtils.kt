@@ -19,7 +19,7 @@ fun List<Long>.conversationSelectionType(conversations : List<Conversation>) : C
         ConversationSelectionType.MULTIPLE_GROUPS
     }
     else if (selectedDirectMessage.size > 1){
-        ConversationSelectionType.MULTIPLE_CHATS
+        ConversationSelectionType.MULTIPLE_DIRECT_MESSAGE
     }
     else if (selectedGroupChat.isNotEmpty() && selectedDirectMessage.isNotEmpty()) {
         ConversationSelectionType.MIXTURE
