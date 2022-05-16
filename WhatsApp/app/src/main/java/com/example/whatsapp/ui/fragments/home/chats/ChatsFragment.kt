@@ -190,6 +190,15 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
                 actionMode?.menu?.findItem(R.id.markUnread)?.isVisible = true
                 actionMode?.menu?.findItem(R.id.selectAll)?.isVisible = true
             }
+            ConversationSelectionType.MULTIPLE_CHATS -> {
+                disableAllActionBarItems()
+                actionMode?.menu?.findItem(R.id.deleteChats)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.pinChats)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.muteNotifications)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.archiveMessages)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.markUnread)?.isVisible = true
+                actionMode?.menu?.findItem(R.id.selectAll)?.isVisible = true
+            }
         }
     }
 

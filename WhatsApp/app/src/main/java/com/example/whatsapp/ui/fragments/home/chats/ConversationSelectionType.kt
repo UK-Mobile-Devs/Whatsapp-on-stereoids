@@ -4,5 +4,6 @@ enum class ConversationSelectionType {
     GROUP,
     DIRECT,
     MIXTURE,
-    MULTIPLE_GROUPS
+    MULTIPLE_GROUPS,
+    MULTIPLE_CHATS
 }
