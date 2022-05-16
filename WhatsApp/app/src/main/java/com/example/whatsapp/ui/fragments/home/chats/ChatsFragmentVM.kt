@@ -1,6 +1,7 @@
 package com.example.whatsapp.ui.fragments.home.chats
 
 import com.example.firestorerepository.datatypes.Conversation
+import com.example.firestorerepository.repositories.chat.ChatRepository
 import com.example.firestorerepository.repositories.chat.ChatRepositoryImpl
 import com.example.whatsapp.base.BaseViewModel
 import com.example.whatsapp.utils.conversationSelectionType
@@ -12,7 +13,7 @@ import io.reactivex.rxjava3.subjects.PublishSubject
 import javax.inject.Inject
 
 @HiltViewModel
-class ChatsFragmentVM @Inject constructor(private val chatsRepo : ChatRepositoryImpl) : BaseViewModel() {
+class ChatsFragmentVM @Inject constructor(private val chatsRepo : ChatRepository) : BaseViewModel() {
 
     //region Variables
     private val psSelectionUpdated : PublishSubject<List<Long>> = PublishSubject.create()

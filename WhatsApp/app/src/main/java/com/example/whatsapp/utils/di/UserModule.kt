@@ -16,4 +16,6 @@ interface UserModule {
     @Binds
     fun getUserRepositoryImpl(repository: UserRepositoryImpl): UserRepository
 
+
+
 }
