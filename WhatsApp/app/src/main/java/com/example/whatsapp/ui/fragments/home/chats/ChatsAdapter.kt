@@ -82,7 +82,7 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
             lavSelected.visibility = if(isSelected) View.VISIBLE else View.GONE
 
 
-            if(conversation.isGroup) {
+            if(!conversation.isGroup) {
                 // Todo: Add actual data here from the conversation, but the database structure is currently TBT
                 tvTitle.text = "Bill Gates"
                 tvBody.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "

@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentChatsBinding
+import com.example.whatsapp.utils.conversationSelectionType
+import com.example.whatsapp.utils.getSelectionFromTracker
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -55,10 +57,6 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
             SelectionPredicates.createSelectAnything()
         ).build()
 
-
-
-
-
         tracker?.addObserver(object : SelectionTracker.SelectionObserver<Long>() {
             override fun onSelectionChanged() {
 
@@ -67,6 +65,8 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
                 }
 
                 val selectionSize = tracker?.selection?.size() ?: 0
+                val selectionType = tracker?.getSelectionFromTracker()!!
+                    .conversationSelectionType(chatsAdapter.currentList)
                 if (selectionSize == 0) {
                     actionMode?.finish()
                     tracker?.clearSelection()
@@ -74,29 +74,8 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
                 actionMode?.title =
                     if (selectionSize > 0) String.format("%d", selectionSize) else "0"
 
-                //Todo: This is placeholder until I check the recycler view contents
-                if (selectionSize == 1) {
-                    updateActionBarState(ConversationSelectionType.INDIVIDUAL)
-                } else if (selectionSize == 2) {
-                    updateActionBarState(ConversationSelectionType.GROUP)
-                } else {
-                    updateActionBarState(ConversationSelectionType.MIXTURE)
-                }
-            }
+                updateActionBarState(selectionType)
 
-            override fun onSelectionRestored() {
-                Log.e("Selection: ", "Restored")
-            }
-
-            override fun onItemStateChanged(key: Long, selected: Boolean) {
-                super.onItemStateChanged(key, selected)
-                Log.e("Selection: ", "Selection Made $key")
-
-            }
-
-            override fun onSelectionRefresh() {
-                super.onSelectionRefresh()
-                Log.e("Selection: ", "Refresh")
             }
         })
 
