@@ -12,6 +12,10 @@ import com.example.whatsapp.databinding.ItemMessageBinding
 class MessengerAdapter :
     ListAdapter<Message, MessengerAdapter.MessengerViewHolder>(DiffCallback()) {
 
+    init {
+        setHasStableIds(true)
+    }
+
     //region ListAdapter Overrides
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessengerViewHolder {
         val view = ItemMessageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -21,6 +25,9 @@ class MessengerAdapter :
     override fun onBindViewHolder(holder: MessengerViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
+
+    override fun getItemId(position: Int): Long = position.toLong()
+
     //endregion
 
     //region ViewHolder

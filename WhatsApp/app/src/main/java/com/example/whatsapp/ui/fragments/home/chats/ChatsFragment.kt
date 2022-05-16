@@ -60,11 +60,6 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>() {
         //endregion
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        findNavController().navigate(R.id.action_homeFragment_to_singleMessengerFragment)
-    }
-
     override fun observeViewModel() {
 
         //region Inputs

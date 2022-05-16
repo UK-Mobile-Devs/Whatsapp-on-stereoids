@@ -12,7 +12,7 @@ class MessengerRepositoryImpl @Inject constructor(): MessengerRepository {
 
     override fun getConversation(): Observable<Conversation> {
         return Observable.create{ emitter ->
-            val data = Conversation(UUID.randomUUID().toString(), listOf(Message("","example message")))
+            val data = Conversation(UUID.randomUUID().toString(), listOf(Message("1","example message"), Message("2","example message")))
 
             emitter.onNext(data)
         }

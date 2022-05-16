@@ -1,6 +1,7 @@
 package com.example.whatsapp.ui.fragments.messenger.single
 
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.whatsapp.ui.fragments.messenger.BaseMessengerFragment
 import com.example.whatsapp.ui.fragments.messenger.MessengerAdapter
 import com.example.whatsapp.utils.Constants.CONTACT_ID
@@ -18,6 +19,14 @@ class SingleMessengerFragment : BaseMessengerFragment() {
     override fun initArgs(arguments: Bundle) {
         contactId = arguments.getString(CONTACT_ID)
             ?: throw IllegalArgumentException("Missing contact user id")
+    }
+
+    override fun initViews() {
+        super.initViews()
+        binding.rvMessenger.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = messageAdapter
+        }
     }
 
     override fun observeViewModel() {
