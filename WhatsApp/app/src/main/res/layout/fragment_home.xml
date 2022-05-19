@@ -21,10 +21,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/teal_green"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                app:tabIconTint="@color/white"
-                app:tabIndicatorColor="@android:color/white"
-                app:tabTextColor="@color/white"
+                android:theme="@style/Theme.AppCompat.DayNight"
+                app:tabIconTint="@drawable/ic_home_tab_background"
+                app:tabSelectedTextColor="@color/white"
+                app:tabIndicatorColor="@color/white"
+                app:tabTextColor="@color/tab_secondary"
                 app:wrapSelectedTabs="@array/homeWrappedTabLayoutItems">
 
                 <com.google.android.material.tabs.TabItem

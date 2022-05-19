@@ -27,6 +27,7 @@
         <entry key="app/src/main/res/drawable/ic_messenger_icon.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_notification_mute.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_notifications.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_tab_icon_background.xml" value="0.173" />
         <entry key="app/src/main/res/drawable/selectable_background.xml" value="0.173" />
         <entry key="app/src/main/res/drawable/selected_background.xml" value="0.1465" />
         <entry key="app/src/main/res/drawable/selected_state.xml" value="0.1465" />
