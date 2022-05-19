@@ -30,34 +30,36 @@ class ChatRepositoryImpl @Inject constructor() : ChatRepository {
         return Observable.just(
             mutableListOf(
                 CallHistory(
-                    UUID.randomUUID().toString(),
-                    UUID.randomUUID().toString(),
+                    UUID.randomUUID().toString().substring(0, 10),
+                    UUID.randomUUID().toString().substring(0, 10),
                     listOf(Call(isVideoCall = true, isInBound = false))
                 ),
                 CallHistory(
-                    UUID.randomUUID().toString(),
-                    UUID.randomUUID().toString(),
+                    UUID.randomUUID().toString().substring(0, 10),
+                    UUID.randomUUID().toString().substring(0, 10),
                     listOf(Call(isVideoCall = false, isInBound = true))
                 ),
                 CallHistory(
-                    UUID.randomUUID().toString(),
-                    UUID.randomUUID().toString(),
+                    UUID.randomUUID().toString().substring(0, 10),
+                    UUID.randomUUID().toString().substring(0, 10),
                     listOf(Call(isVideoCall = true, isInBound = false))
                 ),
                 CallHistory(
-                    UUID.randomUUID().toString(),
-                    UUID.randomUUID().toString(),
+                    UUID.randomUUID().toString().substring(0, 10),
+                    UUID.randomUUID().toString().substring(0, 10),
                     listOf(Call(isVideoCall = false, isInBound = true))
                 ),
                 CallHistory(
-                    UUID.randomUUID().toString(),
-                    UUID.randomUUID().toString(),
-                    listOf(Call(isVideoCall = true, isInBound = false), Call(false, true))
+                    UUID.randomUUID().toString().substring(0, 10),
+                    UUID.randomUUID().toString().substring(0, 10),
+                    listOf(Call(isVideoCall = true, isInBound = false),
+                        Call(isVideoCall = false, isInBound = true))
                 ),
                 CallHistory(
-                    UUID.randomUUID().toString(),
-                    UUID.randomUUID().toString(),
-                    listOf(Call(isVideoCall = false, isInBound = true), Call(true, false))
+                    UUID.randomUUID().toString().substring(0, 10),
+                    UUID.randomUUID().toString().substring(0, 10),
+                    listOf(Call(isVideoCall = false, isInBound = true),
+                        Call(isVideoCall = true, isInBound = false))
                 )
             )
         )

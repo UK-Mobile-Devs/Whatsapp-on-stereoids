@@ -9,7 +9,7 @@
     <color name="grey">#D3D3D3</color>
     <color name="white">#FFFFFFFF</color>
     <color name="light_green">#4FCE5D</color>
-    <color name="teal_green">#128C7E</color>
+        <color name="teal_green">#128C7E</color>
 
     <color name="call_outbound">#FF0000</color>
 

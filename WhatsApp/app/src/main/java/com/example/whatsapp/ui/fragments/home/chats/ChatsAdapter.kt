@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firestorerepository.datatypes.Conversation
+import com.example.whatsapp.R
 import com.example.whatsapp.databinding.ItemChatBinding
 
 
@@ -78,6 +79,13 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
         fun bind(conversation: Conversation, isSelected : Boolean) {
 
             lavSelected.visibility = if(isSelected) View.VISIBLE else View.GONE
+
+            itemView.isSelected = isSelected
+
+
+
+
+
 
             if(!conversation.isGroup) {
                 // Todo: Add actual data here from the conversation, but the database structure is currently TBT

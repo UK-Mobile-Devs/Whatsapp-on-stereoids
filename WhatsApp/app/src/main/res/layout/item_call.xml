@@ -3,23 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clickable="true"
     android:focusable="true"
-    android:background="?android:attr/selectableItemBackground"
+    android:foreground="?selectableItemBackground"
+    android:background="@drawable/selected_background"
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-        <ImageView
-            android:id="@+id/ivCallBoundType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tvCallerTitle"
-            app:layout_constraintTop_toBottomOf="@+id/tvCallerTitle"
-            app:tint="@color/teal_700"
-            tools:srcCompat="@drawable/ic_call_made" />
 
         <TextView
             android:id="@+id/tvCallerTitle"
@@ -40,15 +31,18 @@
             android:id="@+id/tvBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:drawablePadding="4dp"
             android:ellipsize="end"
+            android:foregroundGravity="center"
             android:gravity="center"
             android:maxLines="1"
+            android:text="Test"
             android:textSize="@dimen/chat_preview_body"
-            app:layout_constraintBottom_toBottomOf="@+id/ivCallBoundType"
-            app:layout_constraintStart_toEndOf="@+id/ivCallBoundType"
-            app:layout_constraintTop_toTopOf="@+id/ivCallBoundType"
-            tools:text="Test" />
+            app:drawableStartCompat="@drawable/ic_call_made"
+            app:drawableTint="@color/teal_700"
+            app:layout_constraintStart_toStartOf="@+id/tvCallerTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvCallerTitle" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline8"
@@ -87,11 +81,11 @@
             android:id="@+id/ivRecentCallType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            app:tint="@color/teal_700"
+            android:layout_marginEnd="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/teal_green"
             tools:srcCompat="@drawable/ic_camera" />
 
 

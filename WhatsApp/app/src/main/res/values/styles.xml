@@ -28,4 +28,8 @@
         <!-- Customize color of navigation drawer icon and back arrow -->
         <item name="android:textColorPrimary">@android:color/black</item>
     </style>
+
+    <style name="SelectableListItemStyle">
+        <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
+    </style>
 </resources>

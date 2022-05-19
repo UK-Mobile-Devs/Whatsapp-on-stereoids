@@ -16,7 +16,6 @@
         <item name="windowActionModeOverlay">true</item>
 
 
-
         <!-- Customize your theme here. -->
     </style>
     <style name="Theme.WhatsApp.NoActionBar">
