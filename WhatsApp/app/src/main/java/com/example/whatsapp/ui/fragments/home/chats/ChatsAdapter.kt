@@ -82,11 +82,6 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
 
             itemView.isSelected = isSelected
 
-
-
-
-
-
             if(!conversation.isGroup) {
                 // Todo: Add actual data here from the conversation, but the database structure is currently TBT
                 tvTitle.text = "Bill Gates"

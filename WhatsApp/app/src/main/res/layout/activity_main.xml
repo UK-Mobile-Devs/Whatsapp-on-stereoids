@@ -14,7 +14,7 @@
             android:theme="@style/ToolbarTheme"
             android:background="@color/teal_green"
             app:popupTheme="@style/MenuTheme"
-            app:menu="@menu/home_navigation" />
+            app:menu="@menu/navigation" />
 
         <fragment
             android:id="@+id/navHostFragment"

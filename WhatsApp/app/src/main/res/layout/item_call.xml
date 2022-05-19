@@ -1,48 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?selectableItemBackground"
-    android:background="@drawable/selected_background"
+    android:foreground="?selectableItemBackgroundBorderless"
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/clParent"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/selected_background"
+        app:layout_constraintBottom_toTopOf="@+id/tvBody"
+        app:layout_constraintTop_toTopOf="@+id/tvBody">
 
 
         <TextView
             android:id="@+id/tvCallerTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:ellipsize="end"
             android:maxLines="1"
+            android:text="Bill Gates"
             android:textColor="@color/black"
-            android:textSize="@dimen/chat_preview_title"
+            android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/ivRecentCallType"
+            app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toTopOf="@+id/ivIcon"
-            tools:text="Bill Gates" />
+            app:layout_constraintTop_toTopOf="@+id/ivIcon" />
 
         <TextView
             android:id="@+id/tvBody"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:drawablePadding="4dp"
             android:ellipsize="end"
             android:foregroundGravity="center"
-            android:gravity="center"
+            android:gravity="start"
             android:maxLines="1"
-            android:text="Test"
-            android:textSize="@dimen/chat_preview_body"
+            android:text="19 May, 20:05"
+            android:textColor="@color/greySecondary"
+            android:textSize="14sp"
             app:drawableStartCompat="@drawable/ic_call_made"
             app:drawableTint="@color/teal_700"
+            app:layout_constraintEnd_toEndOf="@+id/tvCallerTitle"
             app:layout_constraintStart_toStartOf="@+id/tvCallerTitle"
-            app:layout_constraintTop_toBottomOf="@+id/tvCallerTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/tvCallerTitle"
+            tools:text="19 May, 20:05" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline8"
@@ -50,6 +55,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.2" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivIcon"
@@ -72,18 +85,22 @@
             android:layout_height="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/ivIcon"
             app:layout_constraintEnd_toEndOf="@+id/ivIcon"
-            app:lottie_rawRes="@raw/selected"
-            app:lottie_progress="100"
             app:lottie_autoPlay="false"
-            app:lottie_loop="false" />
+            app:lottie_loop="false"
+            app:lottie_progress="100"
+            app:lottie_rawRes="@raw/selected" />
 
         <ImageView
             android:id="@+id/ivRecentCallType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="18dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:background="?attr/selectableItemBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline9"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/teal_green"
             tools:srcCompat="@drawable/ic_camera" />

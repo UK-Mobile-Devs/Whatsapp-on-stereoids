@@ -1,5 +1,6 @@
 package com.example.whatsapp.ui.fragments.home.calls
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -66,29 +67,30 @@ class CallsAdapter : ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(Diff
     //endregion
 
     //region CallsViewHolder
-    class CallsViewHolder(binding: ItemCallBinding) : RecyclerView.ViewHolder(binding.root) {
+    class CallsViewHolder(binding: ItemCallBinding) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
         //region Variables
-       private val tvTitle = binding.tvCallerTitle
+        private val tvTitle = binding.tvCallerTitle
         private val tvBody = binding.tvBody
         private val ivIcon = binding.ivIcon
         private val ivRecentCallType = binding.ivRecentCallType
         private val lavSelected = binding.lavSelected
+        private val clParent = binding.clParent
         //endregion
 
         fun bind(callHistory: CallHistory, isSelected: Boolean) {
 
-            tvTitle.text = callHistory.uid
+            clParent.isSelected = isSelected
+            lavSelected.visibility = if (isSelected) View.VISIBLE else View.GONE
 
-            itemView.isSelected = isSelected
+            clParent.setOnClickListener(this)
+            ivRecentCallType.setOnClickListener(this)
 
 
             ivRecentCallType.setImageResource(
                 if (callHistory.calls.last().isVideoCall == true)
                     R.drawable.ic_video else R.drawable.ic_call
             )
-
-
 
             tvBody.setLeftDrawableIconAndColour(
                 if (callHistory.calls.last().isInBound == true)
@@ -101,11 +103,24 @@ class CallsAdapter : ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(Diff
                     R.color.call_outbound
             )
 
-
-
-
-            lavSelected.visibility = if (isSelected) View.VISIBLE else View.GONE
         }
+
+        //region View.OnClickListener
+        override fun onClick(view: View) {
+            Log.e("Click, ", "click")
+            when(view) {
+                ivRecentCallType -> {
+
+                }
+                else -> {
+
+                }
+            }
+        }
+
+        //endregion
+
+
 
         fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> =
             object : ItemDetailsLookup.ItemDetails<Long>() {
