@@ -23,7 +23,7 @@
                 android:background="@color/teal_green"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 app:tabIconTint="@color/white"
-                app:tabSelectedTextColor="@color/white"
+                app:tabIndicatorColor="@android:color/white"
                 app:tabTextColor="@color/white"
                 app:wrapSelectedTabs="@array/homeWrappedTabLayoutItems">
 

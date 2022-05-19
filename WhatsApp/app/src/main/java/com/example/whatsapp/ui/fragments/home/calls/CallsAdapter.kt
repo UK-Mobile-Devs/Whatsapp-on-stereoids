@@ -83,8 +83,6 @@ class CallsAdapter : ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(Diff
             itemView.isSelected = isSelected
 
 
-
-
             ivRecentCallType.setImageResource(
                 if (callHistory.calls.last().isVideoCall == true)
                     R.drawable.ic_video else R.drawable.ic_call
