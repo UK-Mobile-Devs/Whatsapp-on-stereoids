@@ -10,7 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentHomeBinding
+import com.example.whatsapp.ui.fragments.home.HomeStatePagerAdapter.Companion.CAMERA_FRAGMENT_INDEX
 import com.example.whatsapp.ui.fragments.home.HomeStatePagerAdapter.Companion.CHATS_FRAGMENT_INDEX
+import com.example.whatsapp.ui.fragments.home.HomeStatePagerAdapter.Companion.STATUS_FRAGMENT_INDEX
 import com.example.whatsapp.ui.fragments.home.calls.CallsFragment
 import com.example.whatsapp.ui.fragments.home.camera.CameraFragment
 import com.example.whatsapp.ui.fragments.home.chats.ChatsFragment
@@ -47,8 +49,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         )
         binding.vpHomeScreen.adapter = homeStatePagerAdapter
         binding.vpHomeScreen.currentItem = CHATS_FRAGMENT_INDEX
-        TabLayoutMediator(binding.tlNavigation, binding.vpHomeScreen) { _, _ ->
-
+        TabLayoutMediator(binding.tlNavigation, binding.vpHomeScreen) {_, position ->
+            binding.vpHomeScreen.setCurrentItem(position, true)
         }
         //endregion
 

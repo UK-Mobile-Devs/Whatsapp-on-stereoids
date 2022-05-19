@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.selection.ItemDetailsLookup
 import androidx.recyclerview.selection.ItemKeyProvider
 import androidx.recyclerview.selection.SelectionTracker
@@ -28,7 +27,7 @@ class ChatsKeyProvider(private val recyclerView: RecyclerView) :
     }
 }
 
-class ItemDetailsLookup(private val recyclerView: RecyclerView) :
+class ChatDetailsLookup(private val recyclerView: RecyclerView) :
     ItemDetailsLookup<Long>() {
     override fun getItemDetails(event: MotionEvent): ItemDetails<Long>? {
         val view = recyclerView.findChildViewUnder(event.x, event.y)

@@ -5,7 +5,6 @@ import android.view.ActionMode
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.selection.SelectionPredicates
 import androidx.recyclerview.selection.SelectionTracker
@@ -53,7 +52,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
             CHAT_SELECTION_KEY,
             binding.rvChats,
             ChatsKeyProvider(binding.rvChats),
-            ItemDetailsLookup(binding.rvChats),
+            ChatDetailsLookup(binding.rvChats),
             StorageStrategy.createLongStorage()
         ).withSelectionPredicate(
             SelectionPredicates.createSelectAnything()

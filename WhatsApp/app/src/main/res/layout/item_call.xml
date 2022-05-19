@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?android:attr/selectableItemBackground"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/ivCallBoundType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvCallerTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvCallerTitle"
+            app:tint="@color/teal_700"
+            tools:srcCompat="@drawable/ic_call_made" />
+
+        <TextView
+            android:id="@+id/tvCallerTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/chat_preview_title"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/ivRecentCallType"
+            app:layout_constraintStart_toStartOf="@+id/guideline8"
+            app:layout_constraintTop_toTopOf="@+id/ivIcon"
+            tools:text="Bill Gates" />
+
+        <TextView
+            android:id="@+id/tvBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textSize="@dimen/chat_preview_body"
+            app:layout_constraintBottom_toBottomOf="@+id/ivCallBoundType"
+            app:layout_constraintStart_toEndOf="@+id/ivCallBoundType"
+            app:layout_constraintTop_toTopOf="@+id/ivCallBoundType"
+            tools:text="Test" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lavSelected"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivIcon"
+            app:layout_constraintEnd_toEndOf="@+id/ivIcon"
+            app:lottie_rawRes="@raw/selected"
+            app:lottie_progress="100"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="false" />
+
+        <ImageView
+            android:id="@+id/ivRecentCallType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:tint="@color/teal_700"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/ic_camera" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
