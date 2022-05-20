@@ -42,7 +42,7 @@ class CallsDetailsLookup(private val recyclerView: RecyclerView) :
 }
 
 
-class CallsAdapter : ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(DiffCallback()) {
+class CallsAdapter : ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(CallsViewHolder.DiffCallback()) {
 
     var tracker: SelectionTracker<Long>? = null
 
@@ -67,7 +67,8 @@ class CallsAdapter : ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(Diff
     //endregion
 
     //region CallsViewHolder
-    class CallsViewHolder(binding: ItemCallBinding) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
+    class CallsViewHolder(binding: ItemCallBinding) : RecyclerView.ViewHolder(binding.root),
+        View.OnClickListener {
 
         //region Variables
         private val tvTitle = binding.tvCallerTitle
@@ -85,6 +86,7 @@ class CallsAdapter : ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(Diff
 
             clParent.setOnClickListener(this)
             ivRecentCallType.setOnClickListener(this)
+
 
 
             ivRecentCallType.setImageResource(
@@ -108,7 +110,7 @@ class CallsAdapter : ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(Diff
         //region View.OnClickListener
         override fun onClick(view: View) {
             Log.e("Click, ", "click")
-            when(view) {
+            when (view) {
                 ivRecentCallType -> {
 
                 }
@@ -121,25 +123,24 @@ class CallsAdapter : ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(Diff
         //endregion
 
 
-
         fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> =
             object : ItemDetailsLookup.ItemDetails<Long>() {
                 override fun getPosition(): Int = absoluteAdapterPosition
                 override fun getSelectionKey(): Long = itemId
             }
-    }
-    //endregion
+        //endregion
 
-    //region ItemCallback
-    class DiffCallback : DiffUtil.ItemCallback<CallHistory>() {
+        //region ItemCallback
+        class DiffCallback : DiffUtil.ItemCallback<CallHistory>() {
 
-        override fun areItemsTheSame(oldItem: CallHistory, newItem: CallHistory): Boolean {
-            return oldItem == newItem
+            override fun areItemsTheSame(oldItem: CallHistory, newItem: CallHistory): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areContentsTheSame(oldItem: CallHistory, newItem: CallHistory): Boolean {
+                return oldItem.uid == newItem.uid
+            }
         }
-
-        override fun areContentsTheSame(oldItem: CallHistory, newItem: CallHistory): Boolean {
-            return oldItem.uid == newItem.uid
-        }
+        //endregion
     }
-    //endregion
 }

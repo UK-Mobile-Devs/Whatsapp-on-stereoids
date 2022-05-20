@@ -9,6 +9,7 @@ import androidx.recyclerview.selection.SelectionPredicates
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.selection.StorageStrategy
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.firestorerepository.datatypes.CallHistory
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentCallsBinding
@@ -19,7 +20,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 @AndroidEntryPoint
-class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback {
+class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback, CallsCallback {
 
     //region Variables
 
@@ -37,12 +38,24 @@ class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback 
 
     override fun observeViewModel() {
 
+        //region Inputs
         viewModel.getListOfConversations()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
                 callsAdapter.submitList(it)
             }.autoDispose()
+
+        viewModel.launchCallHistory()
+            .subscribe {
+
+            }.autoDispose()
+
+        //endregion
+
+        //region Outputs
+
+        //endregion
     }
 
     override fun initViews() {
@@ -120,6 +133,20 @@ class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback 
         this.actionMode = null
         actionMode.finish()
         tracker?.clearSelection()
+    }
+    //endregion
+
+    //region CallsCallback
+    override fun startCallIntent(recipientUid: String) {
+        viewModel.launchCall(recipientUid)
+    }
+
+    override fun startVideoIntent(recipientUid: String) {
+        viewModel.launchVideo(recipientUid)
+    }
+
+    override fun viewCallHistory(callHistory: CallHistory) {
+        viewModel.viewCallHistory(callHistory)
     }
     //endregion
 
