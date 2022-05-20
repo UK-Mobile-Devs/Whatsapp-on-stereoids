@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="@+id/ivIcon" />
 
         <TextView
-            android:id="@+id/tvBody"
+            android:id="@+id/tvAbout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"

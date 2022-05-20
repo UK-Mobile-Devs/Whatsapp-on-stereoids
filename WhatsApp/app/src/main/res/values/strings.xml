@@ -9,6 +9,7 @@
     <!-- Search Menu Layout -->
     <string name="search">Search</string>
     <string name="new_group">New group</string>
+    <string name="call_info">Call info</string>
     <string name="new_broadcast">New broadcast</string>
     <string name="linked_devices">Linked devices</string>
     <string name="starred_messages">Starred messages</string>
@@ -46,4 +47,7 @@
     <string name="chats_add_to_contacts_title">Add to contacts</string>
     <string name="start_conversation_description">Start new chat</string>
     <string name="chats_view_contact_title">View contact</string>
+    <string name="call_history_send_message_title">Send message</string>
+    <string name="call_history_remove_title">Remove from call log</string>
+    <string name="call_history_block_title">Block</string>
 </resources>

@@ -42,7 +42,7 @@ class CallsDetailsLookup(private val recyclerView: RecyclerView) :
 }
 
 
-class CallsAdapter : ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(CallsViewHolder.DiffCallback()) {
+class CallsAdapter(private val callback: CallsCallback) : ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(CallsViewHolder.DiffCallback()) {
 
     var tracker: SelectionTracker<Long>? = null
 
@@ -58,7 +58,7 @@ class CallsAdapter : ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(Call
 
     override fun onBindViewHolder(holder: CallsViewHolder, position: Int) {
         tracker?.let {
-            holder.bind(getItem(position), it.isSelected(position.toLong()))
+            holder.bind(getItem(position), it.isSelected(position.toLong()), callback)
         }
     }
 
@@ -67,34 +67,43 @@ class CallsAdapter : ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(Call
     //endregion
 
     //region CallsViewHolder
-    class CallsViewHolder(binding: ItemCallBinding) : RecyclerView.ViewHolder(binding.root),
-        View.OnClickListener {
+    class CallsViewHolder(binding: ItemCallBinding) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
         //region Variables
         private val tvTitle = binding.tvCallerTitle
-        private val tvBody = binding.tvBody
+        private val tvAbout = binding.tvAbout
         private val ivIcon = binding.ivIcon
         private val ivRecentCallType = binding.ivRecentCallType
         private val lavSelected = binding.lavSelected
         private val clParent = binding.clParent
+
+        private var callback : CallsCallback?= null
+        private var callHistory : CallHistory?= null
+        private var previousCallType : Boolean = false
+
         //endregion
 
-        fun bind(callHistory: CallHistory, isSelected: Boolean) {
+        fun bind(callHistory: CallHistory, isSelected: Boolean, callback: CallsCallback) {
 
             clParent.isSelected = isSelected
             lavSelected.visibility = if (isSelected) View.VISIBLE else View.GONE
+
+            this.callback = callback
+            this.callHistory = callHistory
+            this.previousCallType = callHistory.calls.last().isVideoCall == true
 
             clParent.setOnClickListener(this)
             ivRecentCallType.setOnClickListener(this)
 
 
 
+
             ivRecentCallType.setImageResource(
-                if (callHistory.calls.last().isVideoCall == true)
+                if(previousCallType)
                     R.drawable.ic_video else R.drawable.ic_call
             )
 
-            tvBody.setLeftDrawableIconAndColour(
+            tvAbout.setLeftDrawableIconAndColour(
                 if (callHistory.calls.last().isInBound == true)
                     R.drawable.ic_call_made
                 else
@@ -109,20 +118,24 @@ class CallsAdapter : ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(Call
 
         //region View.OnClickListener
         override fun onClick(view: View) {
-            Log.e("Click, ", "click")
-            when (view) {
-                ivRecentCallType -> {
+            callback?.let {callback ->
 
-                }
-                else -> {
+                when (view) {
+                    ivRecentCallType -> {
 
+                    }
+                    else -> {
+                        callHistory?.let {
+                            callback.viewCallHistory(it)
+                        }
+                    }
                 }
             }
         }
 
         //endregion
 
-
+        //region ItemDetailsLookup.ItemDetails
         fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> =
             object : ItemDetailsLookup.ItemDetails<Long>() {
                 override fun getPosition(): Int = absoluteAdapterPosition
@@ -141,6 +154,8 @@ class CallsAdapter : ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(Call
                 return oldItem.uid == newItem.uid
             }
         }
+        //endregion
+
         //endregion
     }
 }

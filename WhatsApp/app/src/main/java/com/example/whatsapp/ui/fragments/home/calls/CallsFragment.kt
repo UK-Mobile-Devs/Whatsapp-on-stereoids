@@ -1,10 +1,12 @@
 package com.example.whatsapp.ui.fragments.home.calls
 
+import android.os.Bundle
 import android.view.ActionMode
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.selection.SelectionPredicates
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.selection.StorageStrategy
@@ -13,8 +15,6 @@ import com.example.firestorerepository.datatypes.CallHistory
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentCallsBinding
-import com.example.whatsapp.ui.fragments.home.chats.*
-import com.example.whatsapp.utils.getSelectionFromTracker
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -26,7 +26,9 @@ class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback,
 
     private val viewModel: CallsFragmentVM by viewModels()
 
-    private val callsAdapter: CallsAdapter = CallsAdapter()
+    private val callsAdapter: CallsAdapter by lazy {
+        CallsAdapter(this)
+    }
 
     private var tracker: SelectionTracker<Long>? = null
 
@@ -48,7 +50,10 @@ class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback,
 
         viewModel.launchCallHistory()
             .subscribe {
-
+                val bundle = Bundle().apply {
+                    putParcelable(CALL_HISTORY_KEY, it)
+                }
+                findNavController().navigate(R.id.action_home_to_callHistoryFragment, bundle)
             }.autoDispose()
 
         //endregion
@@ -153,6 +158,7 @@ class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback,
     //region Companion Object
     companion object {
         const val CALLS_SELECTION_KEY = "CALLS_SELECTION_KEY"
+        const val CALL_HISTORY_KEY = "callHistory"
 
         fun newInstance(): CallsFragment {
             return CallsFragment()

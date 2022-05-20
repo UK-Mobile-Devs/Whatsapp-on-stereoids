@@ -35,7 +35,7 @@ class CallsFragmentVM @Inject constructor(
     }
 
     fun viewCallHistory(callHistory: CallHistory) {
-
+        psViewCallHistory.onNext(callHistory)
     }
 
     //endregion

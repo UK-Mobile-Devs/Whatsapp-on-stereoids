@@ -91,6 +91,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
     //endregion
 
+    //region Options Menu
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.navigation, menu)
         super.onCreateOptionsMenu(menu, inflater)

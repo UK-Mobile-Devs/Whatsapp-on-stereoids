@@ -28,6 +28,10 @@
             android:id="@+id/action_homeFragment_to_groupMessengerFragment2"
             app:destination="@id/groupMessengerFragment2" />
 
+        <action
+            android:id="@+id/action_home_to_callHistoryFragment"
+            app:destination="@id/chatHistoryFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/contactsFragment"
@@ -40,7 +44,19 @@
         android:name="com.example.whatsapp.ui.fragments.home.chats.ChatsFragment"
         android:label="@string/chats"
         tools:layout="@layout/fragment_chats">
+
     </fragment>
+
+
+    <fragment
+        android:id="@+id/callsFragment"
+        android:name="com.example.whatsapp.ui.fragments.home.calls.CallsFragment"
+        android:label="@string/calls"
+        tools:layout="@layout/fragment_calls">
+
+    </fragment>
+
+
 
     <fragment
         android:id="@+id/singleMessengerFragment"
@@ -146,6 +162,16 @@
         android:id="@+id/groupMessengerFragment2"
         android:name="com.example.whatsapp.ui.fragments.messenger.group.GroupMessengerFragment"
         android:label="GroupMessengerFragment" />
+
+    <fragment
+        android:id="@+id/chatHistoryFragment"
+        android:name="com.example.whatsapp.ui.fragments.home.chathistory.ChatHistoryFragment"
+        android:label="@string/call_info"
+        tools:layout="@layout/fragment_call_history">
+        <argument
+            android:name="callHistory"
+            app:argType="com.example.firestorerepository.datatypes.CallHistory" />
+    </fragment>
 
 
 </navigation>
