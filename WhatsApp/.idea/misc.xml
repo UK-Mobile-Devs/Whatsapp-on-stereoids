@@ -32,20 +32,23 @@
         <entry key="app/src/main/res/drawable/selected_background.xml" value="0.1465" />
         <entry key="app/src/main/res/drawable/selected_state.xml" value="0.1465" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/call_history_header.xml" value="0.2504528985507246" />
+        <entry key="app/src/main/res/layout/call_history_header.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_call_history.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_calls.xml" value="0.2341485507246377" />
         <entry key="app/src/main/res/layout/fragment_chat_details.xml" value="0.16197916666666667" />
-        <entry key="app/src/main/res/layout/fragment_chats.xml" value="0.30416666666666664" />
+        <entry key="app/src/main/res/layout/fragment_chats.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_call.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_chat.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/item_chat_history.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/item_chat_history.xml" value="0.165" />
         <entry key="app/src/main/res/menu/home_call_history_menu.xml" value="0.16197916666666667" />
         <entry key="app/src/main/res/menu/home_calls_context_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/home_calls_menu.xml" value="0.1" />
         <entry key="app/src/main/res/menu/home_chats_context_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/home_chats_menu.xml" value="0.23684210526315788" />
         <entry key="app/src/main/res/menu/home_delete_chats_actionbar.xml" value="0.1" />
         <entry key="app/src/main/res/menu/home_navigation.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/home_status_menu.xml" value="0.1" />
         <entry key="app/src/main/res/menu/navigation.xml" value="0.3026041666666667" />
       </map>
     </option>

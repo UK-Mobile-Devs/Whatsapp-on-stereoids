@@ -1,10 +1,7 @@
 package com.example.whatsapp.ui.fragments.home.calls
 
 import android.os.Bundle
-import android.view.ActionMode
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuItem
+import android.view.*
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.selection.SelectionPredicates
@@ -65,6 +62,7 @@ class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback,
 
     override fun initViews() {
         super.initViews()
+        setHasOptionsMenu(true)
 
         //region List Of Conversations RecyclerView Initialisation
         binding.rvCalls.apply {
@@ -114,10 +112,36 @@ class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback,
 
     //endregion
 
+    //region Options Menu
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.home_calls_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.search -> {
+                viewModel.searchClick()
+                true
+            }
+            R.id.clearCallLog -> {
+                viewModel.clearCallLogClick()
+                true
+            }
+            R.id.settings -> {
+                viewModel.settingsClick()
+                true
+            }
+            else ->  super.onOptionsItemSelected(item)
+        }
+    }
+    //endregion
+
     //region ActionMode.Callback
 
     override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-        mode.menuInflater.inflate(R.menu.home_calls_context_menu, menu)
+        mode.menuInflater.inflate(R.menu.call_history_menu, menu)
         return true
     }
 

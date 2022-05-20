@@ -18,6 +18,9 @@ class CallsFragmentVM @Inject constructor(
     private val psLaunchVideo: PublishSubject<String> = PublishSubject.create<String>()
     private val psLaunchCall = PublishSubject.create<String>()
     private val psViewCallHistory = PublishSubject.create<CallHistory>()
+    private val psSettingsClicked = PublishSubject.create<Unit>()
+    private val psSearchClicked = PublishSubject.create<Unit>()
+    private val psClearCallLogClicked = PublishSubject.create<Unit>()
 
 
     init {
@@ -38,10 +41,34 @@ class CallsFragmentVM @Inject constructor(
         psViewCallHistory.onNext(callHistory)
     }
 
+    fun settingsClick() {
+        psSettingsClicked.onNext(Unit)
+    }
+
+    fun searchClick() {
+        psSearchClicked.onNext(Unit)
+    }
+
+    fun clearCallLogClick() {
+        psClearCallLogClicked.onNext(Unit)
+    }
+
     //endregion
 
 
     //region Outputs
+
+    fun settingsClicked() : Observable<Unit> {
+        return psSettingsClicked
+    }
+
+    fun searchClicked() : Observable<Unit> {
+        return psSearchClicked
+    }
+
+    fun clearCallLogClicked() : Observable<Unit> {
+        return psClearCallLogClicked
+    }
 
     fun getListOfConversations() : Observable<List<CallHistory>> {
         return chatRepo.getChatHistory()

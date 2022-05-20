@@ -90,7 +90,7 @@ class CallsAdapter(private val callback: CallsCallback) : ListAdapter<CallHistor
 
             this.callback = callback
             this.callHistory = callHistory
-            this.previousCallType = callHistory.calls.last().isVideoCall == true
+            this.previousCallType = callHistory.calls.first().isVideoCall == true
 
             clParent.setOnClickListener(this)
             ivRecentCallType.setOnClickListener(this)
@@ -100,15 +100,17 @@ class CallsAdapter(private val callback: CallsCallback) : ListAdapter<CallHistor
 
             ivRecentCallType.setImageResource(
                 if(previousCallType)
-                    R.drawable.ic_video else R.drawable.ic_call
+                    R.drawable.ic_video
+                else
+                    R.drawable.ic_call
             )
 
             tvAbout.setLeftDrawableIconAndColour(
-                if (callHistory.calls.last().isInBound == true)
-                    R.drawable.ic_call_made
+                if (callHistory.calls.first().isInBound == true)
+                    R.drawable.ic_call_received
                 else
-                    R.drawable.ic_call_received,
-                if (callHistory.calls.last().isInBound == true)
+                    R.drawable.ic_call_made,
+                if (callHistory.calls.first().isInBound == true)
                     R.color.call_inbound
                 else
                     R.color.call_outbound

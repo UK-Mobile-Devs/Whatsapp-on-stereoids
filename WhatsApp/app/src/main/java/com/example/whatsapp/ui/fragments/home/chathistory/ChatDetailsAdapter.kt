@@ -2,6 +2,7 @@ package com.example.whatsapp.ui.fragments.home.chathistory
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -37,25 +38,30 @@ class ChatHistoryAdapter() : ListAdapter<Call, ChatHistoryAdapter.ChatHistoryVie
 
         fun bind(call: Call) {
 
-            tvCallState.text = "Inbound"
+            tvCallState.text = itemView.context.getString(
+                if (call.isInBound == true)
+                    R.string.call_inbound
+                else
+                    R.string.call_outbound
+            )
             tvTime.text = "12:00"
 
             ivCallDirection.setImageResource(
-                if(call.isVideoCall == true)
-                    R.drawable.ic_video else R.drawable.ic_call
+                if (call.isInBound == true)
+                    R.drawable.ic_call_received
+                else
+                    R.drawable.ic_call_made
             )
 
-//            ivCallDirection.setColorFilter(
-//                if (call.isInBound == true)
-//                    R.drawable.ic_call_made
-//                else
-//                    R.drawable.ic_call_received,
-//                if (call.isInBound == true)
-//                    R.color.call_inbound
-//                else
-//                    R.color.call_outbound
-//            )
-
+            ivCallDirection.setColorFilter(
+                ResourcesCompat.getColor(
+                    itemView.resources,
+                    if (call.isInBound == true)
+                        R.color.call_inbound
+                    else
+                        R.color.call_outbound, null
+                )
+            )
         }
         //endregion
 

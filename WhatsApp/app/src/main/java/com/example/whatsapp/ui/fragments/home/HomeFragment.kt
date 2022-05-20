@@ -71,32 +71,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.itemSettings -> findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
-
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
     override fun observeViewModel() {
 
     }
     //endregion
-
-    //region Life-Cycle
-    override fun onCreate(savedInstanceState: Bundle?) {
-        setHasOptionsMenu(true)
-        super.onCreate(savedInstanceState)
-    }
-    //endregion
-
-    //region Options Menu
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.navigation, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-    //endregion
-
-
 }

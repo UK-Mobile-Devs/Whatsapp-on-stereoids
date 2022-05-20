@@ -7,5 +7,6 @@ import kotlinx.parcelize.Parcelize
 data class Call (
     val uid : String? = "",
     val isVideoCall : Boolean? = false,
-    val isInBound : Boolean? = false
+    val isInBound : Boolean? = false,
+    val callAnswered : Boolean? = false
 ) : Parcelable

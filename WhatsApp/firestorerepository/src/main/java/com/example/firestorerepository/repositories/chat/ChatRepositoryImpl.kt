@@ -37,29 +37,29 @@ class ChatRepositoryImpl @Inject constructor() : ChatRepository {
                 CallHistory(
                     UUID.randomUUID().toString().substring(0, 10),
                     UUID.randomUUID().toString().substring(0, 10),
-                    listOf(Call(isVideoCall = false, isInBound = true))
+                    listOf(Call(isVideoCall = false, isInBound = true, callAnswered = true))
                 ),
                 CallHistory(
                     UUID.randomUUID().toString().substring(0, 10),
                     UUID.randomUUID().toString().substring(0, 10),
-                    listOf(Call(isVideoCall = true, isInBound = false))
+                    listOf(Call(isVideoCall = true, isInBound = false, callAnswered = true))
                 ),
                 CallHistory(
                     UUID.randomUUID().toString().substring(0, 10),
                     UUID.randomUUID().toString().substring(0, 10),
-                    listOf(Call(isVideoCall = false, isInBound = true))
+                    listOf(Call(isVideoCall = false, isInBound = true, callAnswered = false))
                 ),
                 CallHistory(
                     UUID.randomUUID().toString().substring(0, 10),
                     UUID.randomUUID().toString().substring(0, 10),
                     listOf(Call(isVideoCall = true, isInBound = false),
-                        Call(isVideoCall = false, isInBound = true))
+                        Call(isVideoCall = false, isInBound = true, callAnswered = false))
                 ),
                 CallHistory(
                     UUID.randomUUID().toString().substring(0, 10),
                     UUID.randomUUID().toString().substring(0, 10),
                     listOf(Call(isVideoCall = false, isInBound = true),
-                        Call(isVideoCall = true, isInBound = false))
+                        Call(isVideoCall = true, isInBound = false, callAnswered = false))
                 )
             )
         )

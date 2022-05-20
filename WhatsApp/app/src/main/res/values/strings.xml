@@ -6,6 +6,9 @@
     <string name="status">Status</string>
     <string name="calls">Calls</string>
 
+    <!-- Home Status -->
+    <string name="home_status_privacy_title">Status privacy</string>
+
     <!-- Search Menu Layout -->
     <string name="search">Search</string>
     <string name="new_group">New group</string>
@@ -47,7 +50,14 @@
     <string name="chats_add_to_contacts_title">Add to contacts</string>
     <string name="start_conversation_description">Start new chat</string>
     <string name="chats_view_contact_title">View contact</string>
+
+    <!-- Call History -->
     <string name="call_history_send_message_title">Send message</string>
     <string name="call_history_remove_title">Remove from call log</string>
     <string name="call_history_block_title">Block</string>
+    <string name="call_inbound">Inbound</string>
+    <string name="call_outbound">Outbound</string>
+
+    <!-- Home Calls -->
+    <string name="home_calls_clear_log">Clear call log</string>
 </resources>
