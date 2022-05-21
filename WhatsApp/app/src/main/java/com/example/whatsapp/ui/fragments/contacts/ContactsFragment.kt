@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.firestorerepository.datatypes.Contact
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentContactsBinding
 import dagger.hilt.android.AndroidEntryPoint
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 
 
 @AndroidEntryPoint
@@ -35,7 +35,11 @@ class ContactsFragment : BaseFragment<FragmentContactsBinding>() {
         FragmentContactsBinding.inflate(layoutInflater)
 
     override fun observeViewModel() {
-        contactsAdapter.submitList(listOf(Contact("1"), Contact("2")))
+        viewModel.getContacts()
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                contactsAdapter.submitList(it)
+            }
     }
 
 
