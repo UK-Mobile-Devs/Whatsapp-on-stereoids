@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/contactsFragment"
         android:name="com.example.whatsapp.ui.fragments.contacts.ContactsFragment"
-        android:label="Contacts"
+        android:label="Select contacts"
         tools:layout="@layout/fragment_contacts" />
 
     <fragment
