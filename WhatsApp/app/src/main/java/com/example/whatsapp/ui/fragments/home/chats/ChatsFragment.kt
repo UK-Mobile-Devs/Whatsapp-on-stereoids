@@ -2,9 +2,10 @@ package com.example.whatsapp.ui.fragments.home.chats
 
 import android.os.Bundle
 import android.view.ActionMode
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.view.LayoutInflater
+import android.view.MenuInflater
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.selection.SelectionPredicates
