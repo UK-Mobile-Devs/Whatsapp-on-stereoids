@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.selection.ItemDetailsLookup
 import androidx.recyclerview.selection.ItemKeyProvider
 import androidx.recyclerview.selection.SelectionTracker
@@ -12,6 +11,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firestorerepository.datatypes.Conversation
+import com.example.whatsapp.R
 import com.example.whatsapp.databinding.ItemChatBinding
 
 
@@ -28,7 +28,7 @@ class ChatsKeyProvider(private val recyclerView: RecyclerView) :
     }
 }
 
-class ItemDetailsLookup(private val recyclerView: RecyclerView) :
+class ChatDetailsLookup(private val recyclerView: RecyclerView) :
     ItemDetailsLookup<Long>() {
     override fun getItemDetails(event: MotionEvent): ItemDetails<Long>? {
         val view = recyclerView.findChildViewUnder(event.x, event.y)
@@ -79,6 +79,8 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
         fun bind(conversation: Conversation, isSelected : Boolean) {
 
             lavSelected.visibility = if(isSelected) View.VISIBLE else View.GONE
+
+            itemView.isSelected = isSelected
 
             if(!conversation.isGroup) {
                 // Todo: Add actual data here from the conversation, but the database structure is currently TBT

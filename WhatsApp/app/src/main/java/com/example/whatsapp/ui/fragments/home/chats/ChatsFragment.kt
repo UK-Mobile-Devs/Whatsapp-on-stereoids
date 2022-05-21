@@ -2,11 +2,12 @@ package com.example.whatsapp.ui.fragments.home.chats
 
 import android.os.Bundle
 import android.view.ActionMode
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
+import android.view.LayoutInflater
+import android.view.MenuInflater
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.selection.SelectionPredicates
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.selection.StorageStrategy
@@ -42,6 +43,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
 
     override fun initViews() {
         super.initViews()
+        setHasOptionsMenu(true)
 
         //region List Of Conversations RecyclerView Initialisation
         binding.rvChats.apply {
@@ -53,7 +55,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
             CHAT_SELECTION_KEY,
             binding.rvChats,
             ChatsKeyProvider(binding.rvChats),
-            ItemDetailsLookup(binding.rvChats),
+            ChatDetailsLookup(binding.rvChats),
             StorageStrategy.createLongStorage()
         ).withSelectionPredicate(
             SelectionPredicates.createSelectAnything()
@@ -288,6 +290,25 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
         tracker?.onSaveInstanceState(outState)
     }
     //endregion
+
+
+    //region Options Menu
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.home_chats_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.itemSettings -> {
+                findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+    //endregion
+
 
     //region Companion Object
     companion object {
