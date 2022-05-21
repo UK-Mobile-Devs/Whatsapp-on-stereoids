@@ -2,17 +2,16 @@ package com.example.whatsapp.ui.fragments.home.chathistory
 
 import com.example.firestorerepository.datatypes.Call
 import com.example.firestorerepository.datatypes.CallHistory
-import com.example.firestorerepository.repositories.chat.ChatRepositoryImpl
+import com.example.firestorerepository.repositories.chat.ChatRepository
 import com.example.whatsapp.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 import io.reactivex.rxjava3.subjects.PublishSubject
-import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
-class ChatHistoryFragmentVM @Inject constructor(val chatRepo: ChatRepositoryImpl): BaseViewModel() {
+class ChatHistoryFragmentVM @Inject constructor(val chatRepo: ChatRepository): BaseViewModel() {
 
     //region Variables
 

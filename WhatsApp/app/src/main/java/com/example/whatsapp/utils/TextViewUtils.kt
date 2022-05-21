@@ -1,7 +1,7 @@
 package com.example.whatsapp.utils
 
 import android.widget.TextView
-import androidx.annotation.*
+import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat

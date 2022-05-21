@@ -1,11 +1,12 @@
 package com.example.whatsapp.ui.fragments.home.chathistory
 
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavArgument
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.firestorerepository.datatypes.CallHistory
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentCallHistoryBinding
