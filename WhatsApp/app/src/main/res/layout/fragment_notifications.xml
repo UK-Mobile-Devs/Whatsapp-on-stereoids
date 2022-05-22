@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root_layout"
+    android:id="@+id/svScrollNotifications"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/conversationTonesLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:background="?attr/selectableItemBackground">
+            android:paddingBottom="12dp">
 
 
             <TextView
@@ -45,8 +44,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="16dp"
-                android:layout_toEndOf="@+id/conversationToneDesc" />
+                android:layout_toStartOf="@+id/conversationToneDesc"
+                android:layout_marginEnd="16dp" />
 
         </RelativeLayout>
 
@@ -63,19 +62,19 @@
             android:id="@+id/tvnotificationMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/messages"
-            android:layout_marginStart="16dp" />
+            android:layout_marginStart="16dp"
+            android:text="@string/messages" />
 
 
         <RelativeLayout
             android:id="@+id/notificationTonesLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:background="?attr/selectableItemBackground">
+            android:paddingBottom="12dp">
 
 
             <TextView
@@ -93,8 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvnotificationTones"
                 android:layout_marginStart="16dp"
-                android:text="Default ringtone (Bongo)" />
-
+                android:text="@string/defaultbongo" />
 
 
         </RelativeLayout>
@@ -103,11 +101,11 @@
             android:id="@+id/vibrateLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:background="?attr/selectableItemBackground">
+            android:paddingBottom="12dp">
 
 
             <TextView
@@ -126,8 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/vibrateTones"
                 android:layout_marginStart="16dp"
-                android:text="Default ringtone (Bongo)" />
-
+                android:text="@string/defaultbongo" />
 
 
         </RelativeLayout>
@@ -136,11 +133,11 @@
             android:id="@+id/popUpLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:background="?attr/selectableItemBackground">
+            android:paddingBottom="12dp">
 
 
             <TextView
@@ -166,11 +163,11 @@
             android:id="@+id/lightLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:background="?attr/selectableItemBackground">
+            android:paddingBottom="12dp">
 
 
             <TextView
@@ -188,7 +185,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvlightColour"
                 android:layout_marginStart="16dp"
-                android:text="White" />
+                android:text="@string/white" />
 
         </RelativeLayout>
 
@@ -196,11 +193,11 @@
             android:id="@+id/highPriorityLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:background="?attr/selectableItemBackground">
+            android:paddingBottom="12dp">
 
 
             <TextView
@@ -223,9 +220,9 @@
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/tvHighPriorityDesc"
+                android:layout_alignParentEnd="true"
                 android:layout_marginEnd="16dp"
-                android:layout_alignParentEnd="true"/>
+                android:layout_toEndOf="@+id/tvHighPriorityDesc" />
 
         </RelativeLayout>
 
@@ -233,11 +230,11 @@
             android:id="@+id/reactionNotificationLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:background="?attr/selectableItemBackground">
+            android:paddingBottom="12dp">
 
 
             <TextView
@@ -255,14 +252,15 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvReactionNotification"
                 android:layout_marginStart="16dp"
+
                 android:text="@string/shownotification" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/tvReactionNotificationDesc"
+                android:layout_alignParentEnd="true"
                 android:layout_marginEnd="16dp"
-                android:layout_alignParentEnd="true"/>
+                android:layout_toEndOf="@+id/tvReactionNotificationDesc" />
 
         </RelativeLayout>
 
@@ -278,18 +276,18 @@
             android:id="@+id/tvnotificationGroups"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/groups"
-            android:layout_marginStart="16dp" />
+            android:layout_marginStart="16dp"
+            android:text="@string/groups" />
 
         <RelativeLayout
             android:id="@+id/notificationGroupTonesLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:background="?attr/selectableItemBackground">
+            android:paddingBottom="12dp">
 
 
             <TextView
@@ -307,8 +305,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvnotificationGroupsTones"
                 android:layout_marginStart="16dp"
-                android:text="Default ringtone (Bongo)" />
-
+                android:text="@string/defaultbongo" />
 
 
         </RelativeLayout>
@@ -318,11 +315,11 @@
             android:id="@+id/groupVibrateLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:background="?attr/selectableItemBackground">
+            android:paddingBottom="12dp">
 
 
             <TextView
@@ -340,18 +337,18 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvGroupVibrate"
                 android:layout_marginStart="16dp"
-                android:text="Default ringtone (Bongo)" />
+                android:text="@string/defaultbongo" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/popUpGroupLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:background="?attr/selectableItemBackground">
+            android:paddingBottom="12dp">
 
 
             <TextView
@@ -378,11 +375,11 @@
             android:id="@+id/lightGroupLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:background="?attr/selectableItemBackground">
+            android:paddingBottom="12dp">
 
 
             <TextView
@@ -400,7 +397,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvlightGroupColour"
                 android:layout_marginStart="16dp"
-                android:text="White" />
+                android:text="@string/white" />
 
         </RelativeLayout>
 
@@ -408,11 +405,11 @@
             android:id="@+id/highPriorityGroupLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:background="?attr/selectableItemBackground">
+            android:paddingBottom="12dp">
 
 
             <TextView
@@ -435,9 +432,9 @@
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/tvHighPriorityGroupDesc"
+                android:layout_alignParentEnd="true"
                 android:layout_marginEnd="16dp"
-                android:layout_alignParentEnd="true"/>
+                android:layout_toEndOf="@+id/tvHighPriorityGroupDesc" />
 
         </RelativeLayout>
 
@@ -445,11 +442,11 @@
             android:id="@+id/reactionNotificationGroupLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:background="?attr/selectableItemBackground">
+            android:paddingBottom="12dp">
 
 
             <TextView
@@ -472,9 +469,9 @@
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/tvReactionNotificationGroupDesc"
+                android:layout_alignParentEnd="true"
                 android:layout_marginEnd="16dp"
-                android:layout_alignParentEnd="true"/>
+                android:layout_toEndOf="@+id/tvReactionNotificationGroupDesc" />
 
         </RelativeLayout>
 
@@ -491,19 +488,19 @@
             android:id="@+id/tvnotificationCalls"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/calls"
-            android:layout_marginStart="16dp" />
+            android:layout_marginStart="16dp"
+            android:text="@string/calls" />
 
 
         <RelativeLayout
             android:id="@+id/ringtoneLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:background="?attr/selectableItemBackground">
+            android:paddingBottom="12dp">
 
 
             <TextView
@@ -521,18 +518,18 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvRingtone"
                 android:layout_marginStart="16dp"
-                android:text="Default ringtone (Bongo)" />
+                android:text="@string/defaultbongo" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/callsVibrateLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:background="?attr/selectableItemBackground">
+            android:paddingBottom="12dp">
 
 
             <TextView
@@ -550,12 +547,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvCallsVibrate"
                 android:layout_marginStart="16dp"
-                android:text="Default" />
+                android:text="@string/defaultstring" />
         </RelativeLayout>
-
-
-
-
 
 
     </LinearLayout>
