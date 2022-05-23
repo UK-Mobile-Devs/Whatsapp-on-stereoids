@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -11,7 +9,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/display" />
 
@@ -44,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
+                android:contentDescription="@string/theme"
                 android:src="@drawable/ic_light_mode" />
 
             <TextView
@@ -79,6 +78,7 @@
 
             <ImageView
                 android:id="@+id/ivWallpaperIcon"
+                android:contentDescription="@string/wallpaper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
@@ -120,22 +120,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="false" />
-            <ImageView
-                android:id="@+id/ivemptyIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:src="@drawable/ic_empty" />
+
 
             <TextView
                 android:id="@+id/tvEnterissend"
                 style="@style/chatSettingsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginBottom="4dp"
-                android:layout_toEndOf="@+id/ivemptyIcon"
+                android:layout_alignParentStart="true"
+                android:layout_toEndOf="@id/enterSwitch"
+                android:layout_marginStart="70dp"
                 android:text="@string/enterIsSend" />
 
             <TextView
@@ -143,9 +137,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvEnterissend"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="0dp"
-                android:layout_toEndOf="@+id/ivemptyIcon"
+                android:layout_alignParentStart="true"
+                android:layout_toEndOf="@id/enterSwitch"
+                android:layout_marginStart="70dp"
                 android:text="@string/enterIsSendDesc" />
         </RelativeLayout>
 
@@ -165,22 +159,15 @@
                 android:layout_height="wrap_content"
                 android:checked="false" />
 
-            <ImageView
-                android:id="@+id/ivemptyIcon2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:src="@drawable/ic_empty" />
 
             <TextView
                 android:id="@+id/tvMediaVisibility"
                 style="@style/chatSettingsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginBottom="4dp"
-                android:layout_toEndOf="@+id/ivemptyIcon2"
+                android:layout_alignParentStart="true"
+                android:layout_toEndOf="@id/mediaSwitch"
+                android:layout_marginStart="70dp"
                 android:text="@string/mediaVisibility" />
 
             <TextView
@@ -188,9 +175,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvMediaVisibility"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="0dp"
-                android:layout_toEndOf="@+id/ivemptyIcon2"
+                android:layout_alignParentStart="true"
+                android:layout_toEndOf="@id/mediaSwitch"
+                android:layout_marginStart="70dp"
                 android:text="@string/mediaVisibilityDesc" />
         </RelativeLayout>
 
@@ -204,22 +191,14 @@
             android:paddingBottom="12dp"
             android:background="?attr/selectableItemBackground">
 
-            <ImageView
-                android:id="@+id/ivemptyIcon3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:src="@drawable/ic_empty" />
 
             <TextView
                 android:id="@+id/tvFontSize"
                 style="@style/chatSettingsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginBottom="4dp"
-                android:layout_toEndOf="@+id/ivemptyIcon3"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="70dp"
                 android:text="@string/fontSize" />
 
             <TextView
@@ -227,10 +206,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvFontSize"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="0dp"
-                android:layout_toEndOf="@+id/ivemptyIcon3"
-                android:text="Medium" />
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="70dp"
+                android:text="@string/medium" />
         </RelativeLayout>
 
         <View
@@ -250,7 +228,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:text="@string/archivedChats" />
 
         </RelativeLayout>
@@ -266,26 +244,21 @@
             android:background="?attr/selectableItemBackground">
 
             <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/sw_custom_notification"
+                android:id="@+id/archivedSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="false" />
-            <ImageView
-                android:id="@+id/ivemptyIcon4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:src="@drawable/ic_empty" />
+
+
 
             <TextView
                 android:id="@+id/tvArchivedChats"
                 style="@style/chatSettingsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginBottom="4dp"
-                android:layout_toEndOf="@+id/ivemptyIcon4"
+                android:layout_alignParentStart="true"
+                android:layout_toEndOf="@id/archivedSwitch"
+                android:layout_marginStart="70dp"
                 android:text="@string/archivedChatsTitle" />
 
             <TextView
@@ -293,9 +266,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvArchivedChats"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="0dp"
-                android:layout_toEndOf="@+id/ivemptyIcon4"
+                android:layout_alignParentStart="true"
+                android:layout_toEndOf="@id/archivedSwitch"
+                android:layout_marginStart="70dp"
                 android:text="@string/archivedChatsDesc" />
         </RelativeLayout>
 
@@ -320,6 +293,7 @@
 
             <ImageView
                 android:id="@+id/ivLanguageIcon"
+                android:contentDescription="@string/appLanguage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
@@ -334,7 +308,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginBottom="4dp"
                 android:layout_toEndOf="@+id/ivLanguageIcon"
-                android:text="App Language" />
+                android:text="@string/appLanguage" />
 
             <TextView
                 android:id="@+id/tvLanguageDesc"
@@ -344,7 +318,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="0dp"
                 android:layout_toEndOf="@+id/ivLanguageIcon"
-                android:text="Phone's language" />
+                android:text="@string/phoneLanguage" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -359,6 +333,7 @@
 
             <ImageView
                 android:id="@+id/ivBackupIcon"
+                android:contentDescription="@string/chatBackup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
@@ -373,7 +348,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginBottom="4dp"
                 android:layout_toEndOf="@+id/ivBackupIcon"
-                android:text="Chat Backup" />
+                android:text="@string/chatBackup" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -388,6 +363,7 @@
 
             <ImageView
                 android:id="@+id/ivchatHistoryIcon"
+                android:contentDescription="@string/chatHistory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
@@ -402,7 +378,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginBottom="4dp"
                 android:layout_toEndOf="@+id/ivchatHistoryIcon"
-                android:text="Chat History" />
+                android:text="@string/chatHistory" />
         </RelativeLayout>
 
     </LinearLayout>
