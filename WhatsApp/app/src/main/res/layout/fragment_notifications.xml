@@ -28,6 +28,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/conversationSwitch"
                 android:layout_marginBottom="4dp"
                 android:text="@string/conversationtones" />
 
@@ -35,7 +37,10 @@
                 android:id="@+id/conversationToneDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/conversationSwitch"
                 android:layout_below="@+id/tvconversationTones"
+                android:layout_marginEnd="40dp"
                 android:layout_marginStart="16dp"
                 android:text="@string/playsounds" />
 
@@ -44,7 +49,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_toStartOf="@+id/conversationToneDesc"
                 android:layout_marginEnd="16dp" />
 
         </RelativeLayout>
@@ -207,6 +211,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/highPrioritySwitch"
                 android:text="@string/highpriority" />
 
             <TextView
@@ -214,15 +220,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvHighPriority"
+                android:layout_toStartOf="@+id/highPrioritySwitch"
+                android:layout_alignParentStart="true"
                 android:layout_marginStart="16dp"
+                android:layout_marginEnd="40dp"
                 android:text="@string/previewnotification" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="16dp"
-                android:layout_toEndOf="@+id/tvHighPriorityDesc" />
+                android:id="@+id/highPrioritySwitch"
+                android:layout_marginEnd="16dp" />
 
         </RelativeLayout>
 
@@ -242,8 +251,11 @@
                 style="@style/NotificationsTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="-2dp"
                 android:layout_marginBottom="4dp"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/reactionNotificationSwitch"
                 android:text="@string/reactionnotification" />
 
             <TextView
@@ -252,15 +264,17 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvReactionNotification"
                 android:layout_marginStart="16dp"
-
+                android:layout_toStartOf="@id/reactionNotificationSwitch"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="40dp"
                 android:text="@string/shownotification" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/reactionNotificationSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="16dp"
-                android:layout_toEndOf="@+id/tvReactionNotificationDesc" />
+                android:layout_marginEnd="16dp" />
 
         </RelativeLayout>
 
@@ -417,8 +431,10 @@
                 style="@style/NotificationsTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
+                android:layout_toStartOf="@+id/highPrioritySwitch2"
                 android:text="@string/highpriority" />
 
             <TextView
@@ -426,15 +442,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvHighPriorityGroup"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/highPrioritySwitch2"
+                android:layout_marginEnd="40dp"
                 android:layout_marginStart="16dp"
                 android:text="@string/previewnotification" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/highPrioritySwitch2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="16dp"
-                android:layout_toEndOf="@+id/tvHighPriorityGroupDesc" />
+                android:layout_marginEnd="16dp" />
 
         </RelativeLayout>
 
@@ -456,6 +475,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/reactionNotificationSwitch2"
                 android:text="@string/reactionnotification" />
 
             <TextView
@@ -464,14 +485,17 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvReactionNotificationGroup"
                 android:layout_marginStart="16dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="40dp"
+                android:layout_toStartOf="@id/reactionNotificationSwitch2"
                 android:text="@string/shownotification" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/reactionNotificationSwitch2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="16dp"
-                android:layout_toEndOf="@+id/tvReactionNotificationGroupDesc" />
+                android:layout_marginEnd="16dp" />
 
         </RelativeLayout>
 
