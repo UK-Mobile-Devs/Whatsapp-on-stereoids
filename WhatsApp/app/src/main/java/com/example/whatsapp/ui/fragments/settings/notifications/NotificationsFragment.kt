@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import androidx.annotation.StringRes
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentNotificationsBinding
@@ -28,67 +29,41 @@ class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>(){
 
     }
 
+    private fun initDialog(@StringRes title : Int, optionsList : Array<String>, checkedIndex : Int, optionSelected : String){
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle(getString(title))
+        builder.setSingleChoiceItems(optionsList, checkedIndex) { dialog, _ ->
+            (dialog as AlertDialog).listView.checkedItemPosition?.let { position ->
+                if(optionsList.size >= position){
+                    when(optionSelected){
+                        VIBRATE_OPTION -> binding.vibrateDesc.text = optionsList[position]
+                    }
+                }
+            }
+
+            dialog.dismiss()
+        }
+        val dialog = builder.create()
+        dialog.show()
+    }
+
     private fun observeUiInteractions() {
         //Message Layouts
         binding.vibrateLayout.setOnClickListener {
-            val builder = AlertDialog.Builder(context)
-            builder.setTitle(getString(R.string.vibrate))
             val vibrates = arrayOf(getString(R.string.off), getString(R.string.defaultanswer), getString(R.string.tvshort), getString(R.string.tvlong))
-            val checkedItem = 1
-            builder.setSingleChoiceItems(vibrates, checkedItem) { dialog, _ ->
-                when((dialog as AlertDialog).listView.checkedItemPosition){
-                    0 -> binding.vibrateDesc.text = getString(R.string.off)
-                    1 -> binding.vibrateDesc.text = getString(R.string.defaultanswer)
-                    2 -> binding.vibrateDesc.text = getString(R.string.tvshort)
-                    3 -> binding.vibrateDesc.text = getString(R.string.tvlong)
-
-                }
-                dialog.dismiss()
-            }
-            val dialog = builder.create()
-            dialog.show()
+            initDialog(R.string.vibrate, vibrates, 0, VIBRATE_OPTION)
         }
 
         binding.popUpLayout.setOnClickListener {
-            val builder = AlertDialog.Builder(context)
-            builder.setTitle(getString(R.string.popupnotification))
+            //todo get this from xml array and pass through constructor
+            //todo get checkedIndex from sharedpreferences
             val popup = arrayOf(getString(R.string.nopopup), getString(R.string.screenon), getString(R.string.screenoff), getString(R.string.alwaysshow))
-            val checkedItem = 1
-            builder.setSingleChoiceItems(popup, checkedItem) { dialog, _ ->
-                when((dialog as AlertDialog).listView.checkedItemPosition){
-                    0 -> binding.vibrateDesc.text = getString(R.string.nopopup)
-                    1 -> binding.vibrateDesc.text = getString(R.string.screenon)
-                    2 -> binding.vibrateDesc.text = getString(R.string.screenoff)
-                    3 -> binding.vibrateDesc.text = getString(R.string.alwaysshow)
-
-                }
-                dialog.dismiss()
-            }
-            val dialog = builder.create()
-            dialog.show()
+            initDialog(R.string.popupnotification, popup, 0, "")
         }
 
         binding.lightLayout.setOnClickListener {
-            val builder = AlertDialog.Builder(context)
-            builder.setTitle(getString(R.string.light))
             val lights = arrayOf(getString(R.string.none), getString(R.string.white), getString(R.string.red), getString(R.string.yellow), getString(R.string.green), getString(R.string.cyan), getString(R.string.blue), getString(R.string.purple))
-            val checkedItem = 1
-            builder.setSingleChoiceItems(lights, checkedItem) { dialog, _ ->
-                when((dialog as AlertDialog).listView.checkedItemPosition){
-                    0 -> binding.vibrateDesc.text = getString(R.string.none)
-                    1 -> binding.vibrateDesc.text = getString(R.string.white)
-                    2 -> binding.vibrateDesc.text = getString(R.string.red)
-                    3 -> binding.vibrateDesc.text = getString(R.string.yellow)
-                    4 -> binding.vibrateDesc.text = getString(R.string.green)
-                    5 -> binding.vibrateDesc.text = getString(R.string.cyan)
-                    6 -> binding.vibrateDesc.text = getString(R.string.blue)
-                    7 -> binding.vibrateDesc.text = getString(R.string.purple)
-
-                }
-                dialog.dismiss()
-            }
-            val dialog = builder.create()
-            dialog.show()
+            initDialog(R.string.light, lights, 0, "")
         }
 
         binding.highPriorityLayout.setOnClickListener {
@@ -97,82 +72,22 @@ class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>(){
 
         //Group Layouts
         binding.groupVibrateLayout.setOnClickListener {
-            val builder = AlertDialog.Builder(context)
-            builder.setTitle(getString(R.string.vibrate))
             val vibrate = arrayOf(getString(R.string.off), getString(R.string.defaultanswer), getString(R.string.tvshort), getString(R.string.tvlong))
-            val checkedItem = 1
-            builder.setSingleChoiceItems(vibrate, checkedItem) { dialog, _ ->
-                when((dialog as AlertDialog).listView.checkedItemPosition){
-                    0 -> binding.vibrateDesc.text = getString(R.string.off)
-                    1 -> binding.vibrateDesc.text = getString(R.string.defaultanswer)
-                    2 -> binding.vibrateDesc.text = getString(R.string.tvshort)
-                    3 -> binding.vibrateDesc.text = getString(R.string.tvlong)
-
-                }
-                dialog.dismiss()
-            }
-            val dialog = builder.create()
-            dialog.show()
+            initDialog(R.string.vibrate, vibrate, 0, "")
         }
         binding.popUpGroupLayout.setOnClickListener {
-            val builder = AlertDialog.Builder(context)
-            builder.setTitle(getString(R.string.popupnotification))
             val popup = arrayOf(getString(R.string.nopopup), getString(R.string.screenon), getString(R.string.screenoff), getString(R.string.alwaysshow))
-            val checkedItem = 1
-            builder.setSingleChoiceItems(popup, checkedItem) { dialog, _ ->
-                when((dialog as AlertDialog).listView.checkedItemPosition){
-                    0 -> binding.vibrateDesc.text = getString(R.string.nopopup)
-                    1 -> binding.vibrateDesc.text = getString(R.string.screenon)
-                    2 -> binding.vibrateDesc.text = getString(R.string.screenoff)
-                    3 -> binding.vibrateDesc.text = getString(R.string.alwaysshow)
-
-                }
-                dialog.dismiss()
-            }
-            val dialog = builder.create()
-            dialog.show()
+            initDialog(R.string.popupnotification, popup, 0, "")
         }
 
         binding.lightGroupLayout.setOnClickListener {
-            val builder = AlertDialog.Builder(context)
-            builder.setTitle(getString(R.string.light))
             val lights = arrayOf(getString(R.string.none), getString(R.string.white), getString(R.string.red), getString(R.string.yellow), getString(R.string.green), getString(R.string.cyan), getString(R.string.blue), getString(R.string.purple))
-            val checkedItem = 1
-            builder.setSingleChoiceItems(lights, checkedItem) { dialog, _ ->
-                when((dialog as AlertDialog).listView.checkedItemPosition){
-                    0 -> binding.vibrateDesc.text = getString(R.string.none)
-                    1 -> binding.vibrateDesc.text = getString(R.string.white)
-                    2 -> binding.vibrateDesc.text = getString(R.string.red)
-                    3 -> binding.vibrateDesc.text = getString(R.string.yellow)
-                    4 -> binding.vibrateDesc.text = getString(R.string.green)
-                    5 -> binding.vibrateDesc.text = getString(R.string.cyan)
-                    6 -> binding.vibrateDesc.text = getString(R.string.blue)
-                    7 -> binding.vibrateDesc.text = getString(R.string.purple)
-
-                }
-                dialog.dismiss()
-            }
-            val dialog = builder.create()
-            dialog.show()
+            initDialog(R.string.light, lights, 0,"")
         }
         //Calls Fragment
         binding.callsVibrateLayout.setOnClickListener {
-            val builder = AlertDialog.Builder(context)
-            builder.setTitle(getString(R.string.vibrate))
             val vibration = arrayOf(getString(R.string.off), getString(R.string.defaultanswer), getString(R.string.tvshort), getString(R.string.tvlong))
-            val checkedItem = 1
-            builder.setSingleChoiceItems(vibration, checkedItem) { dialog, _ ->
-                when((dialog as AlertDialog).listView.checkedItemPosition){
-                    0 -> binding.vibrateDesc.text = getString(R.string.off)
-                    1 -> binding.vibrateDesc.text = getString(R.string.defaultanswer)
-                    2 -> binding.vibrateDesc.text = getString(R.string.tvshort)
-                    3 -> binding.vibrateDesc.text = getString(R.string.tvlong)
-
-                }
-                dialog.dismiss()
-            }
-            val dialog = builder.create()
-            dialog.show()
+            initDialog(R.string.vibrate, vibration, 0,"")
         }
     }
 
@@ -208,4 +123,9 @@ class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>(){
 //    }
     override fun observeViewModel() {
     }
+
+    companion object{
+        const val VIBRATE_OPTION = "VIBRATE_OPTION"
+    }
+
 }
