@@ -139,7 +139,7 @@
         android:label="@string/twofactorauth" />
     <fragment
         android:id="@+id/settingsChatsFragment"
-        android:name="com.example.whatsapp.ui.fragments.settings.chats.settingsChatsFragment"
+        android:name="com.example.whatsapp.ui.fragments.settings.chats.SettingsChatsFragment"
         android:label="Chats" />
 
 
