@@ -13,7 +13,10 @@ class ContactRepositoryImpl @Inject constructor() : ContactRepository {
         return Observable.create<List<Contact>> { emitter ->
             val data = mutableListOf(
                 Contact("1"),
-                Contact("2")
+                Contact("2"),
+                Contact("3"),
+                Contact("4"),
+                Contact("5")
             )
             emitter.onNext(data)
         }.subscribeOn(Schedulers.io())
