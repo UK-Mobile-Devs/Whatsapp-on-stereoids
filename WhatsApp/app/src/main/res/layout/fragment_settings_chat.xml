@@ -21,7 +21,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:text="@string/display" />
 
     </RelativeLayout>
@@ -40,9 +39,9 @@
                 android:id="@+id/ivThemeIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
                 android:contentDescription="@string/theme"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:src="@drawable/ic_light_mode" />
 
             <TextView
@@ -51,6 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
                 android:layout_marginBottom="4dp"
                 android:layout_toEndOf="@+id/ivThemeIcon"
                 android:text="@string/theme" />
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvThemeName"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="0dp"
+                android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/ivThemeIcon"
                 android:text="@string/light" />
         </RelativeLayout>
@@ -78,11 +78,11 @@
 
             <ImageView
                 android:id="@+id/ivWallpaperIcon"
-                android:contentDescription="@string/wallpaper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
+                android:contentDescription="@string/wallpaper"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:src="@drawable/ic_wallpaper" />
 
             <TextView
@@ -91,7 +91,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="2dp"
+
                 android:layout_toEndOf="@+id/ivWallpaperIcon"
                 android:text="@string/wallpaper" />
 
@@ -138,8 +140,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvEnterissend"
                 android:layout_alignParentStart="true"
-                android:layout_toEndOf="@id/enterSwitch"
                 android:layout_marginStart="70dp"
+                android:layout_toEndOf="@id/enterSwitch"
                 android:text="@string/enterIsSendDesc" />
         </RelativeLayout>
 
@@ -250,15 +252,14 @@
                 android:checked="false" />
 
 
-
             <TextView
                 android:id="@+id/tvArchivedChats"
                 style="@style/chatSettingsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_toEndOf="@id/archivedSwitch"
                 android:layout_marginStart="70dp"
+                android:layout_toEndOf="@id/archivedSwitch"
                 android:text="@string/archivedChatsTitle" />
 
             <TextView
@@ -267,8 +268,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvArchivedChats"
                 android:layout_alignParentStart="true"
-                android:layout_toEndOf="@id/archivedSwitch"
                 android:layout_marginStart="70dp"
+                android:layout_toEndOf="@id/archivedSwitch"
                 android:text="@string/archivedChatsDesc" />
         </RelativeLayout>
 
@@ -293,11 +294,11 @@
 
             <ImageView
                 android:id="@+id/ivLanguageIcon"
-                android:contentDescription="@string/appLanguage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
+                android:contentDescription="@string/appLanguage"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:src="@drawable/ic_language" />
 
             <TextView
@@ -306,6 +307,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
                 android:layout_marginBottom="4dp"
                 android:layout_toEndOf="@+id/ivLanguageIcon"
                 android:text="@string/appLanguage" />
@@ -315,8 +317,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvLanguage"
+                android:layout_marginStart="10dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="0dp"
                 android:layout_toEndOf="@+id/ivLanguageIcon"
                 android:text="@string/phoneLanguage" />
         </RelativeLayout>
@@ -333,11 +335,11 @@
 
             <ImageView
                 android:id="@+id/ivBackupIcon"
-                android:contentDescription="@string/chatBackup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
+                android:contentDescription="@string/chatBackup"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:src="@drawable/ic_backup" />
 
             <TextView
@@ -346,6 +348,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
                 android:layout_marginBottom="4dp"
                 android:layout_toEndOf="@+id/ivBackupIcon"
                 android:text="@string/chatBackup" />
@@ -363,11 +366,11 @@
 
             <ImageView
                 android:id="@+id/ivchatHistoryIcon"
-                android:contentDescription="@string/chatHistory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
+                android:contentDescription="@string/chatHistory"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:src="@drawable/ic_history" />
 
             <TextView
@@ -377,6 +380,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_marginBottom="4dp"
+                android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/ivchatHistoryIcon"
                 android:text="@string/chatHistory" />
         </RelativeLayout>
