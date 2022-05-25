@@ -19,6 +19,8 @@ class ContactsSelectFragmentVM @Inject constructor(contactsRepo: ContactReposito
 
     //region Variables
     private val psSelectionUpdated : PublishSubject<List<Long>> = PublishSubject.create()
+    private val psNewGroup : PublishSubject<Unit> = PublishSubject.create()
+    private val psNewBroadcast : PublishSubject<Unit> = PublishSubject.create()
 
     private val obsContactsList = contactsRepo.getContacts()
     private val obsSelectionType : Observable<ContactsSelectionType>
@@ -39,6 +41,14 @@ class ContactsSelectFragmentVM @Inject constructor(contactsRepo: ContactReposito
     fun updateSelectedItems(selectedItems : List<Long>) {
         psSelectionUpdated.onNext(selectedItems)
         Log.i(TAG, "SELECTED ITEM: $selectedItems")
+    }
+
+    fun selectNewGroup() {
+        psNewGroup.onNext(Unit)
+    }
+
+    fun selectNewBroadcast() {
+        psNewBroadcast.onNext(Unit)
     }
 
     fun getContacts() = obsContactsList

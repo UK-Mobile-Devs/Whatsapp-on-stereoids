@@ -16,7 +16,12 @@ class ContactRepositoryImpl @Inject constructor() : ContactRepository {
                 Contact("2"),
                 Contact("3"),
                 Contact("4"),
-                Contact("5")
+                Contact("5"),
+                Contact("6"),
+                Contact("7"),
+                Contact("8"),
+                Contact("9"),
+                Contact("10")
             )
             emitter.onNext(data)
         }.subscribeOn(Schedulers.io())

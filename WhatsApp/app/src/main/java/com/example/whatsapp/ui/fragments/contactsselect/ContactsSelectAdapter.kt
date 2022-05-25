@@ -28,13 +28,12 @@ class ContactsSelectAdapter :
 
     var tracker: SelectionTracker<Long>? = null
 
-//    init {
-//        setHasStableIds(true)
-//    }
+    init {
+        setHasStableIds(true)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
-//        Log.i(LOGTAG, "onCreateViewHolder $viewType")
         return when (viewType) {
             ITEM_VIEW_TYPE_NEW_GROUP -> NewGroupViewHolder.from(parent)
             ITEM_VIEW_TYPE_NEW_CONTACT -> NewContactViewHolder.from(parent)
@@ -52,9 +51,9 @@ class ContactsSelectAdapter :
         fun bind(contact: Contact, isSelected : Boolean) {
             lavSelected.visibility = if(isSelected) View.VISIBLE else View.GONE
             itemView.isSelected = isSelected
-            tvName.text = "Oskar"
+            tvName.text = "Oskar $itemId"
             tvDescription.text = "example :)"
-            Log.i(LOGTAG, "ITEM ID: $itemId ITEM NUM: $contact")
+            Log.i(LOGTAG, "ITEM ID: $itemId ITEM NUM: $contact (ContactsVH)")
         }
 
         fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> =
@@ -73,6 +72,9 @@ class ContactsSelectAdapter :
     }
 
     class NewGroupViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        init {
+            Log.i(LOGTAG, "ITEM ID: $itemId (NewGroupVH)")
+        }
         companion object {
             fun from(parent: ViewGroup): NewGroupViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
@@ -87,6 +89,7 @@ class ContactsSelectAdapter :
         val qrIv: ImageView = view.findViewById(R.id.ivQR)
         init {
             qrIv.setImageResource(R.drawable.ic_qrcode)
+            Log.i(LOGTAG, "ITEM ID: $itemId (NewContactsVH)")
         }
         companion object {
             fun from(parent: ViewGroup): NewContactViewHolder {
@@ -98,7 +101,7 @@ class ContactsSelectAdapter :
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        Log.i(LOGTAG, "Position $position - onBindVH")
+//        Log.i(LOGTAG, "Position $position - onBindVH")
         when (holder) {
             is ContactsViewHolders -> {
                 val newPosition = position - ADDEDED_HEADERS
@@ -131,7 +134,6 @@ class ContactsSelectAdapter :
     }
 
     override fun getItemViewType(position: Int): Int {
-//        Log.i(LOGTAG, "getItemView")
         return if (position == 0) {
             ITEM_VIEW_TYPE_NEW_GROUP
         } else if (position == 1) {
@@ -140,28 +142,35 @@ class ContactsSelectAdapter :
             ITEM_VIEW_TYPE_CONTACTS
         }
     }
+
+    override fun getItemId(position: Int): Long {
+        return (position - ADDEDED_HEADERS).toLong()
+    }
 }
 
 class ContactsKeyProvider(private val recyclerView: RecyclerView) :
     ItemKeyProvider<Long>(SCOPE_MAPPED) {
-
     override fun getKey(position: Int): Long? {
-        val theItemId = recyclerView.adapter?.getItemId(position - ADDEDED_HEADERS)
+        val theItemId = recyclerView.adapter?.getItemId(position)
         Log.i(LOGTAG, "GetKey: $theItemId")
         return theItemId
     }
 
     override fun getPosition(key: Long): Int {
         val viewHolder = recyclerView.findViewHolderForItemId(key)
-        Log.i(LOGTAG, "getPosition: $viewHolder")
         return viewHolder?.layoutPosition ?: RecyclerView.NO_POSITION
     }
 }
 
 class ContactsDetailsLookup(private val recyclerView: RecyclerView) :
     ItemDetailsLookup<Long>() {
-    override fun getItemDetails(event: MotionEvent): ItemDetailsLookup.ItemDetails<Long>? {
-        val view = recyclerView.findChildViewUnder(event.x, event.y)
+    override fun getItemDetails(event: MotionEvent): ItemDetails<Long>? {
+        var view = recyclerView.findChildViewUnder(event.x, event.y)
+
+        val viewTrack = view?.let { recyclerView.getChildViewHolder(it) }
+        Log.i(LOGTAG, "View: ${viewTrack?.itemId}")
+        if (viewTrack?.itemId!! < 0) view = null
+
         if (view != null) {
             return (recyclerView.getChildViewHolder(view) as ContactsSelectAdapter.ContactsViewHolders)
                 .getItemDetails()
