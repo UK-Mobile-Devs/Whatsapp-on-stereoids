@@ -42,7 +42,7 @@
     <string name="enterIsSend">Enter is send</string>
     <string name="enterIsSendDesc">Enter Key will send your message</string>
     <string name="mediaVisibility">Media visibility</string>
-    <string name="mediaVisibilityDesc">Show newly downloaded media\nin your phone\'s gallery</string>
+    <string name="mediaVisibilityDesc">Show newly downloaded media in your phone\'s gallery</string>
     <string name="fontSize">Font Size</string>
     <string name="medium">Medium</string>
     <string name="chatBackup">Chat Backup</string>
@@ -51,7 +51,7 @@
     <string name="chatHistory">Chat History</string>
     <string name="archivedChats">Archived chats</string>
     <string name="archivedChatsTitle">Keep chats archived</string>
-    <string name="archivedChatsDesc">Archived chats will remain\narchived when you receive a\nnew message</string>
+    <string name="archivedChatsDesc">Archived chats will remain archived when you receive a new message</string>
 
 
 </resources>

@@ -178,8 +178,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvMediaVisibility"
                 android:layout_alignParentStart="true"
-                android:layout_toEndOf="@id/mediaSwitch"
                 android:layout_marginStart="70dp"
+                android:layout_marginEnd="140dp"
+                android:layout_toEndOf="@id/mediaSwitch"
                 android:text="@string/mediaVisibilityDesc" />
         </RelativeLayout>
 
@@ -200,6 +201,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
+                android:layout_marginEnd="40dp"
                 android:layout_marginStart="70dp"
                 android:text="@string/fontSize" />
 
@@ -269,6 +271,7 @@
                 android:layout_below="@+id/tvArchivedChats"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="70dp"
+                android:layout_marginEnd="140dp"
                 android:layout_toEndOf="@id/archivedSwitch"
                 android:text="@string/archivedChatsDesc" />
         </RelativeLayout>
