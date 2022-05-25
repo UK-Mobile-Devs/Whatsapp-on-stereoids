@@ -60,7 +60,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-            app:srcCompat="@drawable/ic_add_contant" />
+            app:srcCompat="@drawable/ic_add_contact" />
 
         <ImageView
             android:id="@+id/ivQR"
