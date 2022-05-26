@@ -1,12 +1,10 @@
 package com.example.whatsapp.ui.fragments.contactsselect
 
-import android.media.Image
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.selection.ItemDetailsLookup
 import androidx.recyclerview.selection.ItemKeyProvider
 import androidx.recyclerview.selection.SelectionTracker
@@ -20,10 +18,10 @@ import com.example.whatsapp.databinding.ItemNewContactBinding
 import com.example.whatsapp.databinding.ItemNewGroupBinding
 
 private const val LOGTAG = "CSelectTest"
-private const val ADDEDED_HEADERS = 2
+private const val ADDED_HEADERS = 2
 private const val ITEM_VIEW_TYPE_NEW_GROUP = 0
 private const val ITEM_VIEW_TYPE_NEW_CONTACT = 1
-private const val ITEM_VIEW_TYPE_CONTACTS = ADDEDED_HEADERS
+private const val ITEM_VIEW_TYPE_CONTACTS = ADDED_HEADERS
 
 class ContactsSelectAdapter :
     ListAdapter<Contact, RecyclerView.ViewHolder>(DiffCallback()) {
@@ -101,16 +99,14 @@ class ContactsSelectAdapter :
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-//        Log.i(LOGTAG, "Position $position - onBindVH")
         when (holder) {
             is ContactsViewHolders -> {
-                val newPosition = position - ADDEDED_HEADERS
+                val newPosition = position - ADDED_HEADERS
                 val item = getItem(newPosition)
                 if (item != null) {
                     tracker?.let {
                         holder.bind(getItem(newPosition), it.isSelected(newPosition.toLong()))
                     }
-//                    holder.bind(item)
                     Log.i(LOGTAG, "$item Position: $newPosition")
                 }
 
@@ -130,21 +126,19 @@ class ContactsSelectAdapter :
     }
 
     override fun getItemCount(): Int {
-        return super.getItemCount() + ADDEDED_HEADERS
+        return super.getItemCount() + ADDED_HEADERS
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (position == 0) {
-            ITEM_VIEW_TYPE_NEW_GROUP
-        } else if (position == 1) {
-            ITEM_VIEW_TYPE_NEW_CONTACT
-        } else {
-            ITEM_VIEW_TYPE_CONTACTS
+        return when (position) {
+            0 -> ITEM_VIEW_TYPE_NEW_GROUP
+            1 -> ITEM_VIEW_TYPE_NEW_CONTACT
+            else -> ITEM_VIEW_TYPE_CONTACTS
         }
     }
 
     override fun getItemId(position: Int): Long {
-        return (position - ADDEDED_HEADERS).toLong()
+        return (position - ADDED_HEADERS).toLong()
     }
 }
 
@@ -165,15 +159,15 @@ class ContactsKeyProvider(private val recyclerView: RecyclerView) :
 class ContactsDetailsLookup(private val recyclerView: RecyclerView) :
     ItemDetailsLookup<Long>() {
     override fun getItemDetails(event: MotionEvent): ItemDetails<Long>? {
-        var view = recyclerView.findChildViewUnder(event.x, event.y)
+        val view: View? = recyclerView.findChildViewUnder(event.x, event.y)
+        view?.let {
+            val viewTrack = recyclerView.getChildViewHolder(it)
+            Log.i(LOGTAG, "View: ${viewTrack?.itemId}")
 
-        val viewTrack = view?.let { recyclerView.getChildViewHolder(it) }
-        Log.i(LOGTAG, "View: ${viewTrack?.itemId}")
-        if (viewTrack?.itemId!! < 0) view = null
-
-        if (view != null) {
-            return (recyclerView.getChildViewHolder(view) as ContactsSelectAdapter.ContactsViewHolders)
-                .getItemDetails()
+            if (viewTrack.itemId >= 0) {
+                return (recyclerView.getChildViewHolder(view) as ContactsSelectAdapter.ContactsViewHolders)
+                    .getItemDetails()
+            }
         }
         return null
     }
