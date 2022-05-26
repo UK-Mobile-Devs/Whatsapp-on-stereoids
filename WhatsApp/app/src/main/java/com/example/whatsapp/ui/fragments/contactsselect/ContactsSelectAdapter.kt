@@ -16,8 +16,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.firestorerepository.datatypes.Contact
 import com.example.whatsapp.R
 import com.example.whatsapp.databinding.ItemContactBinding
+import com.example.whatsapp.databinding.ItemNewContactBinding
+import com.example.whatsapp.databinding.ItemNewGroupBinding
 
-private const val LOGTAG = "ContactsSelectAdapterTest"
+private const val LOGTAG = "CSelectTest"
 private const val ADDEDED_HEADERS = 2
 private const val ITEM_VIEW_TYPE_NEW_GROUP = 0
 private const val ITEM_VIEW_TYPE_NEW_CONTACT = 1
@@ -71,30 +73,28 @@ class ContactsSelectAdapter :
         }
     }
 
-    class NewGroupViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class NewGroupViewHolder(val binding: ItemNewGroupBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
             Log.i(LOGTAG, "ITEM ID: $itemId (NewGroupVH)")
         }
         companion object {
             fun from(parent: ViewGroup): NewGroupViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val view = layoutInflater.inflate(R.layout.item_new_group, parent, false)
+                val view = ItemNewGroupBinding.inflate(layoutInflater, parent, false)
                 return NewGroupViewHolder(view)
             }
         }
     }
 
-    class NewContactViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        // Set QRcode
-        val qrIv: ImageView = view.findViewById(R.id.ivQR)
+    class NewContactViewHolder(val binding: ItemNewContactBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
-            qrIv.setImageResource(R.drawable.ic_qrcode)
+            binding.ivQR.setImageResource(R.drawable.ic_qrcode)
             Log.i(LOGTAG, "ITEM ID: $itemId (NewContactsVH)")
         }
         companion object {
             fun from(parent: ViewGroup): NewContactViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val view = layoutInflater.inflate(R.layout.item_new_contact, parent, false)
+                val view = ItemNewContactBinding.inflate(layoutInflater, parent, false)
                 return NewContactViewHolder(view)
             }
         }
