@@ -9,22 +9,22 @@
 
     <item
         android:id="@+id/inviteFriend"
-        android:title="Invite a Friend"
+        android:title="@string/invite_friend"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/contacts"
-        android:title="Contacts"
+        android:title="@string/contacts"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/refresh"
-        android:title="Refresh"
+        android:title="@string/refresh"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/help"
-        android:title="Help"
+        android:title="@string/help"
         app:showAsAction="never" />
 
 </menu>
