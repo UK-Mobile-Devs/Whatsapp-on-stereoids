@@ -10,9 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentContactsSelectBinding
-import com.example.whatsapp.ui.fragments.contacts.ContactsAdapter
-import com.example.whatsapp.ui.fragments.contacts.ContactsFragmentVM
-import com.example.whatsapp.utils.Constants
 import com.example.whatsapp.utils.getSelectionFromTracker
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
