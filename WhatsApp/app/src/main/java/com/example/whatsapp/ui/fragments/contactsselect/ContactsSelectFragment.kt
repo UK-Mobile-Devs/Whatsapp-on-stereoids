@@ -1,8 +1,11 @@
 package com.example.whatsapp.ui.fragments.contactsselect
 
+import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
 import androidx.recyclerview.selection.SelectionPredicates
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.selection.StorageStrategy
@@ -10,12 +13,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentContactsSelectBinding
+import com.example.whatsapp.utils.Constants
 import com.example.whatsapp.utils.getSelectionFromTracker
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 
 @AndroidEntryPoint
 class ContactsSelectFragment : BaseFragment<FragmentContactsSelectBinding>(), ActionMode.Callback {
+    private val LOGTAG = "ACTIONSTEST"
 
     private val viewModel: ContactsSelectFragmentVM by viewModels()
     private val contactsSelectAdapter = ContactsSelectAdapter()
@@ -23,7 +28,6 @@ class ContactsSelectFragment : BaseFragment<FragmentContactsSelectBinding>(), Ac
     private var actionMode: ActionMode? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
     }
 
@@ -33,6 +37,7 @@ class ContactsSelectFragment : BaseFragment<FragmentContactsSelectBinding>(), Ac
 
     override fun initViews() {
         super.initViews()
+        setHasOptionsMenu(true)
 
         binding.rvMessageContacts.apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -90,6 +95,10 @@ class ContactsSelectFragment : BaseFragment<FragmentContactsSelectBinding>(), Ac
     override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
         menu.findItem(R.id.itemNewGroup).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
         menu.findItem(R.id.itemNewBroadcast).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
+        menu.findItem(R.id.searchFragment).isVisible = false
+        menu.findItem(R.id.itemLinkedDevices).isVisible = false
+        menu.findItem(R.id.itemStarredMessages).isVisible = false
+        menu.findItem(R.id.itemSettings).isVisible = false
         return true
     }
 
@@ -133,6 +142,7 @@ class ContactsSelectFragment : BaseFragment<FragmentContactsSelectBinding>(), Ac
 
     //region Options Menu
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        Log.i("ACTIONTEST", "OptionsMenu Created")
         inflater.inflate(R.menu.contacts_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
@@ -140,18 +150,23 @@ class ContactsSelectFragment : BaseFragment<FragmentContactsSelectBinding>(), Ac
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.search -> {
+                Log.i(LOGTAG, "SEARCH")
                 true
             }
             R.id.inviteFriend -> {
+                Log.i(LOGTAG, "INVITE")
                 true
             }
             R.id.contacts -> {
+                Log.i(LOGTAG, "CONTACTS")
                 true
             }
             R.id.refresh -> {
+                Log.i(LOGTAG, "REFRESH")
                 true
             }
             R.id.help -> {
+                Log.i(LOGTAG, "HELP")
                 true
             }
             else -> super.onOptionsItemSelected(item)
