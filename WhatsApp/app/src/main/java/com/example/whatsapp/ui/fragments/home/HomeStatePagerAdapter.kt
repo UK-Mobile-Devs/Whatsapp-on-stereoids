@@ -20,6 +20,8 @@ class HomeStatePagerAdapter(fragmentManager: FragmentActivity, private val listO
     companion object{
         const val CAMERA_FRAGMENT_INDEX = 0
         const val CHATS_FRAGMENT_INDEX = 1
+        const val STATUS_FRAGMENT_INDEX = 2
+        const val CALLS_FRAGMENT_INDEX = 3
     }
 
 }
