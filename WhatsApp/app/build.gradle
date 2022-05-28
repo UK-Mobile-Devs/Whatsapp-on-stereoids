@@ -50,7 +50,7 @@ dependencies {
     // Modules
     implementation project(":firestorerepository")
     // Android
-//    implementation ('androidx.databinding:databinding-compiler-common:7.2.0')
+    implementation ('androidx.databinding:databinding-compiler-common:7.2.0')
     implementation("androidx.activity:activity-ktx:1.4.0")
     implementation("androidx.fragment:fragment-ktx:1.4.1")
     // RxJava
@@ -60,10 +60,7 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.38.1")
     kapt("com.google.dagger:hilt-android-compiler:2.38.1")
     // Wrap-Content-Tabs
-    implementation ('com.github.Josh-Owen:Wrap-Content-TabLayout:1.0.0') {
-        exclude group:'com.google.guava'
-        exclude module:'guava'
-    }
+    implementation ('com.github.Josh-Owen:Wrap-Content-TabLayout:1.0.0')
 
 
     // Firebase
