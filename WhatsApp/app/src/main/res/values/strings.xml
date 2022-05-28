@@ -60,4 +60,5 @@
 
     <!-- Home Calls -->
     <string name="home_calls_clear_log">Clear call log</string>
+    <string name="capture_button_alt">capture</string>
 </resources>
