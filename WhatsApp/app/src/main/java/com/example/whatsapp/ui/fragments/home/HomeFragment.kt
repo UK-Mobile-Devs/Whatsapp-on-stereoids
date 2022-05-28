@@ -47,8 +47,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         )
         binding.vpHomeScreen.adapter = homeStatePagerAdapter
         binding.vpHomeScreen.currentItem = CHATS_FRAGMENT_INDEX
-        TabLayoutMediator(binding.tlNavigation, binding.vpHomeScreen) { _, _ ->
-
+        TabLayoutMediator(binding.tlNavigation, binding.vpHomeScreen) { layout, position ->
         }
         //endregion
 

@@ -2,6 +2,7 @@ package com.example.whatsapp.ui
 
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.result.contract.ActivityResultContract
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -14,7 +15,7 @@ import com.example.whatsapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ActivityResultController {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navController: NavController
@@ -46,4 +47,13 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    override fun <I, O> launch(contract: ActivityResultContract<I, O>, callback: (O) -> Unit) {
+        val a = registerForActivityResult(contract) {
+            callback(it)
+        }
+    }
+}
+
+interface ActivityResultController {
+    fun <I, O>launch(contract: ActivityResultContract<I, O>, callback: (O) -> Unit)
 }

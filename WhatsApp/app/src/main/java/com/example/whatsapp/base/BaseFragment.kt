@@ -1,6 +1,8 @@
 package com.example.whatsapp.base
 
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +14,7 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.viewbinding.ViewBinding
 import com.example.whatsapp.utils.Constants
+import com.example.whatsapp.utils.Constants.CAMERA_FRAGMENT_KEY
 import com.example.whatsapp.utils.Constants.SETTINGS_FRAGMENT_KEY
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
@@ -77,7 +80,8 @@ abstract class BaseFragment<Binding : ViewBinding> : Fragment() {
         private val fragmentKey: String
     ) :
         DefaultLifecycleObserver {
-        lateinit var getContent: ActivityResultLauncher<String>
+        private lateinit var getContent: ActivityResultLauncher<String>
+        private lateinit var cameraContent: ActivityResultLauncher<Uri>
 
         override fun onCreate(owner: LifecycleOwner) {
             when (fragmentKey) {
@@ -91,13 +95,25 @@ abstract class BaseFragment<Binding : ViewBinding> : Fragment() {
                             // Handle the returned Uri
                         }
                 }
+                CAMERA_FRAGMENT_KEY -> {
+                    cameraContent = registry.register(
+                            Constants.CAMERA_FRAGMENT_KEY,
+                            owner,
+                            ActivityResultContracts.TakePicture()
+                        ) {
+
+                        }
+                }
             }
         }
 
         fun selectImage() {
             getContent.launch("image/*")
         }
-    }
 
+        fun launchCamera(uri: Uri) {
+            cameraContent.launch(uri)
+        }
+    }
 }
 
