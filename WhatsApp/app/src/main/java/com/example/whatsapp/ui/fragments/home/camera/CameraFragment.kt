@@ -21,7 +21,8 @@ import com.example.whatsapp.databinding.FragmentCameraBinding
 
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Locale
+
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
