@@ -147,6 +147,16 @@ class ContactsSelectFragment : BaseFragment<FragmentContactsSelectBinding>(), Ac
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        menu.findItem(R.id.searchFragment).isVisible = false
+        menu.findItem(R.id.itemLinkedDevices).isVisible = false
+        menu.findItem(R.id.itemStarredMessages).isVisible = false
+        menu.findItem(R.id.itemSettings).isVisible = false
+        menu.findItem(R.id.itemNewGroup).isVisible = false
+        menu.findItem(R.id.itemNewBroadcast).isVisible = false
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.search -> {
