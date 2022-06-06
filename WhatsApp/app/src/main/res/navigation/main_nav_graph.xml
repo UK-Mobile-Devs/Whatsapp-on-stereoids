@@ -33,6 +33,9 @@
             app:destination="@id/chatHistoryFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_contactsSelectFragment"
+            app:destination="@id/contactsSelectFragment" />
 
     </fragment>
     <fragment
@@ -174,6 +177,9 @@
             android:name="callHistory"
             app:argType="com.example.firestorerepository.datatypes.CallHistory" />
     </fragment>
-
+    <fragment
+        android:id="@+id/contactsSelectFragment"
+        android:name="com.example.whatsapp.ui.fragments.contactsselect.ContactsSelectFragment"
+        android:label="Select Contact" />
 
 </navigation>

@@ -3,6 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Contributions/Whatsapp-on-steroids/WhatsApp/app/src/main/res/drawable-v24/ic_add_contant.xml" value="0.1175" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Contributions/Whatsapp-on-steroids/WhatsApp/app/src/main/res/layout/activity_main.xml" value="0.24270833333333333" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Contributions/Whatsapp-on-steroids/WhatsApp/app/src/main/res/layout/fragment_call_history.xml" value="0.3546875" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Contributions/Whatsapp-on-steroids/WhatsApp/app/src/main/res/layout/fragment_calls.xml" value="0.3546875" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Contributions/Whatsapp-on-steroids/WhatsApp/app/src/main/res/layout/fragment_contacts_select.xml" value="0.3546875" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Contributions/Whatsapp-on-steroids/WhatsApp/app/src/main/res/layout/fragment_home.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Contributions/Whatsapp-on-steroids/WhatsApp/app/src/main/res/layout/item_contact.xml" value="0.24270833333333333" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Contributions/Whatsapp-on-steroids/WhatsApp/app/src/main/res/layout/item_new_contact.xml" value="0.3546875" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Contributions/Whatsapp-on-steroids/WhatsApp/app/src/main/res/layout/item_new_group.xml" value="0.3546875" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Contributions/Whatsapp-on-steroids/WhatsApp/app/src/main/res/menu/call_history_menu.xml" value="0.3546875" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Contributions/Whatsapp-on-steroids/WhatsApp/app/src/main/res/menu/contacts_menu.xml" value="0.3546875" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Contributions/Whatsapp-on-steroids/WhatsApp/app/src/main/res/menu/home_call_history_menu.xml" value="0.3546875" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Contributions/Whatsapp-on-steroids/WhatsApp/app/src/main/res/menu/home_calls_menu.xml" value="0.3546875" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Contributions/Whatsapp-on-steroids/WhatsApp/app/src/main/res/menu/home_chats_context_menu.xml" value="0.24270833333333333" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Contributions/Whatsapp-on-steroids/WhatsApp/app/src/main/res/menu/home_chats_menu.xml" value="0.24270833333333333" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/Contributions/Whatsapp-on-steroids/WhatsApp/app/src/main/res/menu/home_status_menu.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/ugur6/Documents/Whatsapp-on-stereoids/WhatsApp/app/src/main/res/drawable/ic_messenger_icon.xml" value="0.1605" />
         <entry key="..\:/Users/ugur6/Documents/Whatsapp-on-stereoids/WhatsApp/app/src/main/res/drawable/message_design.xml" value="0.1105" />
         <entry key="..\:/Users/ugur6/Documents/Whatsapp-on-stereoids/WhatsApp/app/src/main/res/drawable/messages_design.xml" value="0.2435" />
