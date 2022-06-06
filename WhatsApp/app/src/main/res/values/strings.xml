@@ -60,6 +60,7 @@
 
     <!-- Home Calls -->
     <string name="home_calls_clear_log">Clear call log</string>
+    <string name="capture_button_alt">capture</string>
 
     <!-- Contacts Menu Layout -->
     <string name="invite_friend">Invite a Friend</string>
