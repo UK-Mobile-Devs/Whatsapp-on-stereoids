@@ -71,7 +71,6 @@ class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>() {
     }
 
     private fun observeUiInteractions() {
-        //Message Layouts
         binding.vibrateLayout.setOnClickListener {
             val vibrates = resources.getStringArray(R.array.notifications_vibrate)
             initDialog(R.string.vibrate, vibrates, 0, SINGLE_VIBRATE_OPTION)
@@ -91,27 +90,18 @@ class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>() {
         binding.highPriorityLayout.setOnClickListener {
 
         }
-
-        //Group Layouts
         binding.groupVibrateLayout.setOnClickListener {
-            val vibrate = arrayOf(
-                getString(R.string.off),
-                getString(R.string.defaultanswer),
-                getString(R.string.tvshort),
-                getString(R.string.tvlong)
-            )
+            val vibrate = resources.getStringArray(R.array.notifications_group_vibrate)
             initDialog(R.string.vibrate, vibrate, 0, GROUP_VIBRATE_OPTION)
         }
         binding.popUpGroupLayout.setOnClickListener {
             val popup = resources.getStringArray(R.array.notifications_group_popup)
             initDialog(R.string.popupnotification, popup, 0, GROUP_POP_UP_OPTION)
         }
-
         binding.lightGroupLayout.setOnClickListener {
             val lights = resources.getStringArray(R.array.notifications_group_light)
             initDialog(R.string.light, lights, 0, GROUP_LIGHT_OPTION)
         }
-        //Calls Fragment
         binding.callsVibrateLayout.setOnClickListener {
             val vibration = resources.getStringArray(R.array.notifications_calls_vibrate)
             initDialog(R.string.vibrate, vibration, 0, CALLS_VIBRATE_OPTION)
