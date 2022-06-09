@@ -19,15 +19,10 @@ class SettingsChatsFragment : BaseFragment<FragmentSettingsChatBinding>() {
         return FragmentSettingsChatBinding.inflate(layoutInflater)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        setHasOptionsMenu(true)
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun initViews() {
+        super.initViews()
         observeUiInteractions()
-
+        setHasOptionsMenu(true)
     }
 
     private fun observeUiInteractions() {
