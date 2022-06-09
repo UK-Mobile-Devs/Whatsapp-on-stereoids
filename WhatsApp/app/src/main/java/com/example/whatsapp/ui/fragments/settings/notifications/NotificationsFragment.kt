@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>(){
+class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>() {
 
 
     override fun inflateBinding(layoutInflater: LayoutInflater): FragmentNotificationsBinding {
@@ -30,26 +30,36 @@ class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>(){
         setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeUiInteractions()
 
     }
 
-    private fun initDialog(@StringRes title : Int, optionsList : Array<String>, checkedIndex : Int, optionSelected : String){
+    private fun initDialog(
+        @StringRes title: Int,
+        optionsList: Array<String>,
+        checkedIndex: Int,
+        optionSelected: String
+    ) {
         val builder = AlertDialog.Builder(context)
         builder.setTitle(getString(title))
         builder.setSingleChoiceItems(optionsList, checkedIndex) { dialog, _ ->
             (dialog as AlertDialog).listView.checkedItemPosition.let { position ->
-                if(optionsList.size >= position){
-                    when(optionSelected){
+                if (optionsList.size >= position) {
+                    when (optionSelected) {
                         SINGLE_VIBRATE_OPTION -> binding.vibrateDesc.text = optionsList[position]
-                        SINGLE_POP_UP_OPTION -> binding.tvPopUpTonesDesc.text = optionsList[position]
+                        SINGLE_POP_UP_OPTION -> binding.tvPopUpTonesDesc.text =
+                            optionsList[position]
                         SINGLE_LIGHT_OPTION -> binding.tvLightDesc.text = optionsList[position]
-                        GROUP_VIBRATE_OPTION -> binding.tvGroupVibrateDesc.text = optionsList[position]
-                        GROUP_POP_UP_OPTION -> binding.tvPopUpGroupTonesDesc.text = optionsList[position]
+                        GROUP_VIBRATE_OPTION -> binding.tvGroupVibrateDesc.text =
+                            optionsList[position]
+                        GROUP_POP_UP_OPTION -> binding.tvPopUpGroupTonesDesc.text =
+                            optionsList[position]
                         GROUP_LIGHT_OPTION -> binding.tvLightGroupDesc.text = optionsList[position]
-                        CALLS_VIBRATE_OPTION -> binding.tvCallsVibrateDesc.text = optionsList[position]
+                        CALLS_VIBRATE_OPTION -> binding.tvCallsVibrateDesc.text =
+                            optionsList[position]
                     }
                 }
             }
@@ -63,19 +73,18 @@ class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>(){
     private fun observeUiInteractions() {
         //Message Layouts
         binding.vibrateLayout.setOnClickListener {
-            val vibrates = arrayOf(getString(R.string.off), getString(R.string.defaultanswer), getString(R.string.tvshort), getString(R.string.tvlong))
+            val vibrates = resources.getStringArray(R.array.notifications_vibrate)
             initDialog(R.string.vibrate, vibrates, 0, SINGLE_VIBRATE_OPTION)
         }
 
         binding.popUpLayout.setOnClickListener {
-            //todo get this from xml array and pass through constructor
             //todo get checkedIndex from sharedpreferences
-            val popup = arrayOf(getString(R.string.nopopup), getString(R.string.screenon), getString(R.string.screenoff), getString(R.string.alwaysshow))
+            val popup = resources.getStringArray(R.array.notifications_popup)
             initDialog(R.string.popupnotification, popup, 0, SINGLE_POP_UP_OPTION)
         }
 
         binding.lightLayout.setOnClickListener {
-            val lights = arrayOf(getString(R.string.none), getString(R.string.white), getString(R.string.red), getString(R.string.yellow), getString(R.string.green), getString(R.string.cyan), getString(R.string.blue), getString(R.string.purple))
+            val lights = resources.getStringArray(R.array.notifications_light)
             initDialog(R.string.light, lights, 0, SINGLE_LIGHT_OPTION)
         }
 
@@ -85,22 +94,27 @@ class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>(){
 
         //Group Layouts
         binding.groupVibrateLayout.setOnClickListener {
-            val vibrate = arrayOf(getString(R.string.off), getString(R.string.defaultanswer), getString(R.string.tvshort), getString(R.string.tvlong))
+            val vibrate = arrayOf(
+                getString(R.string.off),
+                getString(R.string.defaultanswer),
+                getString(R.string.tvshort),
+                getString(R.string.tvlong)
+            )
             initDialog(R.string.vibrate, vibrate, 0, GROUP_VIBRATE_OPTION)
         }
         binding.popUpGroupLayout.setOnClickListener {
-            val popup = arrayOf(getString(R.string.nopopup), getString(R.string.screenon), getString(R.string.screenoff), getString(R.string.alwaysshow))
+            val popup = resources.getStringArray(R.array.notifications_group_popup)
             initDialog(R.string.popupnotification, popup, 0, GROUP_POP_UP_OPTION)
         }
 
         binding.lightGroupLayout.setOnClickListener {
-            val lights = arrayOf(getString(R.string.none), getString(R.string.white), getString(R.string.red), getString(R.string.yellow), getString(R.string.green), getString(R.string.cyan), getString(R.string.blue), getString(R.string.purple))
-            initDialog(R.string.light, lights, 0,GROUP_LIGHT_OPTION)
+            val lights = resources.getStringArray(R.array.notifications_group_light)
+            initDialog(R.string.light, lights, 0, GROUP_LIGHT_OPTION)
         }
         //Calls Fragment
         binding.callsVibrateLayout.setOnClickListener {
-            val vibration = arrayOf(getString(R.string.off), getString(R.string.defaultanswer), getString(R.string.tvshort), getString(R.string.tvlong))
-            initDialog(R.string.vibrate, vibration, 0,CALLS_VIBRATE_OPTION)
+            val vibration = resources.getStringArray(R.array.notifications_calls_vibrate)
+            initDialog(R.string.vibrate, vibration, 0, CALLS_VIBRATE_OPTION)
         }
     }
 
