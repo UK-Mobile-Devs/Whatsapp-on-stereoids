@@ -34,7 +34,11 @@ class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeUiInteractions()
+        initializeUi()
+    }
 
+    private fun initializeUi(){
+        //todo store selected options in preferences and initialize ui from that data here
     }
 
     private fun initDialog(
