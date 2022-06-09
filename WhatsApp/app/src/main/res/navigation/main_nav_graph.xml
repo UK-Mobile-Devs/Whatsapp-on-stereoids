@@ -21,12 +21,27 @@
         <action
             android:id="@+id/action_homeFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_singleMessengerFragment"
+            app:destination="@id/singleMessengerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_groupMessengerFragment2"
+            app:destination="@id/groupMessengerFragment2" />
+
+        <action
+            android:id="@+id/action_home_to_callHistoryFragment"
+            app:destination="@id/chatHistoryFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_contactsSelectFragment"
+            app:destination="@id/contactsSelectFragment" />
 
     </fragment>
     <fragment
         android:id="@+id/contactsFragment"
         android:name="com.example.whatsapp.ui.fragments.contacts.ContactsFragment"
-        android:label="Contacts"
+        android:label="Select contacts"
         tools:layout="@layout/fragment_contacts" />
 
     <fragment
@@ -34,15 +49,23 @@
         android:name="com.example.whatsapp.ui.fragments.home.chats.ChatsFragment"
         android:label="@string/chats"
         tools:layout="@layout/fragment_chats">
-        <action
-            android:id="@+id/action_chatsFragment_to_messengerFragment"
-            app:destination="@id/messengerFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/messengerFragment"
-        android:name="com.example.whatsapp.ui.fragments.messenger.BaseMessengerFragment"
-         />
 
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/callsFragment"
+        android:name="com.example.whatsapp.ui.fragments.home.calls.CallsFragment"
+        android:label="@string/calls"
+        tools:layout="@layout/fragment_calls">
+
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/singleMessengerFragment"
+        android:name="com.example.whatsapp.ui.fragments.messenger.single.SingleMessengerFragment" />
 
 
     <fragment
@@ -141,6 +164,22 @@
         android:id="@+id/settingsChatsFragment"
         android:name="com.example.whatsapp.ui.fragments.settings.chats.SettingsChatsFragment"
         android:label="Chats" />
+        android:id="@+id/groupMessengerFragment2"
+        android:name="com.example.whatsapp.ui.fragments.messenger.group.GroupMessengerFragment"
+        android:label="GroupMessengerFragment" />
 
+    <fragment
+        android:id="@+id/chatHistoryFragment"
+        android:name="com.example.whatsapp.ui.fragments.home.chathistory.ChatHistoryFragment"
+        android:label="@string/call_info"
+        tools:layout="@layout/fragment_call_history">
+        <argument
+            android:name="callHistory"
+            app:argType="com.example.firestorerepository.datatypes.CallHistory" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactsSelectFragment"
+        android:name="com.example.whatsapp.ui.fragments.contactsselect.ContactsSelectFragment"
+        android:label="Select Contact" />
 
 </navigation>

@@ -11,11 +11,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firestorerepository.datatypes.Conversation
+import com.example.whatsapp.R
 import com.example.whatsapp.databinding.ItemChatBinding
 
 
-class MyItemKeyProvider(private val recyclerView: RecyclerView) :
-    ItemKeyProvider<Long>(ItemKeyProvider.SCOPE_MAPPED) {
+class ChatsKeyProvider(private val recyclerView: RecyclerView) :
+    ItemKeyProvider<Long>(SCOPE_MAPPED) {
 
     override fun getKey(position: Int): Long? {
         return recyclerView.adapter?.getItemId(position)
@@ -27,7 +28,7 @@ class MyItemKeyProvider(private val recyclerView: RecyclerView) :
     }
 }
 
-class ItemDetailsLookup(private val recyclerView: RecyclerView) :
+class ChatDetailsLookup(private val recyclerView: RecyclerView) :
     ItemDetailsLookup<Long>() {
     override fun getItemDetails(event: MotionEvent): ItemDetails<Long>? {
         val view = recyclerView.findChildViewUnder(event.x, event.y)
@@ -42,13 +43,11 @@ class ItemDetailsLookup(private val recyclerView: RecyclerView) :
 
 class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(DiffCallback()) {
 
-     var tracker: SelectionTracker<Long>? = null
+    var tracker: SelectionTracker<Long>? = null
 
     init {
         setHasStableIds(true)
     }
-
-
 
     //region ListAdapter Overrides
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatsViewHolder {
@@ -62,7 +61,6 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
         }
     }
 
-
     override fun getItemId(position: Int): Long = position.toLong()
 
     //endregion
@@ -75,17 +73,26 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
         private val tvBody = binding.tvBody
         private val tvTime = binding.tvTime
         private val ivIcon = binding.ivIcon
-        private val cbIsSelected = binding.cbSelection
+        private val lavSelected = binding.lavSelected
         //endregion
 
         fun bind(conversation: Conversation, isSelected : Boolean) {
-            conversation.uid
-            cbIsSelected.visibility = if(isSelected) View.VISIBLE else View.GONE
 
-            // Todo: Add actual data here from the conversation, but the database structure is currently TBT
-            tvTitle.text = "Bill Gates"
-            tvBody.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-            tvTime.text = "08/04/2022"
+            lavSelected.visibility = if(isSelected) View.VISIBLE else View.GONE
+
+            itemView.isSelected = isSelected
+
+            if(!conversation.isGroup) {
+                // Todo: Add actual data here from the conversation, but the database structure is currently TBT
+                tvTitle.text = "Bill Gates"
+                tvBody.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+                tvTime.text = "08/04/2022"
+            }
+            else {
+                tvTitle.text = "The boys"
+                tvBody.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+                tvTime.text = "15/05/2022"
+            }
         }
 
         fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> =
@@ -106,9 +113,6 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
         override fun areContentsTheSame(oldItem: Conversation, newItem: Conversation): Boolean {
             return oldItem.uid == newItem.uid
         }
-
-
     }
     //endregion
-
 }

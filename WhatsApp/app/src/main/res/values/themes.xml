@@ -11,6 +11,11 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/teal_green</item>
+        <item name="actionModeBackground">@color/teal_green</item>
+
+        <item name="windowActionModeOverlay">true</item>
+
+
         <!-- Customize your theme here. -->
     </style>
     <style name="Theme.WhatsApp.NoActionBar">
@@ -19,6 +24,20 @@
     </style>
     <style name="Theme.WhatsApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.WhatsApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="SettingsRowHeadingText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="ContactsNameTextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="ContactsDescriptionTextView">
+        <item name="android:textColor">@color/greySecondary</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 
 
 </resources>

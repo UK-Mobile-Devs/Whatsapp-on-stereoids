@@ -1,6 +1,582 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/svScrollNotifications"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/conversationTonesLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+
+            <TextView
+                android:id="@+id/tvconversationTones"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/conversationSwitch"
+                android:layout_marginBottom="4dp"
+                android:text="@string/conversationtones" />
+
+            <TextView
+                android:id="@+id/conversationToneDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/conversationSwitch"
+                android:layout_below="@+id/tvconversationTones"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/playsounds" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/conversationSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp" />
+
+        </RelativeLayout>
+
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="16dp"
+            android:background="@color/grey"
+            app:layout_constraintTop_toBottomOf="@+id/conversationToneDesc" />
+
+        <TextView
+            android:id="@+id/tvnotificationMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/messages" />
+
+
+        <RelativeLayout
+            android:id="@+id/notificationTonesLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+
+            <TextView
+                android:id="@+id/tvnotificationTones"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/notificationtone" />
+
+            <TextView
+                android:id="@+id/notificationToneDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvnotificationTones"
+                android:layout_marginStart="16dp"
+                tools:text="@string/defaultbongo" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/vibrateLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+
+            <TextView
+                android:id="@+id/vibrateTones"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+
+                android:text="@string/vibrate" />
+
+            <TextView
+                android:id="@+id/vibrateDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vibrateTones"
+                android:layout_marginStart="16dp"
+                tools:text="@string/defaultbongo" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/popUpLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+
+            <TextView
+                android:id="@+id/tvPopUpTones"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/popupnotification" />
+
+            <TextView
+                android:id="@+id/tvPopUpTonesDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvPopUpTones"
+                android:layout_marginStart="16dp"
+                tools:text="@string/nopopup" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lightLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+
+            <TextView
+                android:id="@+id/tvlightColour"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/light" />
+
+            <TextView
+                android:id="@+id/tvLightDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvlightColour"
+                android:layout_marginStart="16dp"
+                tools:text="@string/white" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/highPriorityLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+
+            <TextView
+                android:id="@+id/tvHighPriority"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/highPrioritySwitch"
+                android:text="@string/highpriority" />
+
+            <TextView
+                android:id="@+id/tvHighPriorityDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvHighPriority"
+                android:layout_toStartOf="@+id/highPrioritySwitch"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="40dp"
+                android:text="@string/previewnotification" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/highPrioritySwitch"
+                android:layout_marginEnd="16dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/reactionNotificationLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+
+            <TextView
+                android:id="@+id/tvReactionNotification"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="-2dp"
+                android:layout_marginBottom="4dp"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/reactionNotificationSwitch"
+                android:text="@string/reactionnotification" />
+
+            <TextView
+                android:id="@+id/tvReactionNotificationDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvReactionNotification"
+                android:layout_marginStart="16dp"
+                android:layout_toStartOf="@id/reactionNotificationSwitch"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="40dp"
+                android:text="@string/shownotification" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/reactionNotificationSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="16dp"
+            android:background="@color/grey"
+            app:layout_constraintTop_toBottomOf="@+id/tvReactionNotificationDesc" />
+
+        <TextView
+            android:id="@+id/tvnotificationGroups"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/groups" />
+
+        <RelativeLayout
+            android:id="@+id/notificationGroupTonesLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+
+            <TextView
+                android:id="@+id/tvnotificationGroupsTones"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/notificationtone" />
+
+            <TextView
+                android:id="@+id/notificationGroupsToneDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvnotificationGroupsTones"
+                android:layout_marginStart="16dp"
+                tools:text="@string/defaultbongo" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/groupVibrateLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+
+            <TextView
+                android:id="@+id/tvGroupVibrate"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/vibrate" />
+
+            <TextView
+                android:id="@+id/tvGroupVibrateDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvGroupVibrate"
+                android:layout_marginStart="16dp"
+                tools:text="@string/defaultbongo" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/popUpGroupLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+
+            <TextView
+                android:id="@+id/tvPopUpGroupTones"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/popupnotification" />
+
+            <TextView
+                android:id="@+id/tvPopUpGroupTonesDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvPopUpGroupTones"
+                android:layout_marginStart="16dp"
+                tools:text="@string/nopopup" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lightGroupLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+
+            <TextView
+                android:id="@+id/tvlightGroupColour"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/light" />
+
+            <TextView
+                android:id="@+id/tvLightGroupDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvlightGroupColour"
+                android:layout_marginStart="16dp"
+                tools:text="@string/white" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/highPriorityGroupLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+
+            <TextView
+                android:id="@+id/tvHighPriorityGroup"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:layout_toStartOf="@+id/highPrioritySwitch2"
+                android:text="@string/highpriority" />
+
+            <TextView
+                android:id="@+id/tvHighPriorityGroupDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvHighPriorityGroup"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/highPrioritySwitch2"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/previewnotification" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/highPrioritySwitch2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/reactionNotificationGroupLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+
+            <TextView
+                android:id="@+id/tvReactionNotificationGroup"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/reactionNotificationSwitch2"
+                android:text="@string/reactionnotification" />
+
+            <TextView
+                android:id="@+id/tvReactionNotificationGroupDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvReactionNotificationGroup"
+                android:layout_marginStart="16dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="40dp"
+                android:layout_toStartOf="@id/reactionNotificationSwitch2"
+                android:text="@string/shownotification" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/reactionNotificationSwitch2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="16dp"
+            android:background="@color/grey"
+            app:layout_constraintTop_toBottomOf="@+id/tvReactionNotificationGroupDesc" />
+
+
+        <TextView
+            android:id="@+id/tvnotificationCalls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/calls" />
+
+
+        <RelativeLayout
+            android:id="@+id/ringtoneLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+
+            <TextView
+                android:id="@+id/tvRingtone"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/ringtone" />
+
+            <TextView
+                android:id="@+id/tvRingtoneDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvRingtone"
+                android:layout_marginStart="16dp"
+                tools:text="@string/defaultbongo" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/callsVibrateLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+
+            <TextView
+                android:id="@+id/tvCallsVibrate"
+                style="@style/NotificationsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/vibrate" />
+
+            <TextView
+                android:id="@+id/tvCallsVibrateDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvCallsVibrate"
+                android:layout_marginStart="16dp"
+                tools:text="@string/defaultstring" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>
