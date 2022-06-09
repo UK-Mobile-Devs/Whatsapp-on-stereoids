@@ -2,6 +2,7 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/svScrollNotifications"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -96,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvnotificationTones"
                 android:layout_marginStart="16dp"
-                android:text="@string/defaultbongo" />
+                tools:text="@string/defaultbongo" />
 
 
         </RelativeLayout>
@@ -128,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/vibrateTones"
                 android:layout_marginStart="16dp"
-                android:text="@string/defaultbongo" />
+                tools:text="@string/defaultbongo" />
 
 
         </RelativeLayout>
@@ -159,7 +160,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvPopUpTones"
                 android:layout_marginStart="16dp"
-                android:text="@string/nopopup" />
+                tools:text="@string/nopopup" />
 
         </RelativeLayout>
 
@@ -189,7 +190,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvlightColour"
                 android:layout_marginStart="16dp"
-                android:text="@string/white" />
+                tools:text="@string/white" />
 
         </RelativeLayout>
 
@@ -319,7 +320,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvnotificationGroupsTones"
                 android:layout_marginStart="16dp"
-                android:text="@string/defaultbongo" />
+                tools:text="@string/defaultbongo" />
 
 
         </RelativeLayout>
@@ -351,7 +352,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvGroupVibrate"
                 android:layout_marginStart="16dp"
-                android:text="@string/defaultbongo" />
+                tools:text="@string/defaultbongo" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -380,7 +381,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvPopUpGroupTones"
                 android:layout_marginStart="16dp"
-                android:text="@string/nopopup" />
+                tools:text="@string/nopopup" />
 
 
         </RelativeLayout>
@@ -411,7 +412,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvlightGroupColour"
                 android:layout_marginStart="16dp"
-                android:text="@string/white" />
+                tools:text="@string/white" />
 
         </RelativeLayout>
 
@@ -542,7 +543,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvRingtone"
                 android:layout_marginStart="16dp"
-                android:text="@string/defaultbongo" />
+                tools:text="@string/defaultbongo" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -571,7 +572,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvCallsVibrate"
                 android:layout_marginStart="16dp"
-                android:text="@string/defaultstring" />
+                tools:text="@string/defaultstring" />
         </RelativeLayout>
 
 
