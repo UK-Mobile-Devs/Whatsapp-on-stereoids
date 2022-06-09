@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/pinChats"
+        android:title="@string/chats_pin_title"
+        android:icon="@drawable/ic_pin"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/deleteChats"
+        android:title="@string/chats_delete_title"
+        android:icon="@drawable/ic_delete"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/muteNotifications"
+        android:title="@string/chats_mute_title"
+        android:icon="@drawable/ic_menu_mute"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/archiveMessages"
+        android:title="@string/chats_archive_title"
+        android:icon="@drawable/ic_archive"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/exitGroup"
+        android:title="@string/chats_exit_group_title"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/exitGroups"
+        android:title="@string/chats_exit_groups_title"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/addChatShortcut"
+        android:title="@string/chats_add_chat_shortcut_title"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/viewContact"
+        android:title="@string/chats_view_contact_title"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/addToContact"
+        android:title="@string/chats_add_to_contacts_title"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/groupInfo"
+        android:title="@string/chats_group_info_title"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/markUnread"
+        android:title="@string/chats_mark_unread_title"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/selectAll"
+        android:title="@string/chats_select_all_title"
+        app:showAsAction="never" />
+
+</menu>
