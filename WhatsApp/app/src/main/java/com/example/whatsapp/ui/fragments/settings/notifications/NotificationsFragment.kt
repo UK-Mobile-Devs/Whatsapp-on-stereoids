@@ -8,6 +8,13 @@ import androidx.annotation.StringRes
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentNotificationsBinding
+import com.example.whatsapp.utils.Constants.CALLS_VIBRATE_OPTION
+import com.example.whatsapp.utils.Constants.GROUP_LIGHT_OPTION
+import com.example.whatsapp.utils.Constants.GROUP_POP_UP_OPTION
+import com.example.whatsapp.utils.Constants.GROUP_VIBRATE_OPTION
+import com.example.whatsapp.utils.Constants.SINGLE_LIGHT_OPTION
+import com.example.whatsapp.utils.Constants.SINGLE_POP_UP_OPTION
+import com.example.whatsapp.utils.Constants.SINGLE_VIBRATE_OPTION
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -97,48 +104,7 @@ class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>(){
         }
     }
 
-
-    //    /**
-//     * Vibrates the device. Used for providing feedback when the user performs an action.
-//     */
-//    fun vibrate(view: View) {
-//        view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
-//    }
-//    private fun defaultLed(){
-//        val notificationManager= context?.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-//
-//        val notification_Channel_ID = "my_channel_id_01"
-//
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            val notificationChannel = NotificationChannel(
-//                notification_Channel_ID,
-//                "My Notifications",
-//                NotificationManager.IMPORTANCE_HIGH
-//            )
-//
-//            // Configure the notification channel.
-//
-//            notificationChannel.description = "Channel description"
-//            notificationChannel.enableLights(true)
-//            notificationChannel.lightColor = Color.RED
-//            notificationChannel.vibrationPattern = longArrayOf(0, 1000, 500, 1000)
-//            notificationChannel.enableVibration(true)
-//            notificationManager.createNotificationChannel(notificationChannel)
-//        }
-//
-//    }
     override fun observeViewModel() {
-    }
-
-    companion object{
-        const val SINGLE_VIBRATE_OPTION = "SINGLE_VIBRATE_OPTION"
-        const val SINGLE_POP_UP_OPTION = "SINGLE_POP_UP_OPTION"
-        const val SINGLE_LIGHT_OPTION = "SINGLE_LIGHT_OPTION"
-        const val GROUP_VIBRATE_OPTION = "GROUP_VIBRATE_OPTION"
-        const val GROUP_POP_UP_OPTION = "GROUP_POP_UP_OPTION"
-        const val GROUP_LIGHT_OPTION = "GROUP_LIGHT_OPTION"
-        const val CALLS_VIBRATE_OPTION = "CALLS_VIBRATE_OPTION"
 
     }
-
 }
