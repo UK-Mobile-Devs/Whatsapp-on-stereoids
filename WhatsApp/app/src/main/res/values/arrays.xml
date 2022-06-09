@@ -5,4 +5,68 @@
         <item>0</item>
     </integer-array>
 
+    <!-- Vibrate List Options -->
+    <string-array name="notifications_vibrate">
+        <item>@string/off</item>
+        <item>@string/defaultanswer</item>
+        <item>@string/tvshort</item>
+        <item>@string/tvlong</item>
+    </string-array>
+
+    <!-- Popup List Options -->
+    <string-array name="notifications_popup">
+        <item>@string/nopopup</item>
+        <item>@string/screenon</item>
+        <item>@string/screenoff</item>
+        <item>@string/alwaysshow</item>
+    </string-array>
+
+    <!-- Light List Options -->
+    <string-array name="notifications_light">
+        <item>@string/none</item>
+        <item>@string/white</item>
+        <item>@string/red</item>
+        <item>@string/yellow</item>
+        <item>@string/green</item>
+        <item>@string/cyan</item>
+        <item>@string/blue</item>
+        <item>@string/purple</item>
+    </string-array>
+
+    <!-- group vibrate List Options -->
+    <string-array name="notifications_group_vibrate">
+        <item>@string/off</item>
+        <item>@string/defaultanswer</item>
+        <item>@string/tvshort</item>
+        <item>@string/tvlong</item>
+    </string-array>
+
+    <!-- group popup List Options -->
+    <string-array name="notifications_group_popup">
+        <item>@string/nopopup</item>
+        <item>@string/screenon</item>
+        <item>@string/screenoff</item>
+        <item>@string/alwaysshow</item>
+    </string-array>
+
+    <!-- group Light List Options -->
+    <string-array name="notifications_group_light">
+        <item>@string/none</item>
+        <item>@string/white</item>
+        <item>@string/red</item>
+        <item>@string/yellow</item>
+        <item>@string/green</item>
+        <item>@string/cyan</item>
+        <item>@string/blue</item>
+        <item>@string/purple</item>
+    </string-array>
+
+    <!-- calls vibrate List Options -->
+    <string-array name="notifications_calls_vibrate">
+        <item>@string/off</item>
+        <item>@string/defaultanswer</item>
+        <item>@string/tvshort</item>
+        <item>@string/tvlong</item>
+    </string-array>
+
 </resources>
