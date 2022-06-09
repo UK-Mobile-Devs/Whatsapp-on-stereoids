@@ -32,10 +32,13 @@
     <string name="purple">Purple</string>
 
 
+    <!-- Home Status -->
+    <string name="home_status_privacy_title">Status privacy</string>
 
     <!-- Search Menu Layout -->
     <string name="search">Search</string>
     <string name="new_group">New group</string>
+    <string name="call_info">Call info</string>
     <string name="new_broadcast">New broadcast</string>
     <string name="linked_devices">Linked devices</string>
     <string name="starred_messages">Starred messages</string>
@@ -75,6 +78,36 @@
     <string name="groups">Groups</string>
     <string name="ringtone">Ringtone</string>
 
+    <string name="chats_pin_title">Pin</string>
+    <string name="chats_delete_title">Delete</string>
+    <string name="chats_mute_title">Mute</string>
+    <string name="chats_archive_title">Archive</string>
+    <string name="chats_options_title">Options</string>
+    <string name="chats_exit_group_title">Exit Group</string>
+    <string name="chats_exit_groups_title">Exit Groups</string>
+    <string name="chats_add_chat_shortcut_title">Add chat shortcut</string>
+    <string name="chats_group_info_title">Group Info</string>
+    <string name="chats_mark_unread_title">Mark as unread</string>
+    <string name="chats_select_all_title">Select all</string>
+    <string name="chats_add_to_contacts_title">Add to contacts</string>
+    <string name="start_conversation_description">Start new chat</string>
+    <string name="chats_view_contact_title">View contact</string>
 
+    <!-- Call History -->
+    <string name="call_history_send_message_title">Send message</string>
+    <string name="call_history_remove_title">Remove from call log</string>
+    <string name="call_history_block_title">Block</string>
+    <string name="call_inbound">Inbound</string>
+    <string name="call_outbound">Outbound</string>
+
+    <!-- Home Calls -->
+    <string name="home_calls_clear_log">Clear call log</string>
+    <string name="capture_button_alt">capture</string>
+
+    <!-- Contacts Menu Layout -->
+    <string name="invite_friend">Invite a Friend</string>
+    <string name="contacts">Contacts</string>
+    <string name="refresh">Refresh</string>
+    <string name="help">Help</string>
 
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="H1">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
@@ -17,6 +17,7 @@
     </style>
     <style name="toolbarText" parent="H1">
         <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
@@ -25,13 +26,16 @@
 
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <!-- Customize color of navigation drawer icon and back arrow -->
-        <item name="android:textColorPrimary">@android:color/white</item>
-
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="actionModeBackground">@color/teal_green</item>
     </style>
 
     <style name="MenuTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <!-- Customize color of navigation drawer icon and back arrow -->
         <item name="android:textColorPrimary">@android:color/black</item>
+    </style>
 
+    <style name="SelectableListItemStyle">
+        <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
     </style>
 </resources>

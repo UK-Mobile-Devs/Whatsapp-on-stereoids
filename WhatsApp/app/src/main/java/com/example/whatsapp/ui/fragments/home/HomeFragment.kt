@@ -5,12 +5,16 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentHomeBinding
+import com.example.whatsapp.ui.fragments.home.HomeStatePagerAdapter.Companion.CALLS_FRAGMENT_INDEX
+import com.example.whatsapp.ui.fragments.home.HomeStatePagerAdapter.Companion.CAMERA_FRAGMENT_INDEX
 import com.example.whatsapp.ui.fragments.home.HomeStatePagerAdapter.Companion.CHATS_FRAGMENT_INDEX
+import com.example.whatsapp.ui.fragments.home.HomeStatePagerAdapter.Companion.STATUS_FRAGMENT_INDEX
 import com.example.whatsapp.ui.fragments.home.calls.CallsFragment
 import com.example.whatsapp.ui.fragments.home.camera.CameraFragment
 import com.example.whatsapp.ui.fragments.home.chats.ChatsFragment
@@ -47,41 +51,28 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         )
         binding.vpHomeScreen.adapter = homeStatePagerAdapter
         binding.vpHomeScreen.currentItem = CHATS_FRAGMENT_INDEX
-        TabLayoutMediator(binding.tlNavigation, binding.vpHomeScreen) { _, _ ->
-
-        }
+        TabLayoutMediator(binding.tlNavigation, binding.vpHomeScreen) { currentTab, position ->
+            if(position == CAMERA_FRAGMENT_INDEX) {
+                currentTab.icon = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_camera)
+            }
+            when (position) {
+                CHATS_FRAGMENT_INDEX -> getString(R.string.chats)
+                STATUS_FRAGMENT_INDEX -> getString(R.string.status)
+                CALLS_FRAGMENT_INDEX -> getString(R.string.calls)
+                else -> null
+            }?.let {
+                currentTab.text = it
+            }
+        }.attach()
         //endregion
 
         binding.fabNewConversation.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_chatsFragment) //todo update this navigation to contacts fragment
+            findNavController().navigate(R.id.action_homeFragment_to_contactsSelectFragment)
         }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.itemSettings -> findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
-
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     override fun observeViewModel() {
 
     }
     //endregion
-
-    //region Life-Cycle
-    override fun onCreate(savedInstanceState: Bundle?) {
-        setHasOptionsMenu(true)
-        super.onCreate(savedInstanceState)
-    }
-    //endregion
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.navigation, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-    //endregion
-
-
 }
