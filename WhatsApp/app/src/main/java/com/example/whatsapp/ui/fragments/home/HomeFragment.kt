@@ -1,10 +1,6 @@
 package com.example.whatsapp.ui.fragments.home
 
-import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -52,8 +48,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.vpHomeScreen.adapter = homeStatePagerAdapter
         binding.vpHomeScreen.currentItem = CHATS_FRAGMENT_INDEX
         TabLayoutMediator(binding.tlNavigation, binding.vpHomeScreen) { currentTab, position ->
-            if(position == CAMERA_FRAGMENT_INDEX) {
-                currentTab.icon = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_camera)
+            if (position == CAMERA_FRAGMENT_INDEX) {
+                currentTab.icon =
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_camera)
             }
             when (position) {
                 CHATS_FRAGMENT_INDEX -> getString(R.string.chats)
