@@ -10,11 +10,17 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="chatSettingsText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="NotificationsTitleText">
         <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
     <style name="toolbarText" parent="H1">
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
