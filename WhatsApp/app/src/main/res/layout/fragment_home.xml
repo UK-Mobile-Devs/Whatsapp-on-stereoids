@@ -26,27 +26,23 @@
             app:wrapSelectedTabs="@array/homeWrappedTabLayoutItems">
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabCamera"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:icon="@drawable/ic_camera" />
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabChats"
                 style="@style/toolbarText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/chats" />
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabStatus"
                 style="@style/toolbarText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/status" />
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabCalls"
                 style="@style/toolbarText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
