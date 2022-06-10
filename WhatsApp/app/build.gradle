@@ -37,7 +37,7 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
-        dataBinding = true
+        viewBinding true
     }
     packagingOptions {
         exclude 'META-INF/*'
@@ -61,7 +61,7 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.38.1")
     // Wrap-Content-Tabs
     implementation 'com.github.Josh-Owen:Wrap-Content-TabLayout:1.0.0'
-
+    implementation 'com.google.guava:guava:29.0-android'
 
 
     // Firebase
