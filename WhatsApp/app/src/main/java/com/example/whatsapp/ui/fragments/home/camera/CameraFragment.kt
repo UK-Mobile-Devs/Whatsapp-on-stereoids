@@ -18,7 +18,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentCameraBinding
-
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Locale

@@ -40,6 +40,7 @@
     <string name="new_group">New group</string>
     <string name="call_info">Call info</string>
     <string name="new_broadcast">New broadcast</string>
+    <string name="new_contact">New Contact</string>
     <string name="linked_devices">Linked devices</string>
     <string name="starred_messages">Starred messages</string>
     <string name="settings">Settings</string>

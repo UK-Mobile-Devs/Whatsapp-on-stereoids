@@ -1,86 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbarLayout"
+
+        <com.joshowen.wrap_content_tablayout.WrapContentTabLayout
+            android:id="@+id/tlNavigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:elevation="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:background="@color/teal_green"
+            android:theme="@style/Theme.AppCompat.DayNight"
+            app:tabIconTint="@drawable/ic_home_tab_background"
+            app:tabIndicatorColor="@color/white"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="@color/tab_secondary"
+            app:wrapSelectedTabs="@array/homeWrappedTabLayoutItems">
 
-
-            <com.joshowen.wrap_content_tablayout.WrapContentTabLayout
-                android:id="@+id/tlNavigation"
-                android:layout_width="match_parent"
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/teal_green"
-                android:theme="@style/Theme.AppCompat.DayNight"
-                app:tabIconTint="@drawable/ic_home_tab_background"
-                app:tabSelectedTextColor="@color/white"
-                app:tabIndicatorColor="@color/white"
-                app:tabTextColor="@color/tab_secondary"
-                app:wrapSelectedTabs="@array/homeWrappedTabLayoutItems">
+                android:icon="@drawable/ic_camera" />
 
-                <com.google.android.material.tabs.TabItem
-                    android:id="@+id/tabCamera"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:icon="@drawable/ic_camera" />
+            <com.google.android.material.tabs.TabItem
+                style="@style/toolbarText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chats" />
 
-                <com.google.android.material.tabs.TabItem
-                    android:id="@+id/tabChats"
-                    style="@style/toolbarText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/chats" />
+            <com.google.android.material.tabs.TabItem
+                style="@style/toolbarText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/status" />
 
-                <com.google.android.material.tabs.TabItem
-                    android:id="@+id/tabStatus"
-                    style="@style/toolbarText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/status" />
+            <com.google.android.material.tabs.TabItem
+                style="@style/toolbarText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/calls" />
+        </com.joshowen.wrap_content_tablayout.WrapContentTabLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-                <com.google.android.material.tabs.TabItem
-                    android:id="@+id/tabCalls"
-                    style="@style/toolbarText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/calls" />
-            </com.joshowen.wrap_content_tablayout.WrapContentTabLayout>
-        </com.google.android.material.appbar.AppBarLayout>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpHomeScreen"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appbarLayout">
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/vpHomeScreen"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appbarLayout">
-
-        </androidx.viewpager2.widget.ViewPager2>
+    </androidx.viewpager2.widget.ViewPager2>
 
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabNewConversation"
-            android:contentDescription="@string/start_conversation_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            app:backgroundTint="@color/teal_green"
-            app:tint="@color/white"
-            app:srcCompat="@drawable/ic_messenger_icon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabNewConversation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/start_conversation_description"
+        app:backgroundTint="@color/teal_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_messenger_icon"
+        app:tint="@color/white" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>
