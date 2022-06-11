@@ -29,12 +29,8 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
         binding.layoutAccountRow.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_accountsFragment)
         }
-
-        binding.chatsTransfer.setOnClickListener {
-            findNavController().navigate(R.id.action_settingsFragment_to_settingsChatsFragment)
-
         binding.layoutChatsRow.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_chatsFragment)
+            findNavController().navigate(R.id.action_settingsFragment_to_settingsChatsFragment)
         }
         binding.layoutNotificationsRow.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_notificationsFragment)
@@ -49,6 +45,7 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
             findNavController().navigate(R.id.action_settingsFragment_to_referralFragment)
         }
     }
+
 
     //region BaseFragment Overrides
     override fun inflateBinding(layoutInflater: LayoutInflater): FragmentSettingsBinding {
