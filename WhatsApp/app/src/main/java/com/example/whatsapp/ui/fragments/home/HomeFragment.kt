@@ -1,9 +1,13 @@
 package com.example.whatsapp.ui.fragments.home
 
 import android.view.LayoutInflater
+import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.viewpager2.widget.ViewPager2
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentHomeBinding
@@ -15,6 +19,10 @@ import com.example.whatsapp.ui.fragments.home.calls.CallsFragment
 import com.example.whatsapp.ui.fragments.home.camera.CameraFragment
 import com.example.whatsapp.ui.fragments.home.chats.ChatsFragment
 import com.example.whatsapp.ui.fragments.home.status.StatusFragment
+import com.example.whatsapp.utils.Constants.fabActionKey
+import com.example.whatsapp.utils.Constants.fabNavigateToCamera
+import com.example.whatsapp.utils.Constants.fabNavigateToContactsFromCalls
+import com.example.whatsapp.utils.Constants.fabNavigateToContactsFromChats
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,7 +33,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private val viewModel by viewModels<HomeFragmentVM>()
 
     private lateinit var homeStatePagerAdapter: HomeStatePagerAdapter
-
+    private var currentTabPosition = CHATS_FRAGMENT_INDEX
     //endregion
 
     //region BaseFragment Overrides
@@ -48,10 +56,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.vpHomeScreen.adapter = homeStatePagerAdapter
         binding.vpHomeScreen.currentItem = CHATS_FRAGMENT_INDEX
         TabLayoutMediator(binding.tlNavigation, binding.vpHomeScreen) { currentTab, position ->
-            if (position == CAMERA_FRAGMENT_INDEX) {
-                currentTab.icon =
-                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_camera)
-            }
             when (position) {
                 CHATS_FRAGMENT_INDEX -> getString(R.string.chats)
                 STATUS_FRAGMENT_INDEX -> getString(R.string.status)
@@ -60,11 +64,67 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             }?.let {
                 currentTab.text = it
             }
+            if (position == CAMERA_FRAGMENT_INDEX) {
+                currentTab.icon =
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_camera)
+            }
         }.attach()
-        //endregion
 
-        binding.fabNewConversation.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_contactsSelectFragment)
+        binding.vpHomeScreen.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                currentTabPosition = position
+                binding.fabAction.visibility = View.VISIBLE
+                when (position) {
+                    STATUS_FRAGMENT_INDEX -> binding.fabAction.setImageDrawable(
+                        ResourcesCompat.getDrawable(
+                            resources,
+                            R.drawable.ic_camera,
+                            null
+                        )
+                    )
+                    CALLS_FRAGMENT_INDEX -> binding.fabAction.setImageDrawable(
+                        ResourcesCompat.getDrawable(
+                            resources,
+                            R.drawable.ic_add_contact,
+                            null
+                        )
+                    )
+                    CHATS_FRAGMENT_INDEX -> binding.fabAction.setImageDrawable(
+                        ResourcesCompat.getDrawable(
+                            resources,
+                            R.drawable.ic_messenger_icon,
+                            null
+                        )
+                    )
+                    CAMERA_FRAGMENT_INDEX -> binding.fabAction.visibility = View.GONE
+                }
+            }
+        })
+
+        binding.fabAction.setOnClickListener {
+            when (currentTabPosition) {
+                CHATS_FRAGMENT_INDEX -> {
+                    findNavController().navigate(
+                        R.id.action_homeFragment_to_contactsSelectFragment,
+                        bundleOf(fabActionKey to fabNavigateToContactsFromChats)
+                    )
+                }
+                STATUS_FRAGMENT_INDEX -> {
+                    findNavController().navigate(
+                        R.id.action_homeFragment_to_cameraFragment,
+                        bundleOf(fabActionKey to fabNavigateToCamera)
+                    )
+
+                }
+                CALLS_FRAGMENT_INDEX -> {
+                    findNavController().navigate(
+                        R.id.action_homeFragment_to_contactsSelectFragment,
+                        bundleOf(fabActionKey to fabNavigateToContactsFromCalls)
+                    )
+                }
+            }
         }
     }
 

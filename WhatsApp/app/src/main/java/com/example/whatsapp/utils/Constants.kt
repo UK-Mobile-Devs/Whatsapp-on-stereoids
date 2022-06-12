@@ -14,4 +14,10 @@ object Constants {
     const val GROUP_POP_UP_OPTION = "GROUP_POP_UP_OPTION"
     const val GROUP_LIGHT_OPTION = "GROUP_LIGHT_OPTION"
     const val CALLS_VIBRATE_OPTION = "CALLS_VIBRATE_OPTION"
+
+    //FAB Actions
+    const val fabActionKey = "fabActionKey"
+    const val fabNavigateToCamera = "fabNavigateToCamera"
+    const val fabNavigateToContactsFromChats = "fabNavigateToContactsFromChats"
+    const val fabNavigateToContactsFromCalls = "fabNavigateToContactsFromCalls"
 }
