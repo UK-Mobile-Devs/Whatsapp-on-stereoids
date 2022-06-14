@@ -6,7 +6,7 @@
     android:id="@+id/clParent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/selected_background"
+    android:background="?selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
     app:layout_constraintBottom_toTopOf="@+id/tvBody"

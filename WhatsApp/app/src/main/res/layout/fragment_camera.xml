@@ -11,14 +11,39 @@
 
     <ImageButton
         android:id="@+id/camera_capture_button"
-        android:layout_width="@dimen/dp92"
-        android:layout_height="@dimen/dp92"
-        android:layout_marginBottom="@dimen/dp80"
+        android:layout_width="@dimen/dp80"
+        android:layout_height="@dimen/dp80"
+        app:layout_constraintVertical_bias="0.9"
         android:background="@drawable/ic_shutter"
         android:contentDescription="@string/capture_button_alt"
         android:scaleType="fitCenter"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivFlash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/camera_capture_button"
+        app:layout_constraintBottom_toBottomOf="@id/camera_capture_button"
+        app:layout_constraintTop_toTopOf="@id/camera_capture_button"
+        android:src="@drawable/ic_flash_off"
+        />
+
+    <ImageView
+        android:id="@+id/ivCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        app:layout_constraintStart_toEndOf="@id/camera_capture_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/camera_capture_button"
+        app:layout_constraintBottom_toBottomOf="@id/camera_capture_button"
+        android:src="@drawable/ic_camera"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
