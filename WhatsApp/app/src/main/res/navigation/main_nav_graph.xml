@@ -24,6 +24,7 @@
         <action
             android:id="@+id/action_homeFragment_to_singleMessengerFragment"
             app:destination="@id/singleMessengerFragment" />
+
         <action
             android:id="@+id/action_homeFragment_to_groupMessengerFragment2"
             app:destination="@id/groupMessengerFragment2" />
@@ -36,6 +37,9 @@
         <action
             android:id="@+id/action_homeFragment_to_contactsSelectFragment"
             app:destination="@id/contactsSelectFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
 
     </fragment>
     <fragment
@@ -164,6 +168,7 @@
         android:id="@+id/settingsChatsFragment"
         android:name="com.example.whatsapp.ui.fragments.settings.chats.SettingsChatsFragment"
         android:label="Chats" />
+    <fragment
         android:id="@+id/groupMessengerFragment2"
         android:name="com.example.whatsapp.ui.fragments.messenger.group.GroupMessengerFragment"
         android:label="GroupMessengerFragment" />
@@ -181,5 +186,9 @@
         android:id="@+id/contactsSelectFragment"
         android:name="com.example.whatsapp.ui.fragments.contactsselect.ContactsSelectFragment"
         android:label="Select Contact" />
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.example.whatsapp.ui.fragments.home.camera.CameraFragment"
+        android:label="CameraFragment" />
 
 </navigation>
