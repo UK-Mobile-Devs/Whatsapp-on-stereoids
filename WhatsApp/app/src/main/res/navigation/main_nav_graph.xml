@@ -26,8 +26,8 @@
             app:destination="@id/singleMessengerFragment" />
 
         <action
-            android:id="@+id/action_homeFragment_to_groupMessengerFragment2"
-            app:destination="@id/groupMessengerFragment2" />
+            android:id="@+id/action_homeFragment_to_groupMessengerFragment"
+            app:destination="@id/groupMessengerFragment" />
 
         <action
             android:id="@+id/action_home_to_callHistoryFragment"
@@ -187,8 +187,13 @@
         android:name="com.example.whatsapp.ui.fragments.contactsselect.ContactsSelectFragment"
         android:label="Select Contact" />
     <fragment
+        android:id="@+id/groupMessengerFragment"
+        android:name="com.example.whatsapp.ui.fragments.messenger.group.GroupMessengerFragment"
+        android:label="GroupMessengerFragment" />
+    <fragment
         android:id="@+id/cameraFragment"
         android:name="com.example.whatsapp.ui.fragments.home.camera.CameraFragment"
         android:label="CameraFragment" />
+
 
 </navigation>
