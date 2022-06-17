@@ -86,6 +86,11 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
         //endregion
     }
 
+    override fun onPause() {
+        tracker?.clearSelection()
+        super.onPause()
+    }
+
     override fun initArgs(arguments: Bundle) {
         super.initArgs(arguments)
         tracker?.onRestoreInstanceState(arguments)

@@ -106,6 +106,11 @@ class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback,
 
     }
 
+    override fun onPause() {
+        tracker?.clearSelection()
+        super.onPause()
+    }
+
     override fun inflateBinding(layoutInflater: LayoutInflater): FragmentCallsBinding {
         return FragmentCallsBinding.inflate(layoutInflater)
     }
