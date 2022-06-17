@@ -2,8 +2,6 @@ package com.example.whatsapp.ui.fragments.home
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class HomeStatePagerAdapter(fragmentManager: FragmentActivity, private val listOfFragments : List<Fragment>) :

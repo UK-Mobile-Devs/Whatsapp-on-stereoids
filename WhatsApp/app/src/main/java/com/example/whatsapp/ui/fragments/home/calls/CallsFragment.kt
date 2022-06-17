@@ -12,12 +12,13 @@ import com.example.firestorerepository.datatypes.CallHistory
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentCallsBinding
+import com.example.whatsapp.ui.SelectionController
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 @AndroidEntryPoint
-class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback, CallsCallback {
+class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback, CallsCallback, SelectionController {
 
     //region Variables
 
@@ -178,6 +179,10 @@ class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback,
         viewModel.viewCallHistory(callHistory)
     }
     //endregion
+
+    override fun clear() {
+        tracker?.clearSelection()
+    }
 
     //region Companion Object
     companion object {
