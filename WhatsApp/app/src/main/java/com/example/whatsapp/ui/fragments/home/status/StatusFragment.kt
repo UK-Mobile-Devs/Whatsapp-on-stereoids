@@ -32,11 +32,6 @@ class StatusFragment : BaseFragment<FragmentStatusBinding>() {
 
     //region Options Menu
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.home_status_menu, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.itemSettings -> {

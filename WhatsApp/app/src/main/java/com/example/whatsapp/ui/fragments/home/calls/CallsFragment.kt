@@ -1,6 +1,7 @@
 package com.example.whatsapp.ui.fragments.home.calls
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -115,23 +116,21 @@ class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback,
 
     //region Options Menu
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.home_calls_menu, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.search -> {
                 viewModel.searchClick()
+                Log.i("CALLTEST", "Search Clicked!")
                 true
             }
             R.id.clearCallLog -> {
                 viewModel.clearCallLogClick()
+                Log.i("CALLTEST", "Clear Clicked!")
                 true
             }
             R.id.settings -> {
                 viewModel.settingsClick()
+                Log.i("CALLTEST", "Settings Clicked!")
                 true
             }
             else ->  super.onOptionsItemSelected(item)
