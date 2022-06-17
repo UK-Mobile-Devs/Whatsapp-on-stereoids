@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentChatsBinding
+import com.example.whatsapp.ui.SelectionController
 import com.example.whatsapp.utils.getSelectionFromTracker
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -22,7 +23,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 
 @AndroidEntryPoint
-class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback {
+class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback, SelectionController {
 
     //region Variables
 
@@ -84,11 +85,6 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
         })
         chatsAdapter.tracker = tracker
         //endregion
-    }
-
-    override fun onPause() {
-        tracker?.clearSelection()
-        super.onPause()
     }
 
     override fun initArgs(arguments: Bundle) {
@@ -314,6 +310,9 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback 
     }
     //endregion
 
+    override fun clear() {
+        tracker?.clearSelection()
+    }
 
     //region Companion Object
     companion object {

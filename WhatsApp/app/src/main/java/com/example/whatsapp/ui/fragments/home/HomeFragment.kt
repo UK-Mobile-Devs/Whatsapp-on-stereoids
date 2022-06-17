@@ -1,5 +1,6 @@
 package com.example.whatsapp.ui.fragments.home
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
@@ -11,6 +12,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentHomeBinding
+import com.example.whatsapp.ui.SelectionController
 import com.example.whatsapp.ui.fragments.home.HomeStatePagerAdapter.Companion.CALLS_FRAGMENT_INDEX
 import com.example.whatsapp.ui.fragments.home.HomeStatePagerAdapter.Companion.CAMERA_FRAGMENT_INDEX
 import com.example.whatsapp.ui.fragments.home.HomeStatePagerAdapter.Companion.CHATS_FRAGMENT_INDEX
@@ -34,6 +36,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private lateinit var homeStatePagerAdapter: HomeStatePagerAdapter
     private var currentTabPosition = CHATS_FRAGMENT_INDEX
+    private var lastTabPosition = currentTabPosition
     //endregion
 
     //region BaseFragment Overrides
@@ -44,14 +47,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun initViews() {
         super.initViews()
         //region Tabs Initialisation
+        val fragments = listOf(
+            CameraFragment.newInstance(),
+            ChatsFragment.newInstance(),
+            StatusFragment.newInstance(),
+            CallsFragment.newInstance()
+        )
+
+        val selectionControllers = fragments.map { it as? SelectionController }
+
         homeStatePagerAdapter = HomeStatePagerAdapter(
             requireActivity(),
-            listOf(
-                CameraFragment.newInstance(),
-                ChatsFragment.newInstance(),
-                StatusFragment.newInstance(),
-                CallsFragment.newInstance()
-            )
+            fragments
         )
         binding.vpHomeScreen.adapter = homeStatePagerAdapter
         binding.vpHomeScreen.currentItem = CHATS_FRAGMENT_INDEX
@@ -100,6 +107,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     )
                     CAMERA_FRAGMENT_INDEX -> binding.fabAction.visibility = View.GONE
                 }
+
+                selectionControllers[lastTabPosition]?.clear()
+                lastTabPosition = currentTabPosition
             }
         })
 
