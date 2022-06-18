@@ -20,16 +20,11 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 
 @AndroidEntryPoint
 class ContactsSelectFragment : BaseFragment<FragmentContactsSelectBinding>(), ActionMode.Callback {
-    private val LOGTAG = "ACTIONSTEST"
 
     private val viewModel: ContactsSelectFragmentVM by viewModels()
     private val contactsSelectAdapter = ContactsSelectAdapter()
     private var tracker: SelectionTracker<Long>? = null
     private var actionMode: ActionMode? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun inflateBinding(layoutInflater: LayoutInflater): FragmentContactsSelectBinding =
         FragmentContactsSelectBinding.inflate(layoutInflater)
@@ -142,51 +137,26 @@ class ContactsSelectFragment : BaseFragment<FragmentContactsSelectBinding>(), Ac
 
     //region Options Menu
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        Log.i("ACTIONTEST", "OptionsMenu Created")
         activity?.invalidateOptionsMenu()
         inflater.inflate(R.menu.contacts_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
-//    override fun onPrepareOptionsMenu(menu: Menu) {
-//        super.onPrepareOptionsMenu(menu)
-//        val itemList = listOf(
-//            R.id.searchFragment,
-//            R.id.itemLinkedDevices,
-//            R.id.itemStarredMessages,
-//            R.id.itemSettings,
-//            R.id.itemNewGroup,
-//            R.id.itemNewBroadcast,
-//            R.id.clearCallLog,
-//            R.id.settings,
-//            R.id.search)
-//        for (item in itemList) {
-//            if (menu.findItem(item) == null) {
-//                continue
-//            } else {
-//                menu.findItem(item).isVisible = false
-//            }
-//        }
-//    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.search -> {
-                Log.i(LOGTAG, "SEARCH")
                 true
             }
             R.id.inviteFriend -> {
-                Log.i(LOGTAG, "INVITE")
                 true
             }
             R.id.contacts -> {
-                Log.i(LOGTAG, "CONTACTS")
                 true
             }
             R.id.refresh -> {
-                Log.i(LOGTAG, "REFRESH")
                 true
             }
             R.id.help -> {
-                Log.i(LOGTAG, "HELP")
                 true
             }
             else -> super.onOptionsItemSelected(item)

@@ -20,7 +20,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 @AndroidEntryPoint
 class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback, CallsCallback, SelectionController {
-
     //region Variables
 
     private val viewModel: CallsFragmentVM by viewModels()
@@ -120,17 +119,14 @@ class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback,
         return when(item.itemId) {
             R.id.search -> {
                 viewModel.searchClick()
-                Log.i("CALLTEST", "Search Clicked!")
                 true
             }
             R.id.clearCallLog -> {
                 viewModel.clearCallLogClick()
-                Log.i("CALLTEST", "Clear Clicked!")
                 true
             }
             R.id.settings -> {
                 viewModel.settingsClick()
-                Log.i("CALLTEST", "Settings Clicked!")
                 true
             }
             else ->  super.onOptionsItemSelected(item)

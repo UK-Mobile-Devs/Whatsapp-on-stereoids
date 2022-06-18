@@ -32,7 +32,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
-    private val TAG = "HOMETEST"
 
     //region Variables
     private val viewModel by viewModels<HomeFragmentVM>()
@@ -143,7 +142,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        Log.i(TAG, "TAB POSITION $currentTabPosition")
         if (currentTabPosition == CHATS_FRAGMENT_INDEX) {
             inflater.inflate(R.menu.home_chats_menu, menu)
         } else if (currentTabPosition == STATUS_FRAGMENT_INDEX) {

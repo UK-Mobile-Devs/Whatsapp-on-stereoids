@@ -36,7 +36,8 @@
             app:exitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_homeFragment_to_contactsSelectFragment"
-            app:destination="@id/contactsSelectFragment" />
+            app:destination="@id/contactsSelectFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_homeFragment_to_cameraFragment"
             app:destination="@id/cameraFragment" />
@@ -194,6 +195,5 @@
         android:id="@+id/cameraFragment"
         android:name="com.example.whatsapp.ui.fragments.home.camera.CameraFragment"
         android:label="CameraFragment" />
-
 
 </navigation>
