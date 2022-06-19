@@ -50,14 +50,15 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="12dp"
-        android:background="@color/light_green"
-        android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/light_green"
+        android:scaleType="centerInside"
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
         app:srcCompat="@drawable/ic_add_contact" />
+
 
     <ImageView
         android:id="@+id/ivQR"

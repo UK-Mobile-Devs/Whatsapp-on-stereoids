@@ -53,18 +53,9 @@
             app:layout_constraintGuide_percent="0.2" />
 
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/ivIcon"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline8"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-            app:srcCompat="@mipmap/ic_launcher" />
+        <include
+            android:id="@+id/ivProfileIcon"
+            layout="@layout/profile_icon"/>
 
 
         <ImageView
