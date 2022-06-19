@@ -65,7 +65,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             fragments
         )
         binding.vpHomeScreen.adapter = homeStatePagerAdapter
-        binding.vpHomeScreen.currentItem = CHATS_FRAGMENT_INDEX
+        binding.vpHomeScreen.currentItem = currentTabPosition
         TabLayoutMediator(binding.tlNavigation, binding.vpHomeScreen) { currentTab, position ->
             when (position) {
                 CHATS_FRAGMENT_INDEX -> getString(R.string.chats)
