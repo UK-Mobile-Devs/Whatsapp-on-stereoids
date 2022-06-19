@@ -17,7 +17,6 @@ import com.example.whatsapp.databinding.ItemContactBinding
 import com.example.whatsapp.databinding.ItemNewContactBinding
 import com.example.whatsapp.databinding.ItemNewGroupBinding
 
-private const val LOGTAG = "CSelectTest"
 private const val ADDED_HEADERS = 2
 private const val ITEM_VIEW_TYPE_NEW_GROUP = 0
 private const val ITEM_VIEW_TYPE_NEW_CONTACT = 1
@@ -53,7 +52,6 @@ class ContactsSelectAdapter :
             itemView.isSelected = isSelected
             tvName.text = "Oskar $itemId"
             tvDescription.text = "example :)"
-            Log.i(LOGTAG, "ITEM ID: $itemId ITEM NUM: $contact (ContactsVH)")
         }
 
         fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> =
@@ -72,9 +70,6 @@ class ContactsSelectAdapter :
     }
 
     class NewGroupViewHolder(val binding: ItemNewGroupBinding) : RecyclerView.ViewHolder(binding.root) {
-        init {
-            Log.i(LOGTAG, "ITEM ID: $itemId (NewGroupVH)")
-        }
         companion object {
             fun from(parent: ViewGroup): NewGroupViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
@@ -87,7 +82,6 @@ class ContactsSelectAdapter :
     class NewContactViewHolder(val binding: ItemNewContactBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.ivQR.setImageResource(R.drawable.ic_qrcode)
-            Log.i(LOGTAG, "ITEM ID: $itemId (NewContactsVH)")
         }
         companion object {
             fun from(parent: ViewGroup): NewContactViewHolder {
@@ -107,7 +101,6 @@ class ContactsSelectAdapter :
                     tracker?.let {
                         holder.bind(getItem(newPosition), it.isSelected(newPosition.toLong()))
                     }
-                    Log.i(LOGTAG, "$item Position: $newPosition")
                 }
 
             }
@@ -146,7 +139,6 @@ class ContactsKeyProvider(private val recyclerView: RecyclerView) :
     ItemKeyProvider<Long>(SCOPE_MAPPED) {
     override fun getKey(position: Int): Long? {
         val theItemId = recyclerView.adapter?.getItemId(position)
-        Log.i(LOGTAG, "GetKey: $theItemId")
         return theItemId
     }
 
@@ -162,7 +154,6 @@ class ContactsDetailsLookup(private val recyclerView: RecyclerView) :
         val view: View? = recyclerView.findChildViewUnder(event.x, event.y)
         view?.let {
             val viewTrack = recyclerView.getChildViewHolder(it)
-            Log.i(LOGTAG, "View: ${viewTrack?.itemId}")
 
             if (viewTrack.itemId >= 0) {
                 return (recyclerView.getChildViewHolder(view) as ContactsSelectAdapter.ContactsViewHolders)

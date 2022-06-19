@@ -195,5 +195,4 @@
         android:name="com.example.whatsapp.ui.fragments.home.camera.CameraFragment"
         android:label="CameraFragment" />
 
-
 </navigation>

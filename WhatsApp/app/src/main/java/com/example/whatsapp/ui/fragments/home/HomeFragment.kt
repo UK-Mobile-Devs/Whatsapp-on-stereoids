@@ -2,6 +2,8 @@ package com.example.whatsapp.ui.fragments.home
 
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.res.ResourcesCompat
@@ -37,6 +39,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private lateinit var homeStatePagerAdapter: HomeStatePagerAdapter
     private var currentTabPosition = CHATS_FRAGMENT_INDEX
     private var lastTabPosition = currentTabPosition
+
+    private val fragments = listOf(
+        CameraFragment.newInstance(),
+        ChatsFragment.newInstance(),
+        StatusFragment.newInstance(),
+        CallsFragment.newInstance()
+    )
+
+    private val selectionControllers = fragments.map { it as? SelectionController }
     //endregion
 
     //region BaseFragment Overrides
@@ -46,22 +57,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun initViews() {
         super.initViews()
+        setHasOptionsMenu(true)
         //region Tabs Initialisation
-        val fragments = listOf(
-            CameraFragment.newInstance(),
-            ChatsFragment.newInstance(),
-            StatusFragment.newInstance(),
-            CallsFragment.newInstance()
-        )
-
-        val selectionControllers = fragments.map { it as? SelectionController }
 
         homeStatePagerAdapter = HomeStatePagerAdapter(
             requireActivity(),
             fragments
         )
         binding.vpHomeScreen.adapter = homeStatePagerAdapter
-        binding.vpHomeScreen.currentItem = CHATS_FRAGMENT_INDEX
+        binding.vpHomeScreen.currentItem = currentTabPosition
         TabLayoutMediator(binding.tlNavigation, binding.vpHomeScreen) { currentTab, position ->
             when (position) {
                 CHATS_FRAGMENT_INDEX -> getString(R.string.chats)
@@ -83,30 +87,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 super.onPageSelected(position)
                 currentTabPosition = position
                 binding.fabAction.visibility = View.VISIBLE
-                when (position) {
-                    STATUS_FRAGMENT_INDEX -> binding.fabAction.setImageDrawable(
-                        ResourcesCompat.getDrawable(
-                            resources,
-                            R.drawable.ic_camera,
-                            null
-                        )
-                    )
-                    CALLS_FRAGMENT_INDEX -> binding.fabAction.setImageDrawable(
-                        ResourcesCompat.getDrawable(
-                            resources,
-                            R.drawable.ic_add_contact,
-                            null
-                        )
-                    )
-                    CHATS_FRAGMENT_INDEX -> binding.fabAction.setImageDrawable(
-                        ResourcesCompat.getDrawable(
-                            resources,
-                            R.drawable.ic_messenger_icon,
-                            null
-                        )
-                    )
-                    CAMERA_FRAGMENT_INDEX -> binding.fabAction.visibility = View.GONE
-                }
+
+                setFabImage(position)
 
                 selectionControllers[lastTabPosition]?.clear()
                 lastTabPosition = currentTabPosition
@@ -136,6 +118,52 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 }
             }
         }
+    }
+
+    private fun setFabImage(position: Int) {
+        when (position) {
+            STATUS_FRAGMENT_INDEX -> binding.fabAction.setImageDrawable(
+                ResourcesCompat.getDrawable(
+                    resources,
+                    R.drawable.ic_camera,
+                    null
+                )
+            )
+            CALLS_FRAGMENT_INDEX -> binding.fabAction.setImageDrawable(
+                ResourcesCompat.getDrawable(
+                    resources,
+                    R.drawable.ic_add_contact,
+                    null
+                )
+            )
+            CHATS_FRAGMENT_INDEX -> binding.fabAction.setImageDrawable(
+                ResourcesCompat.getDrawable(
+                    resources,
+                    R.drawable.ic_messenger_icon,
+                    null
+                )
+            )
+            CAMERA_FRAGMENT_INDEX -> binding.fabAction.visibility = View.GONE
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        if (currentTabPosition == CHATS_FRAGMENT_INDEX) {
+            inflater.inflate(R.menu.home_chats_menu, menu)
+        } else if (currentTabPosition == STATUS_FRAGMENT_INDEX) {
+            inflater.inflate(R.menu.home_status_menu, menu)
+        } else if (currentTabPosition == CALLS_FRAGMENT_INDEX) {
+            inflater.inflate(R.menu.home_calls_menu, menu)
+        } else {
+            activity?.invalidateOptionsMenu()
+            menu.clear()
+        }
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onResume() {
+        setFabImage(currentTabPosition)
+        super.onResume()
     }
 
     override fun observeViewModel() {

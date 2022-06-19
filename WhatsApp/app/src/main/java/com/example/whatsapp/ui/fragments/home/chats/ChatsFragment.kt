@@ -1,6 +1,7 @@
 package com.example.whatsapp.ui.fragments.home.chats
 
 import android.os.Bundle
+import android.util.Log
 import android.view.ActionMode
 import android.view.Menu
 import android.view.MenuItem
@@ -294,10 +295,6 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback,
 
 
     //region Options Menu
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.home_chats_menu, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {

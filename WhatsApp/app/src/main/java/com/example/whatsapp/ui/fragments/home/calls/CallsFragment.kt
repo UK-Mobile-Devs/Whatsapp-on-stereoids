@@ -1,6 +1,7 @@
 package com.example.whatsapp.ui.fragments.home.calls
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -19,7 +20,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 @AndroidEntryPoint
 class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback, CallsCallback, SelectionController {
-
     //region Variables
 
     private val viewModel: CallsFragmentVM by viewModels()
@@ -114,11 +114,6 @@ class CallsFragment : BaseFragment<FragmentCallsBinding>(), ActionMode.Callback,
     //endregion
 
     //region Options Menu
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.home_calls_menu, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
