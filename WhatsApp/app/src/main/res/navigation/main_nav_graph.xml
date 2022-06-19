@@ -36,8 +36,7 @@
             app:exitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_homeFragment_to_contactsSelectFragment"
-            app:destination="@id/contactsSelectFragment"
-            app:popUpToInclusive="true" />
+            app:destination="@id/contactsSelectFragment" />
         <action
             android:id="@+id/action_homeFragment_to_cameraFragment"
             app:destination="@id/cameraFragment" />
