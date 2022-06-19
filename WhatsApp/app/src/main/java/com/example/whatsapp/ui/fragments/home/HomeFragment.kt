@@ -39,6 +39,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private lateinit var homeStatePagerAdapter: HomeStatePagerAdapter
     private var currentTabPosition = CHATS_FRAGMENT_INDEX
     private var lastTabPosition = currentTabPosition
+
+    private val fragments = listOf(
+        CameraFragment.newInstance(),
+        ChatsFragment.newInstance(),
+        StatusFragment.newInstance(),
+        CallsFragment.newInstance()
+    )
+
+    private val selectionControllers = fragments.map { it as? SelectionController }
     //endregion
 
     //region BaseFragment Overrides
@@ -50,14 +59,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         super.initViews()
         setHasOptionsMenu(true)
         //region Tabs Initialisation
-        val fragments = listOf(
-            CameraFragment.newInstance(),
-            ChatsFragment.newInstance(),
-            StatusFragment.newInstance(),
-            CallsFragment.newInstance()
-        )
-
-        val selectionControllers = fragments.map { it as? SelectionController }
 
         homeStatePagerAdapter = HomeStatePagerAdapter(
             requireActivity(),
