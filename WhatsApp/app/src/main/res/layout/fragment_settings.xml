@@ -2,9 +2,11 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollSettingsLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:ignore="UnknownIdInLayout">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,21 +20,18 @@
             android:paddingTop="12dp"
             android:paddingBottom="12dp">
 
-
-            <include
-                android:id="@+id/ivProfileIcon"
-                layout="@layout/profile_icon"/>
+            <include layout="@layout/profile_icon" />
 
             <TextView
                 android:id="@+id/tvUserName"
+                style="@style/SettingsRowHeadingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Example of user name"
                 app:layout_constraintBottom_toTopOf="@+id/tvUserStatus"
                 app:layout_constraintStart_toEndOf="@+id/guideline8"
-                android:layout_marginStart="12dp"
-                app:layout_constraintTop_toTopOf="parent"
-                style="@style/SettingsRowHeadingText"
-                android:text="Example of user name" />
+                app:layout_constraintTop_toTopOf="@id/ivIcon" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline8"
@@ -45,21 +44,21 @@
                 android:id="@+id/tvUserStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvUserName"
-                app:layout_constraintStart_toEndOf="@+id/guideline8"
                 android:layout_marginStart="12dp"
-                android:text="Example of status" />
+                android:text="Example of status"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/guideline8"
+                app:layout_constraintTop_toBottomOf="@id/tvUserName" />
 
             <ImageView
                 android:id="@+id/qrCode"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginEnd="12dp"
-                android:src="@drawable/ic_qrcode" />
+                android:src="@drawable/ic_qrcode"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
@@ -83,27 +82,27 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_account"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:src="@drawable/ic_account" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvAccountName"
+                style="@style/SettingsRowHeadingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Account"
                 app:layout_constraintStart_toEndOf="@id/ivAccountIcon"
-                app:layout_constraintTop_toTopOf="parent"
-                style="@style/SettingsRowHeadingText"
-                android:text="Account" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvAccountDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Privacy, security, change number"
                 app:layout_constraintStart_toEndOf="@id/ivAccountIcon"
-                app:layout_constraintTop_toBottomOf="@id/tvAccountName"
-                android:text="Privacy, security, change number" />
+                app:layout_constraintTop_toBottomOf="@id/tvAccountName" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -121,27 +120,27 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_comment"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:src="@drawable/ic_comment" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvChatsName"
+                style="@style/SettingsRowHeadingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Chats"
                 app:layout_constraintStart_toEndOf="@id/ivChatsIcon"
-                app:layout_constraintTop_toTopOf="parent"
-                style="@style/SettingsRowHeadingText"
-                android:text="Chats" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvChatsDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Privacy, security, change number"
                 app:layout_constraintStart_toEndOf="@id/ivChatsIcon"
-                app:layout_constraintTop_toBottomOf="@id/tvChatsName"
-                android:text="Privacy, security, change number" />
+                app:layout_constraintTop_toBottomOf="@id/tvChatsName" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -159,27 +158,27 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_notifications"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:src="@drawable/ic_notifications" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvNotificationName"
+                style="@style/SettingsRowHeadingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Notifications"
                 app:layout_constraintStart_toEndOf="@id/ivNotificationIcon"
-                app:layout_constraintTop_toTopOf="parent"
-                style="@style/SettingsRowHeadingText"
-                android:text="Notifications" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvNotificationDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Message, group &amp; call tones"
                 app:layout_constraintStart_toEndOf="@id/ivNotificationIcon"
-                app:layout_constraintTop_toBottomOf="@id/tvNotificationName"
-                android:text="Message, group &amp; call tones" />
+                app:layout_constraintTop_toBottomOf="@id/tvNotificationName" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -197,27 +196,27 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_cloud_circle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:src="@drawable/ic_cloud_circle" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvStorageName"
+                style="@style/SettingsRowHeadingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Storage and Data"
                 app:layout_constraintStart_toEndOf="@id/ivStorageIcon"
-                app:layout_constraintTop_toTopOf="parent"
-                style="@style/SettingsRowHeadingText"
-                android:text="Storage and Data" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvStorageDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Network usage, auto-download"
                 app:layout_constraintStart_toEndOf="@id/ivStorageIcon"
-                app:layout_constraintTop_toBottomOf="@id/tvStorageName"
-                android:text="Network usage, auto-download" />
+                app:layout_constraintTop_toBottomOf="@id/tvStorageName" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -234,27 +233,27 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_help"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:src="@drawable/ic_help" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvHelpName"
+                style="@style/SettingsRowHeadingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Help"
                 app:layout_constraintStart_toEndOf="@id/ivHelpIcon"
-                app:layout_constraintTop_toTopOf="parent"
-                style="@style/SettingsRowHeadingText"
-                android:text="Help" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/HelpDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Help centre, contact us, privacy policy"
                 app:layout_constraintStart_toEndOf="@id/ivHelpIcon"
-                app:layout_constraintTop_toBottomOf="@id/tvHelpName"
-                android:text="Help centre, contact us, privacy policy" />
+                app:layout_constraintTop_toBottomOf="@id/tvHelpName" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -271,20 +270,20 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_contact"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:src="@drawable/ic_contact" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvReferralName"
+                style="@style/SettingsRowHeadingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@id/ivReferralIcon"
-                app:layout_constraintTop_toTopOf="parent"
+                android:text="Invite a friend"
                 app:layout_constraintBottom_toBottomOf="parent"
-                style="@style/SettingsRowHeadingText"
-                android:text="Invite a friend" />
+                app:layout_constraintStart_toEndOf="@id/ivReferralIcon"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

@@ -6,11 +6,11 @@
     android:layout_height="wrap_content"
     android:background="?selectableItemBackground"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
 
-    <include
-        android:id="@+id/ivProfileIcon"
-        layout="@layout/profile_icon"/>
+    <include layout="@layout/profile_icon" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
@@ -24,8 +24,8 @@
         android:id="@+id/lavSelected"
         android:layout_width="16dp"
         android:layout_height="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ivProfileIcon"
-        app:layout_constraintEnd_toEndOf="@+id/ivProfileIcon"
+        app:layout_constraintBottom_toBottomOf="@+id/ivIcon"
+        app:layout_constraintEnd_toEndOf="@+id/ivIcon"
         app:lottie_autoPlay="false"
         app:lottie_loop="false"
         app:lottie_progress="100"
@@ -42,7 +42,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/tvTime"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="@+id/ivIcon"
+        app:layout_constraintTop_toTopOf="@+id/ivProfileIconChat"
         tools:text="Bill Gates" />
 
     <TextView
