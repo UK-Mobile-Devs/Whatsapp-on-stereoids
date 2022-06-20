@@ -6,6 +6,7 @@
     <dimen name="fab_margin">16dp</dimen>
 
 
+    <dimen name="icon_margin_12">12dp</dimen>
     <dimen name="dp92">92dp</dimen>
     <dimen name="dp80">80dp</dimen>
 
