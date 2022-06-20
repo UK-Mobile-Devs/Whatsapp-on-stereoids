@@ -55,7 +55,6 @@
 
 
         <include
-            android:id="@+id/ivProfileIcon"
             layout="@layout/profile_icon" />
 
 

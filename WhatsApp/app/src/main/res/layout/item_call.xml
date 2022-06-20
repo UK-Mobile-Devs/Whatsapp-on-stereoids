@@ -8,9 +8,10 @@
     android:background="?selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
+    android:paddingTop="@dimen/icon_padding_10"
+    android:paddingBottom="@dimen/icon_padding_10"
     app:layout_constraintBottom_toTopOf="@+id/tvBody"
-    app:layout_constraintTop_toTopOf="@+id/tvBody"
-    tools:ignore="UnknownIdInLayout">
+    app:layout_constraintTop_toTopOf="@+id/tvBody">
 
 
     <TextView

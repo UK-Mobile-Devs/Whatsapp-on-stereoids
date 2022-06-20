@@ -5,19 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/selected_background"
+    android:paddingTop="@dimen/icon_padding_10"
+    android:paddingBottom="@dimen/icon_padding_10"
     android:clickable="true"
     android:focusable="true">
 
-    <include
-        android:id="@+id/ivProfileIcon"
-        layout="@layout/profile_icon"/>
+    <include layout="@layout/profile_icon" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lavSelected"
         android:layout_width="16dp"
         android:layout_height="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ivProfileIcon"
-        app:layout_constraintEnd_toEndOf="@+id/ivProfileIcon"
+        app:layout_constraintBottom_toBottomOf="@+id/ivIcon"
+        app:layout_constraintEnd_toEndOf="@+id/ivIcon"
         app:lottie_autoPlay="false"
         app:lottie_loop="false"
         app:lottie_progress="100"
