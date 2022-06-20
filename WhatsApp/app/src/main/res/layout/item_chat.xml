@@ -6,7 +6,30 @@
     android:layout_height="wrap_content"
     android:background="?selectableItemBackground"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <include layout="@layout/profile_icon" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lavSelected"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivIcon"
+        app:layout_constraintEnd_toEndOf="@+id/ivIcon"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="false"
+        app:lottie_progress="100"
+        app:lottie_rawRes="@raw/selected" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -19,7 +42,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/tvTime"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="@+id/ivIcon"
+        app:layout_constraintTop_toTopOf="@+id/ivProfileIconChat"
         tools:text="Bill Gates" />
 
     <TextView
@@ -50,35 +73,5 @@
         app:layout_constraintStart_toStartOf="@+id/tvTitle"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
         tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.2" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/ivIcon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_margin="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-        app:srcCompat="@mipmap/ic_launcher" />
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lavSelected"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ivIcon"
-        app:layout_constraintEnd_toEndOf="@+id/ivIcon"
-        app:lottie_autoPlay="false"
-        app:lottie_loop="false"
-        app:lottie_progress="100"
-        app:lottie_rawRes="@raw/selected" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

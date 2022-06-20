@@ -1,6 +1,5 @@
 package com.example.whatsapp.ui.fragments.home.calls
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -42,7 +41,8 @@ class CallsDetailsLookup(private val recyclerView: RecyclerView) :
 }
 
 
-class CallsAdapter(private val callback: CallsCallback) : ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(CallsViewHolder.DiffCallback()) {
+class CallsAdapter(private val callback: CallsCallback) :
+    ListAdapter<CallHistory, CallsAdapter.CallsViewHolder>(CallsViewHolder.DiffCallback()) {
 
     var tracker: SelectionTracker<Long>? = null
 
@@ -67,19 +67,19 @@ class CallsAdapter(private val callback: CallsCallback) : ListAdapter<CallHistor
     //endregion
 
     //region CallsViewHolder
-    class CallsViewHolder(binding: ItemCallBinding) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
+    class CallsViewHolder(binding: ItemCallBinding) : RecyclerView.ViewHolder(binding.root),
+        View.OnClickListener {
 
         //region Variables
         private val tvTitle = binding.tvCallerTitle
         private val tvAbout = binding.tvAbout
-        private val ivIcon = binding.ivIcon
         private val ivRecentCallType = binding.ivRecentCallType
         private val lavSelected = binding.lavSelected
         private val clParent = binding.clParent
 
-        private var callback : CallsCallback?= null
-        private var callHistory : CallHistory?= null
-        private var previousCallType : Boolean = false
+        private var callback: CallsCallback? = null
+        private var callHistory: CallHistory? = null
+        private var previousCallType: Boolean = false
 
         //endregion
 
@@ -99,7 +99,7 @@ class CallsAdapter(private val callback: CallsCallback) : ListAdapter<CallHistor
 
 
             ivRecentCallType.setImageResource(
-                if(previousCallType)
+                if (previousCallType)
                     R.drawable.ic_video
                 else
                     R.drawable.ic_call
@@ -120,7 +120,7 @@ class CallsAdapter(private val callback: CallsCallback) : ListAdapter<CallHistor
 
         //region View.OnClickListener
         override fun onClick(view: View) {
-            callback?.let {callback ->
+            callback?.let { callback ->
 
                 when (view) {
                     ivRecentCallType -> {

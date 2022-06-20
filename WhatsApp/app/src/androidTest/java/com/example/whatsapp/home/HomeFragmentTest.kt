@@ -47,7 +47,7 @@ class HomeFragmentTest : BaseFragmentTest() {
     @Test
     fun fab_click_navigates_to_contacts_selection_screen_successfully() {
         //when
-        onView(withId(R.id.fabNewConversation)).perform(click())
+        onView(withId(R.id.fabAction)).perform(click())
 
         onView(isRoot()).perform(waitFor(100))
 

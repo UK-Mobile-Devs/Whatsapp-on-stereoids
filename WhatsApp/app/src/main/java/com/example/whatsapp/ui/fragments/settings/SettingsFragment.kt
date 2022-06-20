@@ -22,10 +22,9 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
 
     override fun initViews() {
         super.initViews()
-        binding.ivProfilePicture.setOnClickListener {
+        binding.layoutProfileRow.setOnClickListener {
             observer.selectImage()
         }
-
         binding.layoutAccountRow.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_accountsFragment)
         }
