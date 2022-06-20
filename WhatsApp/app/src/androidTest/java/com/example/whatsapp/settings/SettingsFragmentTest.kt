@@ -24,6 +24,7 @@ class SettingsFragmentTest : ToolbarActionsTest() {
     fun settings_page_successfully_loaded() {
         //verify
         onView(withId(R.id.layoutProfileRow)).check(matches(isDisplayed()))
+        onView(withId(R.id.ivIcon)).check(matches(isDisplayed()))
         onView(withId(R.id.layoutAccountRow)).check(matches(isDisplayed()))
         onView(withId(R.id.viewSpacing)).check(matches(isDisplayed()))
         onView(withId(R.id.layoutChatsRow)).check(matches(isDisplayed()))
