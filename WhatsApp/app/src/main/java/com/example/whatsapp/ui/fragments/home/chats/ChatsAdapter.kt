@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firestorerepository.datatypes.Conversation
-import com.example.whatsapp.R
 import com.example.whatsapp.databinding.ItemChatBinding
 
 
@@ -72,23 +71,22 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
         private val tvTitle = binding.tvTitle
         private val tvBody = binding.tvBody
         private val tvTime = binding.tvTime
-        private val ivIcon = binding.ivIcon
+
         private val lavSelected = binding.lavSelected
         //endregion
 
-        fun bind(conversation: Conversation, isSelected : Boolean) {
+        fun bind(conversation: Conversation, isSelected: Boolean) {
 
-            lavSelected.visibility = if(isSelected) View.VISIBLE else View.GONE
+            lavSelected.visibility = if (isSelected) View.VISIBLE else View.GONE
 
             itemView.isSelected = isSelected
 
-            if(!conversation.isGroup) {
+            if (!conversation.isGroup) {
                 // Todo: Add actual data here from the conversation, but the database structure is currently TBT
                 tvTitle.text = "Bill Gates"
                 tvBody.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
                 tvTime.text = "08/04/2022"
-            }
-            else {
+            } else {
                 tvTitle.text = "The boys"
                 tvBody.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
                 tvTime.text = "15/05/2022"
