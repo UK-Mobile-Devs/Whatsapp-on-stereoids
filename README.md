@@ -8,3 +8,5 @@ Collaboration project on cloning and improving the worldwide messaging app - Wha
 + DI - Dagger Hilt
 + Firebase / Firestore
 + Unit / UI Testing
++ RxJava
++ MVVM
