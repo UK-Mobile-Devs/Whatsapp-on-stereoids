@@ -325,7 +325,7 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback,
     override fun onChatSelected(uid: String) {
         findNavController().navigate(
             R.id.action_homeFragment_to_singleMessengerFragment,
-            bundleOf(Constants.CHAT_TYPE to ConversationType.SINGLE)
+            bundleOf(Constants.CONTACT_ID to uid)
         )
     }
     //endregion
