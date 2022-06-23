@@ -21,6 +21,5 @@ object Constants {
     const val fabNavigateToContactsFromChats = "fabNavigateToContactsFromChats"
     const val fabNavigateToContactsFromCalls = "fabNavigateToContactsFromCalls"
 
-    //Chats Screen
-    const val CHAT_TYPE = "chat_type"
+
 }
