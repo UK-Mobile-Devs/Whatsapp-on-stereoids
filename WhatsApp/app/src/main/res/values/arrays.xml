@@ -13,6 +13,12 @@
         <item>@string/tvlong</item>
     </string-array>
 
+    <!-- Dark or Light mode Theme -->
+    <string-array name="dark_mode_theme">
+        <item>@string/lightmode</item>
+        <item>@string/darkmode</item>
+    </string-array>
+
     <!-- Popup List Options -->
     <string-array name="notifications_popup">
         <item>@string/nopopup</item>

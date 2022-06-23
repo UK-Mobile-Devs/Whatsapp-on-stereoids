@@ -68,7 +68,8 @@
     <!-- Strings used for account page in chat settings area -->
     <string name="display">Display</string>
     <string name="theme">Theme</string>
-    <string name="light">Light</string>
+    <string name="lightmode">Light</string>
+    <string name="darkmode">Dark</string>
     <string name="wallpaper">Wallpaper</string>
     <string name="enterIsSend">Enter is send</string>
     <string name="enterIsSendDesc">Enter Key will send your message</string>

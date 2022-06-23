@@ -9,26 +9,35 @@
     <item
         android:id="@+id/itemNewGroup"
         android:orderInCategory="1"
-        android:title="@string/new_group" />
+        android:title="@string/new_group"
+        android:textColor="?android:textColorPrimary" />
 
     <item
         android:id="@+id/itemNewBroadcast"
         android:orderInCategory="2"
-        android:title="@string/new_broadcast" />
+        android:title="@string/new_broadcast"
+        android:textColor="?android:textColorPrimary"
+        />
 
     <item
         android:id="@+id/itemLinkedDevices"
         android:orderInCategory="3"
-        android:title="@string/linked_devices" />
+        android:title="@string/linked_devices"
+        android:textColor="?android:textColorPrimary"
+        />
 
     <item
         android:id="@+id/itemStarredMessages"
         android:orderInCategory="4"
-        android:title="@string/starred_messages" />
+        android:title="@string/starred_messages"
+        android:textColor="?android:textColorPrimary"
+        />
 
     <item
         android:id="@+id/itemSettings"
         android:orderInCategory="5"
-        android:title="@string/settings" />
+        android:title="@string/settings"
+        android:textColor="?android:textColorPrimary"
+        />
 
 </menu>

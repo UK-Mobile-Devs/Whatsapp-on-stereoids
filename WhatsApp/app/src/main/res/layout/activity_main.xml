@@ -12,8 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@color/teal_green"
         android:theme="@style/ToolbarTheme"
-        app:menu="@menu/home_chats_menu"
-        app:popupTheme="@style/MenuTheme" />
+        app:menu="@menu/home_chats_menu" />
 
     <fragment
         android:id="@+id/navHostFragment"

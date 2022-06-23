@@ -28,7 +28,7 @@
     <TextView
         android:id="@+id/idCallState"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="?android:textColorPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
