@@ -40,7 +40,8 @@ class ChatDetailsLookup(private val recyclerView: RecyclerView) :
 }
 
 
-class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(DiffCallback()) {
+class ChatsAdapter(val callback: ChatsCallback) :
+    ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(DiffCallback()) {
 
     var tracker: SelectionTracker<Long>? = null
 
@@ -51,7 +52,7 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
     //region ListAdapter Overrides
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatsViewHolder {
         val view = ItemChatBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ChatsViewHolder(view)
+        return ChatsViewHolder(view, callback)
     }
 
     override fun onBindViewHolder(holder: ChatsViewHolder, position: Int) {
@@ -65,9 +66,11 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
     //endregion
 
     //region ChatsViewHolder
-    class ChatsViewHolder(binding: ItemChatBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ChatsViewHolder(binding: ItemChatBinding, private val callback: ChatsCallback) :
+        RecyclerView.ViewHolder(binding.root) {
 
         //region Variables
+        private val layout = binding.layoutMessage
         private val tvTitle = binding.tvTitle
         private val tvBody = binding.tvBody
         private val tvTime = binding.tvTime
@@ -76,7 +79,9 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
         //endregion
 
         fun bind(conversation: Conversation, isSelected: Boolean) {
-
+            layout.setOnClickListener {
+                callback.onChatSelected(conversation.uid)
+            }
             lavSelected.visibility = if (isSelected) View.VISIBLE else View.GONE
 
             itemView.isSelected = isSelected
@@ -100,6 +105,10 @@ class ChatsAdapter : ListAdapter<Conversation, ChatsAdapter.ChatsViewHolder>(Dif
             }
     }
     //endregion
+
+    interface ChatsCallback {
+        fun onChatSelected(uid: String)
+    }
 
     //region ItemCallback
     class DiffCallback : DiffUtil.ItemCallback<Conversation>() {
