@@ -1,12 +1,11 @@
 package com.example.whatsapp.ui.fragments.home.chats
 
 import android.os.Bundle
-import android.util.Log
 import android.view.ActionMode
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import android.view.LayoutInflater
-import android.view.MenuInflater
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.selection.SelectionPredicates
@@ -17,6 +16,7 @@ import com.example.whatsapp.R
 import com.example.whatsapp.base.BaseFragment
 import com.example.whatsapp.databinding.FragmentChatsBinding
 import com.example.whatsapp.ui.SelectionController
+import com.example.whatsapp.utils.Constants
 import com.example.whatsapp.utils.getSelectionFromTracker
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -24,13 +24,15 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 
 @AndroidEntryPoint
-class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback, SelectionController {
+class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback,
+    SelectionController,
+    ChatsAdapter.ChatsCallback {
 
     //region Variables
 
     private val viewModel: ChatsFragmentVM by viewModels()
 
-    private val chatsAdapter: ChatsAdapter = ChatsAdapter()
+    private val chatsAdapter: ChatsAdapter = ChatsAdapter(this)
 
     private var tracker: SelectionTracker<Long>? = null
 
@@ -318,6 +320,13 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>(), ActionMode.Callback,
         fun newInstance(): ChatsFragment {
             return ChatsFragment()
         }
+    }
+
+    override fun onChatSelected(uid: String) {
+        findNavController().navigate(
+            R.id.action_homeFragment_to_singleMessengerFragment,
+            bundleOf(Constants.CONTACT_ID to uid)
+        )
     }
     //endregion
 }
