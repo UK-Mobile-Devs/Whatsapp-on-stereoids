@@ -6,43 +6,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginHorizontal="4dp"
     android:layout_marginTop="10dp"
+    android:layout_gravity="end"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtDate"
         android:visibility="visible"
         android:orientation="vertical"
-        android:layout_margin="10dp"
-        >
+        android:layout_margin="10dp">
 
         <TextView
             android:id="@+id/tvMessage"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since"
-            android:layout_toStartOf="@id/layoutMessageInfo"
-            />
+            android:paddingHorizontal="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/layoutMessageInfo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="wrap"
+            app:layout_constraintWidth_percent="0.88"
+            tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since" />
 
         <LinearLayout
             android:id="@+id/layoutMessageInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_alignParentEnd="true"
-            android:layout_alignBottom="@+id/tvMessage"
-            >
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <TextView
                 android:id="@+id/tvTimeReceived"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="15:30"/>
+                tools:text="15:30" />
 
         </LinearLayout>
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.cardview.widget.CardView>
