@@ -9,7 +9,8 @@ class IncomingMessageViewHolder(val binding: ItemIncomingMessageBinding) :
 
 
     fun bind(message: MessageDTO) {
-        binding.tvMessage.text = "incoming message :) "
+        binding.tvMessage.text =
+            "incoming mess age :) ng me ssage :)ng mes sage :)ng mess age :)ng mess age :) "
         binding.tvTimeReceived.text = "15:30"
     }
 
