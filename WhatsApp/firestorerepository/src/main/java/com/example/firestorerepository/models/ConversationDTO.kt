@@ -1,7 +1,7 @@
 package com.example.firestorerepository.models
 
 
-import java.util.*
+import java.util.Date
 
 data class ConversationDTO(
     val uid: String,
