@@ -5,7 +5,7 @@ import com.example.firestorerepository.datatypes.Message
 import com.example.firestorerepository.models.ConversationDTO
 import com.example.firestorerepository.utils.ConversationWrapper.wrapConversationIntoDTO
 import io.reactivex.rxjava3.core.Observable
-import java.util.*
+import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
 
