@@ -22,7 +22,7 @@ object ConversationWrapper {
         return MessageDTO(
             this.id,
             this.content,
-            if ((0..1).random() == 0) MessageType.INCOMING else MessageType.PERSONAL
+            if ((0..2).random() == 0) MessageType.INCOMING else MessageType.PERSONAL
         )
     }
 
