@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginTop="10dp"
     android:clipToPadding="false"
     android:orientation="vertical"
-    android:padding="2dp"
-    android:layout_marginHorizontal="4dp"
-    android:layout_marginTop="10dp">
+    android:padding="2dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
+        android:layout_gravity="start"
         app:cardCornerRadius="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtDate"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:visibility="visible">
 
             <TextView
                 android:id="@+id/tvMessage"
@@ -33,7 +35,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_max="wrap"
                 app:layout_constraintWidth_percent="0.88"
-                tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since" />
+                tools:text="incoming message :) ng message :)ng message :)ng message :)ng message :) " />
 
             <LinearLayout
                 android:id="@+id/layoutMessageInfo"
@@ -53,4 +55,3 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>
-

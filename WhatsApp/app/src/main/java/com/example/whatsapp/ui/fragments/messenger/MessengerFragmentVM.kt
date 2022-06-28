@@ -1,6 +1,6 @@
 package com.example.whatsapp.ui.fragments.messenger
 
-import com.example.firestorerepository.datatypes.Conversation
+import com.example.firestorerepository.models.ConversationDTO
 import com.example.firestorerepository.repositories.messenger.MessengerRepository
 import com.example.whatsapp.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,7 +14,7 @@ class MessengerFragmentVM @Inject constructor(
 ) : BaseViewModel() {
 
 
-    fun getConversation(): Observable<Conversation> {
+    fun getConversation(): Observable<ConversationDTO> {
         return messengerRepo.getConversation()
     }
 

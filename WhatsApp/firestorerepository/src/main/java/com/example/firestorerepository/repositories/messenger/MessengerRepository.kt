@@ -1,8 +1,8 @@
 package com.example.firestorerepository.repositories.messenger
 
-import com.example.firestorerepository.datatypes.Conversation
+import com.example.firestorerepository.models.ConversationDTO
 import io.reactivex.rxjava3.core.Observable
 
 interface MessengerRepository{
-    fun getConversation(): Observable<Conversation>
+    fun getConversation(): Observable<ConversationDTO>
 }
