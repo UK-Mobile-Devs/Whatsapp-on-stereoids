@@ -12,6 +12,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/greySecondary</item>
+        <item name="android:actionMenuTextColor">@color/white</item>
+
+
     </style>
 
     <style name="SettingsRowHeadingText">
@@ -19,7 +24,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
     <style name="ContactsNameTextView">
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:textSize">14sp</item>
     </style>
     <style name="ContactsDescriptionTextView">

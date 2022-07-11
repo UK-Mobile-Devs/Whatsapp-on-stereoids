@@ -1,6 +1,7 @@
 package com.example.whatsapp.ui.fragments.settings.notifications
 
 import android.app.AlertDialog
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -88,7 +89,7 @@ class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>() {
 
         binding.lightLayout.setOnClickListener {
             val lights = resources.getStringArray(R.array.notifications_light)
-            initDialog(R.string.light, lights, 0, SINGLE_LIGHT_OPTION)
+            initDialog(R.string.lightmode, lights, 0, SINGLE_LIGHT_OPTION)
         }
 
         binding.highPriorityLayout.setOnClickListener {
@@ -104,7 +105,7 @@ class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>() {
         }
         binding.lightGroupLayout.setOnClickListener {
             val lights = resources.getStringArray(R.array.notifications_group_light)
-            initDialog(R.string.light, lights, 0, GROUP_LIGHT_OPTION)
+            initDialog(R.string.lightmode, lights, 0, GROUP_LIGHT_OPTION)
         }
         binding.callsVibrateLayout.setOnClickListener {
             val vibration = resources.getStringArray(R.array.notifications_calls_vibrate)

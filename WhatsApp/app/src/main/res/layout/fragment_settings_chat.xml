@@ -48,6 +48,7 @@
             <TextView
                 android:id="@+id/tvThemeName"
                 style="@style/chatSettingsText"
+                android:textColor="?android:textColorPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -57,12 +58,13 @@
 
             <TextView
                 android:id="@+id/tvThemecolour"
+                android:textColor="?android:textColorPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvThemeName"
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/ivThemeIcon"
-                android:text="@string/light" />
+                android:text="" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -88,6 +90,8 @@
             <TextView
                 android:id="@+id/tvWallpaperName"
                 style="@style/chatSettingsText"
+                android:textColor="?android:textColorPrimary"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -128,6 +132,8 @@
             <TextView
                 android:id="@+id/tvEnterissend"
                 style="@style/chatSettingsText"
+                android:textColor="?android:textColorPrimary"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -167,6 +173,8 @@
             <TextView
                 android:id="@+id/tvMediaVisibility"
                 style="@style/chatSettingsText"
+                android:textColor="?android:textColorPrimary"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -198,6 +206,8 @@
             <TextView
                 android:id="@+id/tvFontSize"
                 style="@style/chatSettingsText"
+                android:textColor="?android:textColorPrimary"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -257,6 +267,8 @@
             <TextView
                 android:id="@+id/tvArchivedChats"
                 style="@style/chatSettingsText"
+                android:textColor="?android:textColorPrimary"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -307,7 +319,7 @@
                 style="@style/chatSettingsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textColor="?android:textColorPrimary"
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="4dp"
                 android:layout_toEndOf="@+id/ivLanguageIcon"
@@ -346,6 +358,7 @@
             <TextView
                 android:id="@+id/tvBackup"
                 style="@style/chatSettingsText"
+                android:textColor="?android:textColorPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -377,6 +390,7 @@
             <TextView
                 android:id="@+id/tvChatHistory"
                 style="@style/chatSettingsText"
+                android:textColor="?android:textColorPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"

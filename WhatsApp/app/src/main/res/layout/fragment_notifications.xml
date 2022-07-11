@@ -182,7 +182,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="@string/light" />
+                android:text="@string/lightmode" />
 
             <TextView
                 android:id="@+id/tvLightDesc"
@@ -404,7 +404,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="@string/light" />
+                android:text="@string/lightmode" />
 
             <TextView
                 android:id="@+id/tvLightGroupDesc"
