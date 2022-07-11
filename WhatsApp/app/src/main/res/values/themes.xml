@@ -14,7 +14,6 @@
         <item name="actionModeBackground">@color/teal_green</item>
 
         <item name="windowActionModeOverlay">true</item>
-        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
 
         <!-- Customize your theme here. -->
         <item name="android:textColorPrimary">@color/black </item>
